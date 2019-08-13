@@ -1,0 +1,560 @@
+---
+title: "Laser distance meter update: serial commands, timing measurements"
+date: 2013-10-16
+---
+
+In [my first post][/posts/laser_distance_meter/] about the laser distance meter
+I asked for help finding usable commands to control the unit, and within days
+reader speleomaniac had found a command format and several commands. Let's have
+a look! But first I'll explain some timing measurements that people have been
+emailing about.
+
+## Timing measurements
+
+The unit is able to take just over 1 measurement per second using the
+single-shot __`*00004#`__ command on a flat surface (see below). However there is
+also a __rapid-fire mode__ which can be activated by holding the ON button for
+about 1000mS. So far I haven't found a serial command to begin rapid-fire mode
+(edit: the command is __`*00084553#`__, scroll down for details). In rapid-fire mode,
+the unit takes 100 measurements in quick bursts, and it's capable of scanning
+just over 3 measurements per second off a smooth, reflective surface. When the
+laser beam is scanned across soft or bumpy surfaces the measurements take
+longer, and when the laser beam is out of range or shaky, the unit will output
+an error and continue until it has attempted all 100 measurements. The output
+for each failed measurement is:
+
+```
+OUT_RAN dist = 18
+OUT_RAN dist = 31
+OUT_RAN dist = 30
+[...]
+```
+
+I've uploaded a text file containing raw sensor measurements, with timestamps added at the beginning of each line to show the speed. It can be downloaded here: [2]
+
+[2]: http://blog.qartis.com/posts/foo/file.txt
+
+## Commands
+* Command __`*00001#`__
+
+  Outputs the message
+
+   ```
+   pMsgWrite TRUE 
+   pInitDataWrite TRUE
+   ```
+
+* Command __`*00002#`__
+
+  Takes 3 readings, screen shows "Er". Outputs the 3 measurements in array notation (distance is 103.7mm):
+
+  ```
+  u32Dist[0]=1037  u32Dist[1] =1037 u32Dist[2] =1037
+  u32temp =0
+  *000720150000000042#
+  ```
+
+  See below for an explanation of the last line ending in 42#.
+
+* Command __`*00004#`__
+
+  Takes 1 measurement, screen shows the measurement. Outputs the measurement like this: (distance is 112.7mm)
+
+  ```
+  Dist: 1127,curtemp =22 
+
+  V2.0 
+  nDist: 1127,tempDv=0
+
+  *0006400000112784#
+  ```
+  See below for an explanation of the last line ending in 84#.
+
+* Command __`*00005#`__
+
+  Memory dump. I'm not sure why, but some measurements are recorded to the
+  unit's nonvolatile memory. Not all measurements are stored -- measurements that
+  will be stored will display the following additional message:
+
+  ```
+  Dist: 3122,curtemp =21 
+
+  V2.0 
+  nDist: 3122,tempDv=0
+
+  WriteTestData TRUE
+  ```
+
+  The memory dump command outputs these recorded measurements in the following format:
+
+  ```
+  *0024500001000001850000018700000000000000000000000061#
+  ```
+
+  These fields are, in order:
+
+Command type (memory dump)
+Counter (starts at 00001 and counts up)
+First measurement
+Second measurement
+Third measurement
+Fourth measurement
+Fifth measurement
+Checksum
+Not all measurements will be recorded on a given line (I'm not sure why). The checksum format is as follows: interpret the data bytes between * and # as 2-digit base-10 integers, and add them together (skipping the checksum). Mod the resulting value by 100. For example:
+
+00+24+50+00+01+00+00+01+85+00+00+00+00
+     +00+00+00+00+00+00+00+00+00+00+00+00 = 161
+and
+161 % 100 = 61
+Which gives the resulting checksum of 61. This can be used to verify the serial output of the unit.
+
+Command *100515#
+Turns on laser light (seems to freeze the screen, and the buttons no longer work).
+
+Command *100111#
+Some kind of memory dump. I've seen between 1-3 lines of output for this command, depending on how many times the laser has been used. Typical output looks like this:
+
+*00261100000000000411000000000000000150119723520395002812#
+curent ver:420411
+Where the bold values constantly fluctuate up and down (the 97 sometimes becomes 96, etc).
+
+Command *00084553#
+Begin rapidfire measurement.
+
+Command #
+Repeat previous command.
+
+Thanks to all the readers who have offered info about this laser unit. Good luck!
+
+### Comments
+
+Mijael
+    Thank you!
+
+Marty Beath
+    This stuff is great! I have just ordered a Uni-T so i can start messing with this.
+
+c
+    Are newer units behaving the same for people? The serial commands TO it work for me so I can have it take a measurement, but it's returning gibberish like: þ¢­.ÉÉ`7¬««L,¤H¤¤²É]0 C!¹ºMH&SbÑÚp¢»O¦¤¤Pþ*LÁÁ`0°LNÓÿ
+
+c
+    I may as well answer my own question here... yes, newer units are behaving the same way.
+
+    First mistake was trying to use software serial. Second, even using the hardware serial port, trying to read the data 1 char at a time in a loop doesn't work either (buffer overflowing because I'm not reading the data out fast enough?), and it wasn't until I followed Andrews lead and used Serial.readBytes that I started seeing the expected results.
+
+Dardan
+    http://youtu.be/qUgFji4Figw
+
+Dardan
+    * 00 08 45 53 # for rapid fire
+
+Dardan
+    Laser.ino
+    https://www.dropbox.com/s/l8ordokmiq7bqfe/LASER.ino
+
+John
+    I've just got my hands on a UT391 - looks exactly the same as the 390B, but it's definitely newer firmware.
+
+    At startup it shows:
+    ÉÏµç/ µôµç¸´Î»±êÖ¾
+    NRST ¹Ü½Å¸´Î»±êÖ¾
+CalibrationNum 17
+DefaultApd 163
+DefinLd 453
+DefaultLd 505
+DefConPd 831
+DefConPdIn 836
+ver:250.27
+HV=101 DefApd=163
+APDMIN=155 APDMAX=166 apd1=123
+
+Once I put it into rapid fire, I get something like:
+*00084500030000198055#*00084500040000198056#*00084500050000198057#*00084500060000198058#*00084500070000198059#*00084500080000198060#*00084500090000198061#*00084500100000198062#*00084500110000198063#*00084500120000198064#*00084500130000198065#
+The distance is around 1981mm, so its easy enough to parse out the length.
+
+I'll add some more documentation on my website http://www.john.geek.nz
+
+Waldo
+I've looked into the commands used to control the UT390B via the serial port.
+
+The software runs differently if turned on using the On button ("User" mode) vs turned on by momentarily connecting the Vdd pin on the 5-pin debug header to +3V ("Debug" mode). For best results, use Debug mode for controlling via a serial port. Note that powering up in this mode will turn the laser on but you can turn it off again using Command 47 to improve battery life if needed.
+
+The firmware appears to require commands in the form:
+*AABBCCDD#,
+where CC is the command numnber and DD is the decimal-encoded checksum of AA+BB+CC (modulo 100). It appears that the AA value must be non-zero for some commands, otherwise the meaning of AA and BB are unclear.
+
+If there are 6 digits instead of 8, it still checks for a valid checksum and uses the last 2 digits as the command number and as the checksum. If there are 5 or 7 digits, it will multiply the last digit by 10 to get the command number and will not check the checksum. I think the fact that it accepts less than 8 digits is a programming mistake and not an intentional command format variation. So the *00001# command previously mentioned does the same thing as a *10001020# command or a *001010# command to request command number 10. In addition, *00084553# (a properly checksummed Command 45) appears to do the same thing as *004545#. I used the 6 digit format for my testing but someone may discover some use for the longer 8 digit format.
+
+Responses to commands are in the form:
+*00026062# 'acknowledgement of a valid command
+, or *00020002# 'bad checksum
+Acknowledgements are followed by free form text data, numeric data, or both. Numeric data packets are the form *LLLLDDDD...DDCC# (LL=length of data + checksum), DDDD..DD=data (1 entry = 2 decimal digits), CC=checksum. Some commands send data packets that have a single data byte that is equal to the command number. Unused commands send a data packet with the data=0 (*00020002#).
+
+Here is a complete list of the commands and responses for my unit, using the "6 digit" command syntax. In most cases, I do not know how to interpret all the data being sent.
+
+====================================
+Power up
+
+CCCCC..CalibrationNum 15
+.DefaultApd 146
+.DefaultLd 446
+.DefConPd 914
+.version:250.25
+.infrared VOL_PD = 918
+.
+.VOL_HV = 94
+.
+.VOL_HV1 = 92
+.red VOL_PD = 813
+.
+=====================================
+CMD 10
+*001010#
+
+*00026062#*00021012#pInitDataWrite TRUE
+=====================================
+CMD 11
+*001111#
+Shows status information?
+
+*00026062#*00261100000000002525000000000000000146092921360442091600#
+. version:250_25
+==========================================
+CMD 12
+*001212#
+
+*00026062#HV=98 DefApd=148
+.APDMIN=143 APDMAX=153 apd1=148
+.*00021214#
+=========================================
+CMD 15
+*001515#
+Turns on laser
+
+*00026062#*00021517#
+=========================================
+CMD 20
+*002020#
+Takes 3 measurements, does not appear to send distamce
+Other versions appear to differ on this command
+
+*00026062#HV=97 DefApd=147
+.APDMIN=142 APDMAX=153 apd1=148
+.F3 Dev =84,nAmp = 112mv
+.F3 Dev =73,nAmp = 114mv
+.F3 Dev =133,nAmp = 117mv
+.*000720000000000027#
+=========================================
+CMD 25
+*002525#
+
+*00026062#*0138250000000000160016000000000000005300000050000000710000010000000121000001880000020900000505000005260000100200001025000025030000252500003638000036580000500100005023000078880000791100012520000125450001850300018530000245470002457400030563000305940003653100036561000425510004258337#
+==========================================
+CMD 26
+*002626#
+
+*00026062#pInitDataWrite TRUE
+.*013025000000000015001500000050000000710000010000000121000001880000020900000505000005260000100200001025000025030000252500003638000036580000500100005023000078880000791100012520000125450001850300018530000245470002457400030563000305940003653100036561000425510004258374#
+============================================
+CMD 27
+*002727#
+
+*00026062#pInitDataWrite TRUE
+.*00022729#
+===========================================
+CMD 30
+*003030#
+
+*00026062#inld=408
+.*00023032#
+==========================================
+CMD 31
+*003131#
+
+*00026062#*0006310153235064#
+============================================
+CMD 32
+*003232#
+
+*00026062#*0006320301000345#
+==========================================
+CMD 33
+*003333#
+
+*00026062#*0006330018367568#
+==========================================
+CMD 34
+*003434#
+
+*00026062#*000434002664#
+============================================
+CMD 35
+*003535#
+Continuous data send
+
+*00026062#*03263503020011206120602059205920572056205520542053205220512050205020492048204820482048204820492049205020502051205220532054205620572058205920602061206120622062206320622063206220622061206120592058205720562055205420532052205120502050204920492048204820482048204920492050205120512053205320552056205720582059206020612061206220622062206220622062206120602060205920582057205520552054205220512051204920492048204820482048204820482049205020512052205320542055205620572058205920602061206220622063206220622062206220612060206020592057205620552054205320522050205020492048204820472048204720482049204920502051205220532054205520572058205920602061206220622063206320632063206201#*03263500790014206420642064206420642063206220622061205920582057205620552053205220512050204820482047204620462046204720472048204920502051205220532054205620572058206020612062206320632064206420642064206320632062206120602059205720562055205320522051205020492048204720472047204620462047204820492049205020512053205420562057205820602061206120622063206320642064206420632063206220612060205920572056205520532052205120502049204820472046204720462046204720472048204920502051205320542055205720582060206120622063206420642064206420642064206320622061206020592058205620552053205220502049204920482047204620462046204620472047204820492050205220532055205620572058206020612062206283#*03263506660013206120622063206320632063206320632062206220612060205920582057205520542052205120502049204820482047204720462047204720482049205020512052205320542056205720582059206020602062206320632063206420632063206320622061206020592058205620552054205220512050204920482047204720472047204720472048204920492051205220532054205520572058205920602062206220632063206420642063206320622062206120602059205720562055205420522051205020492048204820482047204720472047204820492050205120512053205420552056205820592060206120622062206320632063206320632062206220612060205920572056205520542053205120512050204920482047204720472047204720482048204920502051205220542055205620582059206074#
+[and more]
+==========================================
+CMD 37
+*003737#
+Outputs continuous raw data without doing any validity checking such as discarding measurements that differ too much from the previous measurement.
+
+*00026062#*000437018426#Phasethin =2419 thin_dist =25
+...Phasethin =2603 thin_dist =27
+...Phasethin =2644 thin_dist =28
+...Phasethin =2623 thin_dist =27
+...Phasethin =2494 thin_dist =26
+...Phasethin =3329 thin_dist =35
+...Phasethin =3575 thin_dist =37
+...Phasethin =3587 thin_dist =37
+...Phasethin =3575 thin_dist =37
+...Phasethin =3573 thin_dist =37
+...Phasethin =2644 thin_dist =28
+...Phasethin =2527 thin_dist =26
+...Phasethin =2530 thin_dist =26
+...Phasethin =2534 thin_dist =26
+...Phasethin =2542 thin_dist =26
+...Phasethin =2531 thin_dist =26
+...Phasethin =3473 thin_dist =36
+...Phasethin =3500 thin_dist =36
+...Phasethin =3112 thin_dist =32
+...Phasethin =15787 thin_dist =164
+...Phasethin =25599 thin_dist =267
+...Phasethin =22665 thin_dist =236
+...Phasethin =24042 thin_dist =250
+...Phasethin =25922 thin_dist =270
+...Phasethin =26087 thin_dist =272
+...Phasethin =25283 thin_dist =263
+...Phasethin =19261 thin_dist =201
+...Phasethin =2121 thin_dist =22
+...Phasethin =2121 thin_dist =22
+...Phasethin =2110 thin_dist =22
+...Phasethin =2132 thin_dist =22
+...Phasethin =2128 thin_dist =22
+...Phasethin =2124 thin_dist =22
+...Phasethin =2147 thin_dist =22
+...Phasethin =2197 thin_dist =23
+...Phasethin =2240 thin_dist =23
+...Phasethin =2301 thin_dist =24
+...Phasethin =2296 thin_dist =24
+[and more]
+===============================================
+CMD 39
+*003939#
+
+*00026062#pInitDataWrite TRUE
+.ld:440 PD:918 ldin:405 Pdin:914
+.*00023941#
+============================================
+CMD 40
+*004040#
+Takes 1 measurement, returns distance
+Data format differs on other units
+
+*00026062#HV=98 DefApd=151
+.APDMIN=143 APDMAX=155 apd1=149
+.F3 Dev =113,nAmp = 194mv
+.WriteTestData TRUE
+.*0006400000016916#
+============================================
+CMD 41
+*004141#
+
+*00026062#*03263500630607179018371884193719942051211021662219226823132350238124032417242224172404238223522314226922202167211120541996194118881838179517581728170716931689169317071729175917961839188919421998205621132169222222722315235223822403241624202415240123792348231022662217216421082050199319371884183617921755172517031690168616911704172617571794183818891942200020582116217322272276232023572387240924222426242124072385235323152270222021662109205019921935188118321787174917191696168216781683169717191750178918341884193819962055211421722227227723222360239124142428243324282415239223622323227822282173211520561996193718821830178417451713169016761670167516881710174190#*03263500180609171917491786183018791933199020492108216622212271231723552387241024242430242624132390236023222277222721732116205719981940188518341789175017191696168216771681169417171747178518301880193519932052211221692224227423192358238924112425243024252412239023592322227822272173211620581999194218881838179317541723170016861681168516981720175017871831188119341992205021092166222022702315235323832406242024252421240723862355231822742224217221162059200119441890184117961757172617031689168416881700172117501787183018801934199020492107216422192269231423532384240724222427242324102389235923212277222721742118205920011943188918391794175617251702168716821685169757#*03263501370604168817011723175217891834188319371993205221102168222222722317235623872410242524302425241223892359232122772227217321162058199919401885183517901751172016981684168116851699172217521790183518861940199820572116217322272276232023572387240924222427242224082386235523172272222221692113205519971941188818381794175717271705169116871691170417261755179218361885193819942051210821652218226723112349237824012415242124172405238423552319227622282176212120642007195218981848180417661734171016961690169217031723175217881830187819311986204521022159221322632308234723792403241824242421240923882357232122772228217521192061200319461891184117971759172817061691168635#
+[and more]
+=============================================
+CMD 45
+*004545#
+Does continuous rapid-fire measurements, returns distances
+
+*00026062#HV=98 DefApd=148
+.APDMIN=143 APDMAX=154 apd1=149
+.F3 Dev =128,nAmp = 229mv
+.*00084500020000016925#*00084500030000016926#*00084500040000016927#*00084500050000016928#*00084500060000016929#*00084500070000016930#*00084500080000016931#*00084500090000016932#*00084500100000016933#*00084500110000016934#*00084500120000016935#*00084500130000016936#*00084500140000016937#*00084500150000016938#*00084500160000016939#*00084500170000016940#*00084500180000016941#*00084500190000016942#*00084500200000016943#*00084500210000016944#*00084500220000016945#*00084500230000016946#*00084500240000016947#*00084500250000016948#*00084500260000016949#*00084500270000016950#*00084500280000016951#*00084500290000016952#*00084500300000016953#*00084500310000017055#*00084500320000017056#*00084500330000017057#*00084500340000017058#*00084500350000016958#*00084500360000016959#*00084500370000016960#
+=============================================
+CMD 46
+*004646#
+
+*00026062#*00024648#
+==========================================
+CMD 47
+*004747#
+Turns off laser
+
+*00026062#*00024749#
+============================================
+CMD 50
+*005050#
+Response differs on other units
+
+*00026062#*0024500001000003020000000000000000000000000000000080#*0024500002000004990000000000000000000000000000000079#*0024500003000010000000000000000000000000000000000087#*0024500004000012990000000000000000000000000000000089#*0024500005000019990000000000000000000000000000000097#*0024500006000022510000000000000000000000000000000053#*0024500007000024980000000000000000000000000000000003#*0024500008000027500000000000000000000000000000000059#*0024500009000029980000000000000000000000000000000010#*0024500010000032510000000000000000000000000000000067#*0024500011000034980000000000000000000000000000000017#*0024500012000037460000374700003746000037460000000019#*0024500013000001870000000000000000000000000000000075#*0024500014000037490000000000000000000000000000000074#*0024500015000040010000000000000000000000000000000030#*0024500016000042520000000000000000000000000000000084#*0024500017000045000000000000000000000000000000000036#*0024500018000047500000000000000000000000000000000089#*0024500019000049990000000000000000000000000000000041#*0024500020000055000000000000000000000000000000000049#*0024500021000075000000750000000000000000000000000045#*0024500022000079970000799800000000000000000000000049#*0024500023000001740000000000000000000000000000000072#*0024500024000079970000799700007997000079980000799779#*0024500025000001710000000000000000000000000000000071#*0024500026000079970000799700007997000000000000000028#*00245000270000021200000000000
+[data seems to stop at a random point]
+
+==========================================
+CMD 51
+*005151#
+
+*00026062#*00025153#pInitDataWrite TRUE
+==========================================
+CMD 52
+*005252#
+
+*00026062#*00025254#
+===========================================
+CMD 54
+*005454#
+
+*00026062#
+============================================
+CMD 80
+*008080#
+
+*00026062#*007080000001400000000000000000010203040000000000000112013300100005005909001100100800000100020403070000000000450004600036060300000000000000000031#
+============================================
+CMD 81
+*008181#
+
+*00026062#pInitDataWrite TRUE
+.*00028183#
+=============================================
+Checksum error (example)
+*001234#
+
+*00020002#
+============================================
+Invalid command number (example)
+*004242#
+
+*00026062#*00020002#
+==========================================
+Shutdown command
+r
+==========================================
+
+Lemon Paeroa
+Hi,
+In order to get the unit into 'debug' mode exactly which pad do I connect +3v to?
+The pinout identified on this blog shows "ground, Rx, Tx, unused(?), 2.7v".
+My multimeter doesn't show anything like 2-3v on the last pad??
+Or is this the pad to connect +3v too?
+
+Cheers
+
+Ken Aspeslagh
+Fun stuff! Thanks Andrew for posting all this info. I was able to get the measurement to go over BTLE to an iPad using a Lightblue Bean. There is a Nano between them because the Bean doesn't have a usable UART.
+
+https://youtu.be/P3M3ydBfkT8
+
+erniejunior
+Hi guys, I just wrote a simple Arduino library that provides a basic interface to the laser.
+
+https://github.com/erniejunior/UT390B-Arduino-Library
+
+jakkrit
+Tx rx connect ? UT391
+
+Virgafox
+Hi,
+I'm trying to replicate your result, using a Bluefruit LE micro which is basically an arduino micro + BLE. I can trigger the measurement but I get total gibberish in return although I'm using an hardware serial. Can I ask you the code you used with the micro? Thanks a lot
+
+Ken
+It's been a while so I don't remember a lot about this project, but looking back at my code,
+
+To trigger the read:
+
+Serial.write("*11114#");
+
+To read the response:
+
+char buf[64];
+if (Serial.available())
+{
+rc = Serial.readBytesUntil('n', buf, sizeof(buf));
+buf[rc] = '';
+if (strncmp(buf,"*00064", 6) == 0)
+{
+buf[17] = 0;
+char* tbuf = (char*)buf+7;
+while (tbuf[0] == '0')
+{ tbuf++; }
+
+unsigned long foo = strtol(tbuf, NULL, 0);
+printf("Dist: %f cm", foo/100.0);
+}
+}
+
+unocero
+I think that *00002# is a power calibration:
+*00026062#F3 Dev =0,nAmp = 415mv
+F3 Dev =12,nAmp = 459mv
+F3 Dev =8,nAmp = 458mv
+*000720150000000042#
+And Laser views with less power
+Are you think?
+
+unocero
+And *00003# give me:
+*00026062#inld=408
+
+With
+ver:250.27
+
+Shible Isteak
+Can you please share how did you connect with UT391?
+
+C Forster
+I just purchased a UT393A and the layout is quite different. https://uploads.disquscdn.com/images/cd94cce0a2bc4ec9f7413ffba8434ec4a59b0c72034c90122dc220f9ace8a202.png
+Anyone have any experience with this?
+Looks like they are just connected to the swim port.
+
+Austin T
+Agree the later models (UnitT 393B+) also have this same pinout. The location of the EEPROM memory is slightly different but still the ARM SW Debug port pinout is common.
+
+I don't have one of the ARM debug port interfaces but would consider getting one if we could access the internal flash. I suspect the external EEPROM is just for the latest measurements and such. Perhaps it stores configuration data as well and possibly the keys to unlocking the units to operate at 40, 60, 80 and 100 yards.
+
+My unit has two solder pads labeled RX and TX but there is nothing toggling on them and they do not respond to commands as listed above.
+
+TAYBA
+Hello John,
+
+I try to connect my UNI-T 391 via serial port to arduino, and when I am using the rapid fire command, I receive an unknown data.
+I am carying about the Tx and Rx of my sensor.
+Can you show us how you have connected the sensor.(I didn't find anything on your website)
+
+Thanks in advacne
+
+Luay Mahmoud
+i an tyred from training to get measurement from this uut390b+ .kindly, could you send to me the code with command via the serial port so i can control it.
+
+Luay Mahmoud
+hi my friend kindly, can you help me with this ut390b+ it is very important to me to finish my project .
+
+
+
+I've created [an eagle library][1] for the $15 [Hi-Link HLK-RM04][2] wifi
+module. All pins are named and numbered. The only thing you need to look out
+for is the 2mm pin spacing. Typical protoboard spacing is 2.54mm, so you will
+likely need to make a breakout board for this module. I'm preparing a follow-up
+post with details on how to init this module and connect to a secured WPA2
+network.
+
+<https://github.com/qartis/eagle/tree/master/libs/>
+
+[1]:
+https://raw.githubusercontent.com/qartis/eagle/master/libs/solderandflux.lbr
+[2]:
+http://www.dx.com/p/hi-link-hlk-rm04-serial-port-ethernet-wi-fi-adapter-module-blue-black-214540
+
+
+~~~
+Nikos Georgousis
+    Can you please provide download link for the library?
+    Thanks Nikos
+~~~
+
+~~~
+qartis
+    Sorry, the download location was moved. I've updated the post with the new URL:
+    <https://raw.githubusercontent.com/qartis/eagle/master/libs/solderandflux.lbr>
+~~~
