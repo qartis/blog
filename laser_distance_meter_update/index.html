@@ -2,8 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Laser distance meter update: serial commands, timing measurements</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="/posts/style.css">
 </head>
 <body>
   <header>
@@ -136,9 +137,9 @@ NRST ¹Ü½Å¸´Î»±êÖ¾</code></pre>
 <p>Virgafox Hi, I’m trying to replicate your result, using a Bluefruit LE micro which is basically an arduino micro + BLE. I can trigger the measurement but I get total gibberish in return although I’m using an hardware serial. Can I ask you the code you used with the micro? Thanks a lot</p>
 <p>Ken It’s been a while so I don’t remember a lot about this project, but looking back at my code,</p>
 <p>To trigger the read:</p>
-<p>Serial.write(&quot;*11114#&quot;);</p>
+<p>Serial.write("*11114#");</p>
 <p>To read the response:</p>
-<p>char buf[64]; if (Serial.available()) { rc = Serial.readBytesUntil(‘n’, buf, sizeof(buf)); buf[rc] = ’’; if (strncmp(buf,&quot;<em>00064&quot;, 6) == 0) { buf[17] = 0; char</em> tbuf = (char*)buf+7; while (tbuf[0] == ‘0’) { tbuf++; }</p>
+<p>char buf[64]; if (Serial.available()) { rc = Serial.readBytesUntil(‘n’, buf, sizeof(buf)); buf[rc] = ’’; if (strncmp(buf,"<em>00064", 6) == 0) { buf[17] = 0; char</em> tbuf = (char*)buf+7; while (tbuf[0] == ‘0’) { tbuf++; }</p>
 <p>unsigned long foo = strtol(tbuf, NULL, 0); printf(“Dist: %f cm”, foo/100.0); } }</p>
 <p>unocero I think that <em>00002# is a power calibration: </em>00026062#F3 Dev =0,nAmp = 415mv F3 Dev =12,nAmp = 459mv F3 Dev =8,nAmp = 458mv *000720150000000042# And Laser views with less power Are you think?</p>
 <p>unocero And <em>00003# give me: </em>00026062#inld=408</p>
