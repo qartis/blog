@@ -28,3 +28,7 @@ clean:
 #mp4:
 #	for file in *.mov; do ffmpeg -i $$file -vcodec libx264 -acodec mp3 -movflags +faststart ${file/%.mov/.mp4}; done
 #	for file in *.mov; do exiftool -tagsFromFile $$file ${file/%.mov/.mp4}; done
+
+index:
+	./gen_gph.sh | sort -r > index.gph
+	./gen_html.sh | sort -r > index.html
