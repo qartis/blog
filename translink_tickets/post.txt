@@ -1,5 +1,5 @@
 ---
-title: 'Translink magnetic ticket format'
+title: "Translink magnetic ticket format"
 date: 2013-07-29
 ---
 
@@ -9,6 +9,6 @@ no harm in publishing this now. In short, it's trivial to create Translink
 tickets which expire many years in the future and can be used to ride the bus
 system free of charge.
 
-A PDF copy of the report is available at http://qartis.com/translink.pdf.
+A PDF copy of the report is available at <http://qartis.com/translink.pdf>.
 
-Some of the code is available at http://github.com/qartis/translink/.
+Some of the code is available at <http://github.com/qartis/translink/>.
