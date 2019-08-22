@@ -4,13 +4,13 @@ body {
   color:#222;
   padding: 0 10px
 }
-p { font-size: 1.2em; }
+p { font-size: 1.2em; line-height: 1.2em; }
 p.caption { font-size: 1em; text-align: center; margin-top:0 }
 h1,h2,h3 { line-height:1.2 }
 tr.header { background: #ddd }
 tr.even { background: #eee }
 div.figure img {
-  width: 80%;
+/*  width: 80%; */
   display: block;
   margin: 10px auto 0;
 }
@@ -48,7 +48,7 @@ div.figure img {
 }
 
 img {
-  width: 100%;
+/*  width: 100%;*/
   height: 100%;
   object-fit: cover;
 }
