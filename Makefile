@@ -14,7 +14,7 @@ all:
 		sed -e 's@^\s*image:\(.*\).mov\s*$$@<div class="figure"><a href="photos/\1.mov"><img src="photos/thumbnails/\1.jpg" alt="\1.mov"></a></div>@' | \
 		sed -e 's@^\s*image:\(.*\).mp4\[\(.*\)]\s*$$@<div class="figure"><a href="photos/\1.mp4"><img src="photos/thumbnails/\1.jpg" alt="\2"></a><p class="caption">\2</p></div>@' | \
 		sed -e 's@^\s*image:\(.*\).mp4\s*$$@<div class="figure"><a href="photos/\1.mp4"><img src="photos/thumbnails/\1.jpg" alt="\1.mp4"></a></div>@' | \
-		pandoc --template=../template.html -t html4 -f markdown-auto_identifiers --no-highlight /dev/stdin > index.html
+		pandoc --template=../template.html -t html4 -f markdown --no-highlight /dev/stdin > index.html
 	if [ -d photos ]; then cd photos; ../../gallery_simplest.py --max-width 600 *.jpg *.mov *.png *.mp4; fi
 
 date:

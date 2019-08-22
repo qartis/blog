@@ -3,7 +3,7 @@ title: "Trip to Taiwan and Shanghai"
 date: 2019-08-16
 ---
 
-### Osaka
+## Osaka
 
 Had to travel for work for 2 weeks. Decided to try travelling even lighter than
 last time, so other than the clothes I was wearing I brought 1 extra set of
@@ -23,7 +23,7 @@ image:IMG_2046.jpg
 Next flight from Osaka to Taipei was delayed, arrived at 1am, subway was
 already shut down, had to take a taxi to the hotel.
 
-### 台北
+## 台北
 
 On Sunday I set out to buy a small USB-C (F) to Lightning (M) adapter that
 would allow me to charge my iPhone with the Innergie GaN USB-C charger and
