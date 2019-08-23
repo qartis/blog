@@ -1,9 +1,1 @@
-#!/bin/sh
-ls */post.txt | while read f; do
-	echo -n "<li>"
-	cat $f | awk '/^date: / {printf $2}'
-	echo -n " "
-	echo -n "<a href='$(dirname $f)'>"
-	cat $f | awk -F'"' '/^title: / {printf $2}'
-	echo "</a>"
-done
+/annex/objects/SHA256E-s97--6553229ed28979706b18b1c1b37646f5aaf329ff8ee7d2db17d493296c7974fa.sh
