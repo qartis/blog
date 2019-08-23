@@ -1,1 +1,549 @@
-/annex/objects/SHA256E-s29849--9d5d4636a0a17fdf2cf491e1740de6d13fb79f85760d8048ffd0e8f70179064f.txt
+---
+title: "Trip report: Partial Utah Backcountry Discovery Route (UTBDR)"
+date: 2019-07-09
+---
+
+This year for my July 4th ride I decided to do a big chunk of the [Utah
+Backcountry Discovery Route (UTBDR)](https://ridebdr.com/utbdr/), a mostly
+offroad route that extends from Monument Valley up to the Idaho border. In
+preparation for this trip I replaced my rear tire with a new D606, and I took
+it easy for a week to help break in the new tire. I knew I didn't have time for
+the full UTBDR so I decided to ride what I could and head back in time for work
+on Monday, which gave me 7 full days (Monday - Sunday).
+
+image:0_route.png[Utah Backcountry Discovery Route]
+
+# Day 1: East Palo Alto to Phoenix
+
+image:IMG_1343.jpg[July 4th socks]
+image:IMG_1344.jpg[The bike before the trip]
+
+The plan was to leave at 6am and get to Phoenix by 6pm, but I ended up leaving
+at Noon. I was making good time on I-5, and just before Santa Clarita Google
+Maps suggested I take route 138 through Lancaster to save half an hour, but
+this detour ended up being the worst part of the trip. It's a 2 lane undivided
+highway with big oncoming trucks driving very fast. Something felt a bit off
+with my bike's handling.. The back tire felt squirrelly and would drift
+sideways, almost like it was going flat. One of the trucks blasted past me and
+the air pressure was so strong my nose immediately started running. Also a lot
+of these trucks were carrying loads of hay, so they shot clouds of sharp hay
+particles at any exposed skin.
+
+When I stopped at Littlerock to get gas I happened to look at my back tire and
+noticed several knobs had been ripped off.
+
+image:IMG_1347.jpg[Missing knobs on my tire, hmm]
+
+I texted Kevin in Phoenix and told him I would be even more delayed. Google
+maps said there was a Cycle Gear open til 7pm in Victorville which was about 30
+minutes away. I called and they said the only 17" rear tire they had in stock
+was another D606 (d'oh!). I asked them to hold it for me and carefully rode
+over to Victorville, bought the tire, and installed it in the parking lot. The
+girl at Cycle Gear said that she had never seen a D606 shred knobs like this. I
+took it easy for the first 150 miles or so to help break in the new tire. I
+noticed my right heel was stinging a little bit, probably from a blister.
+
+image:IMG_1361.jpg[Replacing the shredded tire]
+
+I also noticed that my chain master link clip had fallen off, and I had
+accidentally brought a crimp-style master link instead of a clip-style, whoops.
+
+image:IMG_1363.jpg[Missing chain clip]
+image:IMG_1366.jpg[Safety wire until I can get a replacement clip]
+
+At this point I should point out that I don't normally carry a tire pressure
+gauge. I usually judge my tire pressure based on feel as I'm pumping them up
+and I aim for 20psi or so, and I've been riding D606s front and rear for 10
+months or so including some long trips with mixed asphalt and dirt with no
+problems.
+
+My next break was at Chiriaco Summit. I got gas and a sandwich, and as I was
+eating I noticed a guy with an old DR650 sitting in the corner of the parking
+lot. We started chatting and he said that his bike was a 1991 DR650 with 6000
+miles on it that he bought a month ago for $1200. He said that he has trouble
+with the compression release when he's kick-starting it (I have the same
+problem with my 1991 DR350), and he said he works at the Chuckwalla Valley
+Raceway near Desert Center and he invited me to come check it out next time I'm
+in the area. He said that he had never ridden with anybody on the highway
+before, so we exchanged numbers and decided to ride together for the 20 miles
+until Desert Center. By this time my heel was stinging pretty bad so I asked
+him to wait a minute while I put a bandaid on. I pulled my sock off expecting a
+raw bloody mess, but the skin looked totally fine, and I felt a bit silly
+asking him to wait while I put a bandaid on nothing.
+
+image:IMG_1380.jpg[Riding with John]
+
+Next gas stop was at Salome AZ. As I walked out of the gas station I saw 3 cars
+in a row with their hoods up. I was standing by my bike resting and one of the
+drivers came over to me and asked if I knew about "security locks". I told him
+that I don't, but I offered to help. His Mazda 5 had power, but it would refuse
+to crank, and a little security icon would blink on his dashboard. He said it
+was working fine, and he had gone in to wash his hands and his key had gotten
+wet. A bit of Googling and looking through his manual, and the most likely
+problem was that the security transmitter in his key was broken. We used the
+tools that I had with me to try to get it to start. He had previously been an
+auto mechanic so he suggested we apply 12V directly to the starter relay while
+the key was turned. Unfortunately that didn't work, I suppose because the
+anti-theft lockout mechanism is able to override that.
+
+The second car with its hood up could turn over but wouldn't start, and it was
+getting a jump from the 3rd car beside it. The driver mentioned that it had sat
+for a while without being driven, and I suggested that it might be worthwhile
+to try putting some new premium gas in it, because that had solved a similar
+problem I had years ago with a car that had sat for months without being
+driven. They couldn't get the car into neutral to push it over to the pumps and
+the gas station didn't have Jerry cans for sale (what the heck?), so I managed
+to borrow a Jerry can from someone else at the gas station and we used it to
+put some premium gas into the car. In the end it didn't end up fixing his
+problem, but I was glad that I tried to help out. I normally have pretty bad
+social anxiety but when I'm on these trips I get a lot more outgoing and
+friendly with strangers.
+
+At this point my right heel was stinging pretty bad, and I bought some more
+bandaids and added them to the existing stack. The blister had gotten pretty
+gnarly and I wasn't looking forward to the next few days of riding..
+
+image:IMG_1386.jpg[See John that's what the bandaid was for]
+
+I got into Phoenix just before 5am and went straight to Kevin and Jess's new
+place. Once I was off the highway I noticed the bike felt a bit squirrelly on
+the surface streets, especially right turns at intersections. When I got to
+their place Kevin said that he had been following my realtime progress on
+Google Maps for the last hour or so.
+
+# Day 2: Phoenix to Flagstaff
+Had breakfast with Kevin and Jess at a mexican place in Chandler. We smoked
+some "Lemon Faderade" beforehand so it was a very giggly meal. Then we played
+charades at their place.
+
+image:IMG_1391.jpg[Cheese]
+image:IMG_1405.jpg
+
+They were leaving at 2pm to drive to Huntington Beach for a few days and watch
+the July 4th fireworks, so we said our goodbyes. As soon as they were gone, I
+happened to check my rear tire and noticed that it was missing 8 knobs (even
+worse than the day before!). At this point it was around 2pm and super hot in
+Phoenix. I rode to a smaller repair shop but they said they didn't have 17"
+rear tires. I'm starting to think I should rebuild my rear tire to be 18"
+diameter to make it easier to buy tires. I bought a pressure gauge from them
+and recorded the tire pressure: 17psi, a bit lower than I expected but
+basically in the ballpark. I guess I've been a bit lazy when pumping up my
+tires.
+
+image:IMG_1407.jpg[Hey, just like yesterday]
+image:IMG_1416.jpg[17psi]
+
+I rode to another Cycle Gear and explained my situation. They said the same
+thing as the shop in Victorville: they've never seen D606s shred like this, and
+lots of people take these tires on long highway trips. The manager said I
+should aim for 30psi for long highway segments, and that was probably what was
+causing it. At this point I was hoping to just switch to any other tire for the
+rest of the trip, but once again the only 17" rear tire they had was a D606.
+
+> Fool me once shame on you.  
+> Fool me twice shame on me.  
+> Fool me three times shame on me.  
+
+The managed offered to mount the new tire for free, and normally I like to do
+my own bike maintenance but it was so hot at this point that I was glad to
+avoid the work.
+
+image:IMG_1421.jpg
+image:IMG_1423.jpg[Bought a clip for my chain]
+
+I had to take a call with an overseas vendor so I found a starbucks to cool
+down and use wifi. By the time I was done it was already 8pm or so. I rode to
+Flagstaff AZ, and got very cold in the mountain pass just south of town. Yelp
+said there was a Jimmy John's that was open til 3am, but by the time I got
+there just after midnight they were just closing up shop. I considered waiting
+in the McDonalds drive-thru line across the street, but I decided to go find a
+hotel and order Uber Eats. I got a room at The L Motel, and even though it
+showed several places available for food delivery, once I got to the checkout
+screen Uber Eats would only display "Sorry, this service is not available". I
+guess there were no active drivers, although I think the app should have showed
+me that to begin with dangit. I ate some trail mix and fell asleep.
+
+# Day 3: Flagstaff to Manti-La Sal National Forest
+Woke up, ate Jimmy John's.
+
+image:IMG_1428.jpg
+
+Rode towards monument valley. Filled my water bottles up at a gas station in
+Tonalea AZ (my Nalgene and 6L MSR dromedary bag). This water becomes important
+later.
+
+image:IMG_1430.jpg
+
+Got to Bluff UT, got gas, and started the first dirt section of the UTBDR. Nice
+well-graded dirt road with some small bumpy sections, riding through small
+secluded canyons. So far I'm really liking the UTBDR. Google Maps keeps
+forgetting the GPS tracks that I've imported, but luckily I also loaded the GPX
+tracks in an app called [Open GPX Tracker](http://github.com/merlos/iOS-Open-GPX-Tracker)
+that works great. Some small water crossings here. I set up camp at a beautiful
+spot in Manti-La Sal National Forest at (37.659069,-109.709686).
+
+
+image:IMG_1453.jpg
+
+This is the first trip that I've only taken a magnesium fire striker as a fire
+starter. I was hoping to be able to strike sparks onto my MSR Whisperlite
+International gasoline stove and have it ignite, but I'm striking with the weak
+metal handle of my spoon and the sparks aren't really spraying far enough to
+ignite the stove. I carve some pieces of magnesium into a small pile with some
+bits of wood on top, but that doesn't work either. Finally I get a flame by
+taking a thin stick dipped in gasoline and holding it up to the striker as I
+scrape it with the nail file on my Leatherman micro pocket tool.
+
+image:IMG_1463.jpg
+image:IMG_1465.jpg
+image:IMG_1470.jpg[Lentils and beans for dinner]
+image:IMG_1481.jpg[Oatmeal with trailmix for breakfast]
+
+# Day 4: Manti-La Sal National Forest to Moab
+Woke up nice and early. My blister had matured overnight into a real doozy that
+made it hard to wear my right boot. I took inspiration from 
+[Joe Motocross](http://advrider.com/f/members/joe-motocross.58884/) and used my
+boot sole and a Voile strap as a basic sandal.
+
+image:IMG_1472.jpg
+image:IMG_1474.jpg
+
+At this point I had probably 4L of water still from the day before. This
+section of the UTBDR was absolutely stunning. Up and down and along the sides
+of mountains with huge views stretching out everywhere.
+
+image:IMG_1492.jpg
+
+Riding a long steep downhill on the side of a steep hill I came across a mama
+deer and two baby deer in front of me. I turned off my engine to avoid scaring
+them, but they just stood there staring at me and eventually I would have to
+get past them. After she lost our staring contest mama deer herded the kids in
+front of her and they all started trotting downhill to get away from me so I
+coasted downhill a little ways behind them. After a minute the two baby deer
+were ahead of her down the road, and suddenly she saw an opportunity to jump up
+the slope into the brush on the left. Oh crap, now the baby deer are still
+running downhill, mama deer is long gone, and I'm coasting behind them hoping
+someone will come up with a plan. Finally after way too long, the cliff face on
+the left of the road becomes less steep, and the two baby deer luckily run off
+the same direction their mama had gone. I got a bit of video just before the
+baby deer made their escape.
+
+image:IMG_1498.jpg
+image:IMG_1499.mp4
+
+More riding up and down and around. I guess I didn't take enough photos of this
+part of the trip. I come around a corner and I'm face to face with a mama cow
+and two baby calves. Give me a break. This section slopes upward so I need to
+keep my engine running as I slowly chase them up the road. Finally the road
+opens up a bit so I give her a wide berth and sort of squeeze past them on the
+other side of the road.
+
+image:IMG_1500.jpg[Moove]
+
+Got to (37.814328,-109.486751) and found a locked gate. Hmm, the UTBDR FAQ said
+there shouldn't be any locked gates. The most recent fork in the road was at
+least 20 minutes ago and I didn't want to have to backtrack so early on so I
+went around the gate, wondering why it was locked. This bit of road went up and
+up to a viewpoint, but it looked like it was currently under construction and
+there was a bunch of heavy machinery sitting around. Well it was July 4th so at
+least I wouldn't run into any road crews.
+
+On the other side of the summit I saw a snowbank on the road. I tried riding
+over it but it was softer than I expected and I got myself stuck. As I tried to
+lurch the bike out of its rut I ended up tipping it over into the snow and it
+was a pain to get it back up because my boots were sinking into the snow too.
+Once I got it back up I discovered that it wouldn't start, probably because it
+had sat on its side for a minute and the carburetor was flooded. I also noticed
+my tail light had gotten smacked and was hanging on by its wires. 
+
+image:IMG_1504.jpg[Stuck]
+
+With sticks to wedge and stones to fill ruts I managed to roll out of the
+snowbank, and as I peeked around the next corner I found another enormous
+snowbank blocking the road with several more visible farther down the road. Ah,
+that's why the gate was locked. There wasn't enough space to pick up momentum
+and roll-start the bike, so I decided to deal with the dangling tail light and
+give the bike a few minutes to calm down. I tried to strap the light back in
+place with zip ties but I guess my zip ties were old and brittle because they
+snapped off as I tightened them.
+
+image:IMG_1510.jpg[A big snowbank farther down the hill. Panniers removed from bike to lighten me up]
+
+Luckily my small zip ties were strong enough and they did the job. I made a
+mental note to replace my zip ties and order the DR350 tail light kit from
+Procycle when I got home. I took my gear off my bike to lighten the load so I
+wouldn't sink into the snowbanks quite so bad. Once I had the panniers off I
+was able to start the bike. I walked ahead carrying my panniers and stamped a
+path through the next few snowbanks so I would have a more solid line to ride,
+and then I had a much easier time riding over them. The trail went downhill a
+bit more until it hit another locked gate, and then the path ended at a paved
+road. Looking at the GPX tracks I couldn't really tell how much asphalt there
+was before it turned to dirt again and I didn't want to shred my new D606 by
+riding below 20psi on asphalt. Of course I also didn't want to pump up my tire
+to 30.0psi only to find out that the road turned to dirt around the next
+corner. So I opted on the side of laziness and decided to risk the asphalt for
+a few minutes, and if the path didn't switch back to a dirt road within 15
+minutes or so I would pull over and switch to proper asphalt tire pressures.
+
+image:IMG_1512.jpg[Canyonlands National Park]
+
+This section of road had beautiful views of Canyonlands National Park. I knew
+the next section of the BTBDR was called Lockhart Basin and that it was a
+tricky section. Actually it would have been logistically easier for me to ride
+the UTBDR from North -> South except I had heard that Lockhart Basin is a hard
+ride, and it's much easier to ride it South -> North. I also knew that people
+recommend getting fuel and water at Needles Outpost but I misread the map and
+took the Lockhart Basin turnoff without really thinking about it. By the time I
+realized that I had passed Needles Outpost I was already several miles into the
+trail and since I still had around 3L of water I decided to just continue
+through Lockhart Basin and then resupply at Moab. This turned out to be a bad
+idea because I needed more water than I expected for Lockhart Basin.
+
+image:IMG_1513.jpg[Newspaper Rock Petroglyphs]
+
+Lockhart Basin is an awesome ride -- fun riding, remote trails, beautiful
+scenery. I think the fact that I had just been stuck in snow gave me some
+mistaken confidence that it wouldn't be too hot, or that I'd be able to find
+some shade somewhere. It also didn't help that for the first 5 or 10 miles I
+wasn't watching the map very carefully and I had to turn around a few times to
+get back to the proper route. I saw the sign that says 33 miles to Hurrah Pass
+and I made a mental note of my odometer value.
+
+At some point among the rocky scrambles and steep washes as I went over a drop
+my front fender smacked my tire and my spare tube went flying up into the air.
+Ok, now I'm getting hot and thirsty so I strap it back on and continue on. On
+another especially big drop I let my right foot come off the peg and felt my
+blister pop as my foot tapped the ground. Opa! Now I'm counting the miles on my
+odometer and regretting my decision not to get more water when I had the chance
+because I haven't seen any people or any sources of water, and I know I would
+be having an amazing ride if I wasn't distracted by my limited water. I did
+have a GPS emergency beacon in case things went south so I was still ripping
+down the trail and having lots of fun. At some point I started getting so hot
+that I remember thinking.. if I run out of water and activate my emergency
+beacon then they'll definitely charge me for the search and rescue helicopter
+because I was dumb. But if I get lucky and break my leg I can probably avoid
+the rescue bill.
+
+I left myself about a liter of water as survival water, and I paced myself with
+the rest of the water. At some point here I noticed that I had cracked my
+Nalgene that I keep strapped to my handlebars but it wasn't leaking. My spare
+tube flew off my front fender 2 or 3 more times and eventually I moved it to my
+rear rack with my water bag. I had the Beach Boys song "Cool Cool Water" stuck
+in my head.
+
+image:IMG_1517.jpg
+image:IMG_1522.jpg
+
+The trail got gnarlier and gnarlier as I got near the end of the basin, and
+after the last section at Chicken Corners I found a rocky overhang that offered
+a bit of shade and took a long break. After that grand finale of Lockhart Basin
+the road turned flat and calm with some deep sandy pits, and in the distance I
+could see the Colorado river full of delicious water. I've heard different
+opinions on how to deal with deep sand but the technique that works best for me
+is to stand up, hang off the back of the bike, lift all the weight off the
+front tire, and sort of "jet ski" across the surface. After a few more miles I
+came across a couple in an ATV wearing shorts and flip flops who looked like
+they couldn't have been riding around for more than 30 minutes. Behind them, an
+old couple smiling in another ATV. Don't they know I'm on death's doorstep? Up
+and over Hurrah pass and after a few more miles I found an RV campground with a
+water pump, and I drank like an elephant and then refilled my water stores.
+Through a small canyon and I was in Moab, where I stopped at the first
+McDonalds I saw and ordered a large soda and a Big Mac to regain my strength. I
+think that's probably the most dehydrated I've ever been. Damn, I wish I had
+seen how yellow my pee would have been.
+
+image:IMG_1525.jpg[Broken taillight]
+
+I decided to get myself a motel room in Moab and take it easy. I had a dinner
+of pizza and beer at a pizza buffet place called Zax. A middle-aged Dutch
+couple came up to me when I was sitting on my bike and started asking me all
+kinds of questions. They said they're fans of the Youtuber "Everide", and that
+they're getting back into motorcycling. I watched the July 4th fireworks in the
+7-11 parking lot in Moab.
+
+# Day 5: Moab to Strawberry Reservoir
+Here I decided to skip a chunk of the UTBDR and ride the interstate up to the
+dirt turnoff at (38.987959,-110.244840) because I wanted to be in Salt Lake
+City by Saturday (day 6). I didn't want a repeat of the water incident from the
+day before so I made sure to fill up my dromedary and Nalgene to the brim
+before leaving the hotel. I wanted to hit Arches National Park on the way up
+but there was a big congo line of cars waiting to get in so I skipped it. I'm
+planning to be in the area again for the [DR650 Rally in LaSal
+UT](http://advrider.com/f/threads/dr650-rally-lasal-utah-sept-5-8.1359221/)
+from Sept 5-8 so I can check it out then.
+
+This part of the UTBDR follows a power line access road for a while, graded
+gravel road with some dirt sections and some small washes. Once again I was
+making great time and blitzing through the washes, but I hit a deep wash a bit
+too hard and I heard a big "sploosh!". My MSR 6L dromedary had bounced itself
+loose from the back of my bike, gotten dragged under by my rear tire, and was
+wedged between the tire and the frame. I carefully pried it out and noticed
+that somehow the cap had come unscrewed and almost all the water had spilled
+out.
+
+image:IMG_1540.jpg[My water reservoir after pulling it out from behind the tire]
+
+There was still about half a liter of water inside it mixed in with a bit of
+sand, but I quickly drank that down to make sure I didn't lose it too. I found
+the cap a few meters back beside the road. I checked the map and I was about
+1/3 of the way to the next gas station at Wellington UT. Against my better
+judgement I decided to press onwards since I still had the water in my Nalgene
+and I don't like learning lessons too quickly. I made a mental note to keep an
+eye out for sources of water, potable or not.
+
+After another 10 miles or so without seeing any water I got a bit more
+desperate. Luckily I came across a solid rock wash that had a little pool of
+water full of tadpoles and cowpies. Finding water was a relief regardless of
+how dirty it was because I had plenty of fuel to boil water. I filled up my
+dromedary from the pool, trying not to collect too much silt and fly carcasses.
+
+image:IMG_1543.jpg[Bone apple tea!]
+
+Eventually I made it to Wellington UT, had some lunch and cleaned out my
+dromedary with plenty of soap. Once I strapped the dromedary down to the bike I
+saw that it had a small leak. I tried to fix it with duck tape but it didn't
+want to stick to the wet bag. It wasn't leaking too bad so I just ignored it
+for the rest of the trip, although the leaking water constantly trickled down
+my seat and made my butt wet.
+
+image:IMG_1559.jpg
+
+The road heading north out of Wellington was paved so I stopped to pump up my
+tires. This section of road through the canyon wasn't very nice because it was
+grey cement covered with blotches of grey sand that were hard to see. Then it
+was across a dirt road into Uinta-Wasatch-Cache National Forest and through the
+Wasatch Mountains. I didn't bother airing down my tires because the road and
+trails were in pretty good shape. Entering into Timber Canyon the road was
+washed out in a few places. The first few washouts were pretty small, and soon
+the washouts were getting beefy enough that I had to get off my bike to figure
+out where the path continued on. After a few more miles the water crossings got
+deeper and I had to stash my sleeping bag inside my jacket so it wouldn't get
+wet. There were some ATV tracks on the banks of the washouts so it wasn't too
+hard to find a suitable spot to cross.
+
+image:IMG_1579.jpg[The road continues just past the water on the right]
+image:IMG_1580.mp4
+
+At the base of the canyon at (40.115531,-110.812647) there were some road
+closure signs blocking the entrance to the road I came from, and the
+intersection of the two canyons had turned into a big lake. I met some people
+on Polaris SxS machines who were surprised that I had tried to go up the same
+way I came but got blocked by some of the washouts. They told me they lived a
+few miles north and that the canyon had severe flooding earlier in the year,
+and the water was already several feet lower than it was a month ago. They
+helpfully explained where there was a higher path through the water that would
+rejoin the road around the next bend. I continued on to Fruitland hoping to
+find a secluded spot to set up camp, but every little road I turned down ended
+in a driveway or a gated community. I rode back to The Big G in Fruitland and
+got myself some dinner and a rest in the parking lot. My headlamp has a red
+light mode so I zip tied it to the back of my bike to replace my broken
+taillight since I would be riding on the highway with lots of speeding semis
+and it was completely dark out. I continued north on the interstate looking for
+a hidden place to camp and ended up finding a short dirt road that went up a
+hill to a cell tower. Apparently it wasn't an AT&T tower because I didn't get
+any cell reception.
+
+image:IMG_1589.jpg[Replacement taillight]
+image:IMG_1591.jpg
+image:IMG_1593.jpg[Camp site overlooking Strawberry Reservoir]
+
+# Day 6: Strawberry Reservoir to Deeth
+Woke up, rode to Heber City. Did you know Karl Malone owns a car dealership in
+Heber City? Had a big breakfast at Hub Cafe, then rode to Provo and had ice
+cream at the BYU creamery. I happened to remember that the Youtube channel "The
+King of Random" is filmed near Salt Lake City so for fun I decided to go check
+out the neighborhood where it's filmed. Then I rode to Antelope Island and
+played with the brine flies in the baking heat. Ok, enough stalling. Time to
+find a parking lot, fix up my taillight, and start heading home. The bulb
+filament was also broken in my taillight so I went to a hardware store for a
+replacement bulb and some replacement nuts and bolts to reattach it. While I
+was working on the bike I noticed a suspicious crack had formed on my brand new
+rear tire.
+
+image:IMG_1613.jpg
+image:IMG_1615.jpg[Hmm, a suspicious crack]
+
+Ok, now that's really enough stalling. After passing the Bonneville salt flats
+I entered Nevada. Time to start wearing my helmet again, ha ha.
+
+I normally whistle to myself while I'm riding on the highway because it's loud
+enough to overpower the wind noise, but I had whistled so much over the last
+few days that my lips were chapped and raw because of the dry wind blowing
+through my helmet. I did have a chapstick with me but I kept forgetting to use
+it when I was stopped. During this section I wanted to whistle all the way from
+Bonneville UT to Wells NV but my lips got so dry, I had to force myself to keep
+my mouth closed and hum instead.
+
+I ate dinner at Bella's Restaurant in Wells (great food, huge coffee mugs!). I
+saw a stolen Google Bike in the parking lot. Then I rode towards home for
+another hour and set up camp in a field near Deeth NV.
+
+image:IMG_1631.jpg[Great food]
+image:IMG_1630.jpg[Huge coffee mugs]
+image:IMG_1627.jpg[You're a long way from home, little buddy]
+image:IMG_1637.jpg
+
+# Day 7: Deeth to East Palo Alto
+Making good time on the freeway. Stopped in Battle Mountain NV for lunch at
+Port of Subs. I'm a big fan of Port of Subs because it's hard to find a place
+that will sell you 2 feet of food. Suddenly I stopped mid-chew. Is that a knob
+missing from my tire again? What the fudge?
+
+image:IMG_1662.jpg[Fool me four times, shame on.. umm..]
+image:IMG_1643.jpg[And I've even been riding on 30psi like a good boy]
+
+So I stuck to 75mph for the rest of the trip back, grumbling the WHOLE way. Had
+an amazing sandwich at Raley's in Reno, and then one more Jimmy John's in
+Livermore to commemorate the trip.
+
+Final odometer reading: 2690mi.
+
+image:route.png[Trip route]
+
+
+# Gear
+
+image:IMG_1687.jpg[Gear on the bike]
+1) Spare tube (strapped to front fender), misc Voile straps
+2) Nalgene water bottle (strapped to handlebars)
+3) Alpinestars gloves
+4) Arai XD-4 helmet, Oakley goggles
+5) MSR Dromedary 6L water bag, strapped to rear rack
+6) Mesh bag, spare t-shirt, spare socks, spare boxers
+7) Camping mug, small MSR fuel bottle
+8) Sea To Summit Ultralight sleeping pad
+9) REI Ultralight Bivy
+10) Tent pegs, spoon, toothbrush. Not pictured: keychain containing Leatherman
+Squirt PS4 multitool
+11) Marmot Nanowave 45 sleeping bag
+12) Trail mix in cloth bag
+13) MSR Whisperlite International multi-fuel stove
+14) Toilet paper
+15) MSR Alpine Stowaway 775mL locking pot with lid (on left), containing dried
+beans, instant oats, lentil mix, tea, medicine, boullion cubes
+
+image:IMG_1688.jpg[Tool tube contents]
+1) At the front of the tool tube, in plastic bag: Dr Bronner's soap, sockets
+   (17mm 14mm 13mm 12mm 10mm 8mm), fuses, safety wire, screwdriver bits (JIS,
+   flat, Torx T35, Torx T40), misc bolts
+2) Shoved into far end of tool tube: Paracord, clip-style chain link,
+   electrical wire, [Procycle oil cooler bypass
+   kit](https://procycle.us/bikepages/dr650.html#oilcoolerbypass)
+3) Rolled up in towel: Zip ties, needlenose pliers, 1/4" ratchet driver,
+   Motionpro chain breaker, crescent wrench, tweezers, 1/4" socket extender, spark
+   plug wrench, vice grips, large tire iron, tire pressure gauge, bike pump
+   with Gorilla tape wrapped around the handle, DR650 wheel axle combo wrench,
+   smaller tire irons, [Enduro Star TS3 trail stand](http://www.endurostar.com/)
+
+image:IMG_1693.jpg[Riding gear]
+1) Cortech GX Sport Air 3.0 jacket
+2) Tourmaster caliber pants
+3) Bilt boots
+
+image:IMG_1694.jpg[Jacket pocket contents, #1-3 in left pocket, #4 in right pocket]
+1) Lip balm
+2) Sunscreen
+3) Black Diamond Spot Lite 160 head lamp
+4) ResQLink+ emergency locator beacon
+
+[All photos](./photos/)
