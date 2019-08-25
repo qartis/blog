@@ -9,6 +9,8 @@ no harm in publishing this now. In short, it's trivial to create Translink
 tickets which expire many years in the future and can be used to ride the bus
 system free of charge.
 
-A PDF copy of the report is available at <http://qartis.com/translink.pdf>.
+image:ticket1_front.png
+
+A PDF copy of the report is available at <http://t3.qartis.com/translink_tickets/translink.pdf>.
 
 Some of the code is available at <http://github.com/qartis/translink/>.
