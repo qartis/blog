@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arduino laser distance meter</title>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1 class="title">Arduino laser distance meter</h1>
+    <p class="date">2013-07-27</p>
+  </header>
+<div style="float: right">
+<div class="figure">
+<a href="photos/ut390b_front.jpg"><img src="photos/thumbnails/ut390b_front.jpg" alt="Uni-T UT390b laser distance meter front view"></a>
+<p class="caption">
+Uni-T UT390b laser distance meter front view
+</p>
+</div>
+</div>
+<h1 id="uni-t-ut390b">Uni-T UT390B</h1>
+<p>UPDATE 2: Serial commands and timing information are now available <a href="/laser-distance-meter-update-serial-commands-timing-measurements">here</a>.</p>
+<p>UPDATE: I’ve posted code to parse the serial datastream <a href="/parsing-laser-distance-meter-serial-output">here</a>.</p>
+<p>This is a tutorial on how to get serial data out of a cheap handheld laser distance meter, which can be fed into an Arduino or a PC. You can use the distance measurements in all sorts of projects like robots and quadcopters. There are vendors who sell conversion kits that sniff the distance measurement off the LCD and output it over serial. The problem with those kits is that they cost more than the laser meter itself. Luckily I managed to find a laser distance meter that outputs distance measurements over serial directly: the UT390B from Uni-T which sells for about $56 from online retailers (that is an affiliate link). Laser distance meters use precise electronics to measure the length of time it takes a laser beam to reflect back from a target. Handheld units like this one have a range of about 0.2m - 40m with a precision of 2mm. They’re a great replacement for HC-SR04 ultrasonic sensors if you need long range measurements.</p>
+<p>Preparing the unit You can see the unit’s debugging port underneath the battery cover. To take it apart, remove the 2 visible screws.</p>
+<div class="figure">
+<a href="photos/back.jpg"><img src="photos/thumbnails/back.jpg" alt="UT390b device with battery cover removed showing debug pins"></a>
+<p class="caption">
+UT390b device with battery cover removed showing debug pins
+</p>
+</div>
+<p>Now you can pry off the cover.</p>
+<div class="figure">
+<a href="photos/cover.jpg"><img src="photos/thumbnails/cover.jpg" alt="UT390b with front cover open"></a>
+<p class="caption">
+UT390b with front cover open
+</p>
+</div>
+<p>This ribbon cable connects the unit’s keypad. Scrape off the glue and unplug it for now.</p>
+<div class="figure">
+<a href="photos/ribbon.jpg"><img src="photos/thumbnails/ribbon.jpg" alt="The ribbon connecting the two halves of the UT390b device"></a>
+<p class="caption">
+The ribbon connecting the two halves of the UT390b device
+</p>
+</div>
+<p>Next, remove the 2 screws with washers that hold the rubber piece at the front. If you want to remove the screen, it’s connected by 4 clips to the circuit board. It’s probably a better idea to leave the screen connected, so you can verify that the unit is working properly while you’re testing your serial parsing code.</p>
+<div class="figure">
+<a href="photos/lcd.jpg"><img src="photos/thumbnails/lcd.jpg" alt="Removing the screen from ut390b device"></a>
+<p class="caption">
+Removing the screen from ut390b device
+</p>
+</div>
+<p>DON’T remove these 3 screws. They connect the laser diode to the circuit board, and if you loosen these screws you risk breaking your laser.</p>
+<div class="figure">
+<a href="photos/screws.jpg"><img src="photos/thumbnails/screws.jpg" alt="3 screws on circuit board which should not be removed"></a>
+<p class="caption">
+3 screws on circuit board which should not be removed
+</p>
+</div>
+<p>The easiest way to access the debug port is by desoldering the battery connector as shown below. Note: this photo shows the 3 screws removed. DO NOT do this, as it’s unnecessary and could cause the unit to break in two.</p>
+<div class="figure">
+<a href="photos/dont.jpg"><img src="photos/thumbnails/dont.jpg" alt="Removing the ut390b circuit board (don't do this)"></a>
+<p class="caption">
+Removing the ut390b circuit board (don’t do this)
+</p>
+</div>
+<p>Finally you can solder some thin wires to the debug port. The pinout is as follows, seen from below the board.</p>
+<div class="figure">
+<a href="photos/pinout.jpg"><img src="photos/thumbnails/pinout.jpg" alt="Pinout of ut390b debug pins. from left to right: GND, RX, TX, BOOT0, VCC (2.7V)"></a>
+<p class="caption">
+Pinout of ut390b debug pins. from left to right: GND, RX, TX, BOOT0, VCC (2.7V)
+</p>
+</div>
+<p>We can replace the original keypad with a microcontroller which can simulate button presses to control the unit. The keypad pinout is below. The ribbon connector is 8 pin, 1mm pitch. If there’s enough interest, I will assemble and sell a small interface board to break out the necessary signals.</p>
+<div class="figure">
+<a href="photos/lcdpinout.jpg"><img src="photos/thumbnails/lcdpinout.jpg" alt="Pinout of ut390b keypad ribbon connector. From left to right: Unit, n/c, Func, On, GND, Mode, n/c, Off"></a>
+<p class="caption">
+Pinout of ut390b keypad ribbon connector. From left to right: Unit, n/c, Func, On, GND, Mode, n/c, Off
+</p>
+</div>
+<h2 id="decoding-the-serial-output">Decoding the serial output</h2>
+<p>This unit’s serial port runs at 115200 baud (8N1). On bootup, it outputs the following text with line endings:</p>
+<pre><code>ldpara:395
+curent ver:420411
+Year:Jan 21 2013 Time:13:53:10
+ldpara:395
+Iint OK
+APDMIN=136 APDMAX=167
+BIASVOLMIN=2307 BIASVOLMAX =1718</code></pre>
+<p>Notice “APDMIN” and “APDMAX”, which are likely calibration values for the avalanche photodiode used to detect the reflected laser beam. A few sloppy printfs as well.. To turn the unit on, connect the ON signal to GND for about 300ms. Once it’s on, the ON signal is also used to take a measurement. After a measurement is taken, the unit outputs the following:</p>
+<pre><code>Dist: 2827,curtemp =21
+V2.0
+nDist: 2827,tempDv=0</code></pre>
+<p>The Dist and nDist values are in millimeters. As far as I can tell, the two measurements are always identical. If there’s a measurement error (Error 154, out of range or sensor error) the unit will output:</p>
+<pre><code>OUT_RAN dist = 30</code></pre>
+<p>If the unit can’t determine the average distance (Error 160, sensor shaking too much or Error 155, signal too weak) the unit will output one of the following lines:</p>
+<pre><code>MEDIUM2 AND THIN NOT MATCH
+MEDIUM1 AND MEDIUM2 NOT MATCH
+THICK AND MEDIUM1 NOT MATCH
+MEDIUM1 AND MEDIUM2 NOT MATCH</code></pre>
+<p>When you turn it off, it outputs:</p>
+<pre><code>SysPowerOff!
+WriteTestData TRUE
+Serial input?</code></pre>
+<p>I’d like to find a way to control the unit over serial. So far all I’ve found is that sending 0x23 (‘#’) or 0x73 (‘r’) will cause the unit to power down. It seems to ignore every other byte, as well as some common english words and modbus commands. If you manage to find any other byte sequences, <a href="mailto:qartis@gmail.com">email me</a> or leave a comment below. If you liked this article, you might also like DORI, my robot project. DORI uses a slightly different laser distance measurement strategy. You can learn more on the <a href="http://dori.qartis.com">project homepage</a> and in <a href="http://arxiv.org/abs/1304.5568">my thesis</a>.</p>
+<h2 id="comments">Comments</h2>
+<h3 id="fame">fame</h3>
+<p>wonderful article…thanks for the detailed explanation!!!</p>
+<h3 id="mijael">Mijael</h3>
+<p>Thank you very much!</p>
+<h3 id="rinnamon">rinnamon</h3>
+<p>Where did you find a ribbon cable and ribbon cable connector to solder to? I’m having trouble finding one.</p>
+<h3 id="danang-habibi">Danang Habibi</h3>
+<p>Waw, this is what I need, Thank you very much</p>
+<h3 id="qartis">qartis</h3>
+<p>I found several compatible ribbon cables inside a broken HP laptop with 1mm pitch. They have more wires than needed, but they can be carefully cut to width and soldered up. I’ve also had success directly soldering to the back of the ribbon connector with thin enamelled transformer wire.</p>
+<h3 id="daniel">Daniel</h3>
+<p>Very cool! When you send instructions for reading, what’s the delay until you get a reading back? In other words, at what frequency can you get readings? I’ve noticed on my Bosch (that I haven’t taken apart) that a reading takes in the order of 1-2 seconds and if it fails it times out in 5 seconds or so. This would make it less applicable for real-time sensing applications.</p>
+<h3 id="qartis-1">qartis</h3>
+<p>The delay is likely very similar to a Bosch meter. Individual measurements take from 1 to 3 seconds depending on the surface being measured and the physical stability of the meter. In rapid-fire mode (triggered by holding the ON button for about 1500mS), the sensor is able to output an average of 3 readings per second when measuring flat, solid surfaces. The commands that have been found so far are to take a single measurement, take 3 measurements, shutdown, and perform a memory dump. I’m still testing these commands and looking for more. I’ll write another update to this post when I’ve got more info.</p>
+<h3 id="daniel-1">Daniel</h3>
+<p>Awesome, thanks for the insightful answer! I wonder if it could be sped up by looking into the sensor readout / or timing it out earlier.</p>
+<h3 id="john">John</h3>
+<p>Thank you so much for this tutorial! This is exactly what I need to get my projecting working. I just received the meter and am planning to test it soon.</p>
+<p>One question I have is about the serial connection. Do you need to convert the 5V signal from the Arduino to 3V for the meter? Or did you just connect the Arduino TX directly to the RX of the meter?</p>
+<h3 id="qartis-2">qartis</h3>
+<p>I use three 1N4001 diodes to drop the Arduino’s 5V Tx signal before it’s sent to the laser unit. Each one drops 0.6V - 0.7V, which leaves the TX voltage roughly around 3V. The laser unit runs at a regulated 2.7V, so technically it’s still a bit high but I haven’t seen any problems so far. Others have directly connected the laser to the Arduino’s 5V signal but you never know what kind of damage that might do to the laser.</p>
+<p>The laser’s 2.7V RX signal is (barely) high enough to be seen as a HI signal by the AVR. For more reliable operation you can use a small MOSFET circuit to perform the level conversion.</p>
+<p>You can also check out Microchip’s 3V Tips ’n Tricks datasheet, available at <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/chapter%208.pdf">http://ww1.microchip.com/downloads/en/DeviceDoc/chapter%208.pdf</a>.</p>
+<h3 id="igorkov">igorkov</h3>
+<p>Hello! Can you make foto side back of board (with mcu)? What the mcu model is used in this device?</p>
+<h3 id="george">George</h3>
+<p>Thank you for this guide. It was a lot of details.<br />
+<span class="citation">@qartis</span>: I connected wires to GND, RX, TX pins and I was able to read the output. My problem right now is that I don’t know how to trigger the ON button from an Arduino. Can you give me any hints? I have no problem with coding the Arduino or building a board based on a scheme.<br />
+Thank you</p>
+<h3 id="stas-omelnitskiy">Stas Omelnitskiy</h3>
+<p>First, thank you for this post!</p>
+<p>But unfortunately, I’ve have big problems using it as a manual.</p>
+<p>I want to share a big problem while disassembling device.</p>
+<p>In your manual you wrote: “Next, these 3 screws (Torx T5 size).” It was a bad advice for me. This 3 screws should not be removed! They don’t hold the PCB - they hold laser module on it!</p>
+<p>To take PCB off from case, you should desolder the battery connectors, remove 2 screws with washers (these screws already removed on your photos) and pull out a silver plastic detail from top side (from where laser is light) and that’s all, PCB is easily removed then.</p>
+<p>If this silver plastic detail is not removed, it is hard to take off PCB gently. In my case, I removed 3 screws holding laser module and was trying to take off PCB. Regardless of the fact that I succeeded (disassembled the device and solder wires for serial out) device become broke. After assembling all back device was not worked (no measure, it was some error code on the screen).</p>
+<p>I’ve discovered that some copper contacts on laser module was detached while disassembling because 3 screws holding laser module were removed and it was holding only with solder connection. And it seems impossible to repair this because this is mulilayer PCB.</p>
+<p>So again - these 3 screws holding laser module should not be disconnected!!!</p>
+<h3 id="joselito">Joselito</h3>
+<p>Thanks it’s fantastic. You know if the devices in the same series but with a greater range of distance work the same? For example:</p>
+<p><a href="http://dx.com/es/p/uni-t-ut391a-laser-distance-meter-red-deep-grey-70m-208042" class="uri">http://dx.com/es/p/uni-t-ut391a-laser-distance-meter-red-deep-grey-70m-208042</a></p>
+<p>or this</p>
+<p><a href="http://dx.com/es/p/uni-t-ut392-ultrasonic-laser-distance-range-finder-device-red-grey-199857" class="uri">http://dx.com/es/p/uni-t-ut392-ultrasonic-laser-distance-range-finder-device-red-grey-199857</a></p>
+<p>I’m very insteresting connect tu arduino.<br />
+Thanks<br />
+Joselito</p>
+<h3 id="qartis-3">qartis</h3>
+<p>I’m sorry for the bad instructions! You’re right, there’s no reason to remove those 3 screws at all (I think I just removed every screw I could find). I’ll update the post to remove that picture to avoid confusion. Thanks for the clarification.</p>
+<h3 id="qartis-4">qartis</h3>
+<p>I haven’t tried this procedure with any other Uni-T laser meters. I did manage to read the signal off a CEM brand LDM-40 meter by sniffing the SPI commands sent to the screen and reinterpreting the numbers that are displayed. But that technique is a bit of a pain compared to directly reading serial output.</p>
+<p>If you do try it out, send me an update and I’ll post the info here. Cheers!</p>
+<h3 id="joseltio">Joseltio</h3>
+<p>if I try this. I will send the result.</p>
+<p>Thanks<br />
+qartis</p>
+<h3 id="rudaj">Rudaj</h3>
+<p>HI !<br />
+Thanks its very helpful.<br />
+I have a little problem. When I turn on the device it send me the basic informations but when I measure it doesnt send me the measurement’s result. Any other messages are arrived (turn off message, error messages) But I see a little difference between our devices.<br />
+Your device:</p>
+<p>curent ver:420411<br />
+Year:Jan 21 2013 Time:13:53:1</p>
+<p>My device:</p>
+<p>curent ver:420408<br />
+Year:dec 5 2012 Time:12:01:38</p>
+<p>Maybe this is the problem. I dont know.<br />
+Have you any idea ?</p>
+<h3 id="andfoy">andfoy</h3>
+<p>Hello,<br />
+I recently bought one UT390B from DX, I soldered the wires as indicated, then I connected the RX, TX, GND, and 2.7V to the RX, TX, GND and 3V ports, but I can’t print the basic information nor any measurement. Have I done anything wrong?</p>
+<p>Thanks in advance.</p>
+<p>Andfoy</p>
+<h3 id="max-hodges">Max Hodges</h3>
+<p>awesome work! I could use something like this for my business to measure size of packages and store the results for shipping calculations</p>
+<h3 id="joselito-1">Joselito</h3>
+<p>Hello,</p>
+<p>I only connected RX,TX and GND not 2.7V. It’s work well.</p>
+<p>regards</p>
+<h3 id="leonardo">Leonardo</h3>
+<p>Does anyone know what the datastream item curtemp means? Is it the internal temperature of the unit or is it the temperature of the surface the laser is pointed at?</p>
+<h3 id="mihir-dhandha">Mihir Dhandha</h3>
+<p>Can this meter find reliable result if not pointed straight? like 45 degree and also on rough surface?</p>
+<h3 id="qartis-5">qartis</h3>
+<p>I suspect that it’s the unit’s temperature, because I think if they were taking infrared temperature measurements they would advertise that as a feature of the laser unit.</p>
+<h3 id="qartis-6">qartis</h3>
+<p>It tends to do fairly well on most surfaces, and at most angles. It has some difficulty on pure black surfaces, and some scattered surfaces like grass and thin cloth.</p>
+<h3 id="paradug">paradug</h3>
+<p>The pin on the exposed port that is between TX and 2.7V goes to the BOOT0 pin of the STM32F103C8T6 ARM Cortex M3 processor.</p>
+<h3 id="paradug-1">paradug</h3>
+<p>There seems to be an error in the article. Looking at the ribbon cable, the pin next to “on” that was labeled &quot;gnd: appears to be 3V.</p>
+<p>If you measure the voltage from the gnd pin in the exposed port to the pin “gnd” of the ribbon cable. The voltage measures +3V with respect to the exposed port gnd.</p>
+<p>Also, if you short the ribbon cable “on” and “gnd” (3v?) pins the unit turns on. This suggests that to turn the unit on the “on” pins should be pulled to 3v not gnd as stated. You can also test shorting the exposed port’s gnd to the ribbon cable “on” and nothing happens.</p>
+<h3 id="electriceye">electricEye</h3>
+<p>But… What about eye safety?</p>
+<h3 id="paul">Paul</h3>
+<p>What about the frequency that it can read? It the laser on the entire time? Or do you need to trigger it?</p>
+<h3 id="martin-langelier">Martin Langelier</h3>
+<p>with the code of dardan on the second page, the laser once powered up by the power button, will take measurements automatically, and output it to the serial console of the arduino ide</p>
+<h3 id="captainspark">captainSpark</h3>
+<p>Would it be possible to switch the unit on via serial? Or is this very wishfull thinking?</p>
+<h3 id="qartis-7">qartis</h3>
+<p>So far nobody has found a way to turn the unit on without using the “on” button signal. Paradug found that the 4th debug pin connects to the processor’s BOOT0 pin, which is probably used to enable a bootloader at startup to reflash the unit during testing (but can’t turn the unit on). If I find a better way to turn the unit on I’ll post an update here.</p>
+<h3 id="perfect-prime">Perfect Prime</h3>
+<p>If there is a much more simple way of getting measurement data from a laser measurement module - would you all be interested ? Like just sending a read command and getting the measurement data back in plain and simple format.</p>
+<h3 id="qartis-8">qartis</h3>
+<p>It looks like power can be applied directly to the exposed Vcc pad, skipping the power switch circuitry and directly booting up the unit. After a little testing, I’ve found that at 2.8V the unit operates normally and the battery charge indicator is at 100%. I’ve designed a small breakout board that will fit into the battery compartment and attach to the debug headers via pogo pins. I’ll post an update when the first batch of boards arrives.</p>
+<h3 id="dan">Dan</h3>
+<p>Yes, I would like to see i2C output or PWM</p>
+<h3 id="perfect-prime-1">Perfect Prime</h3>
+<p>Yes, It is available in UART port with simple command interface.</p>
+<p>Let me know if you want to purchase.</p>
+<h3 id="perfect-prime-2">Perfect Prime</h3>
+<p>I have modules that can be controlled via Serial UART port for reading laser distance measurement results.</p>
+<p>Really simple - interested ?</p>
+<h3 id="rj">RJ</h3>
+<p>Hi, i read here on your blog that this device can take measurements at a rate of 3 measurements for 1500msec. But can this device measure for more minutes continuously ? Or is that 1500msec the max? thanks.</p>
+<h3 id="rxtx">RxTx</h3>
+<p>A similar mod-kit device is available for the Fluke 414D:<br />
+<a href="http://www.porcupinelabs.com/lr4" class="uri">http://www.porcupinelabs.com/lr4</a></p>
+<h3 id="jeppe">Jeppe</h3>
+<p>Perfect Prime .. do you have a link to specs and price?</p>
+<h3 id="aikidokajeff">Aikidokajeff</h3>
+<p>Any update on the Breakout Board?<br />
+The “Power on” ability is really important for what I’m working on.<br />
+Directly wiring sounds ok thoughm but a board would be classy.</p>
+<h3 id="qartis-9">qartis</h3>
+<p>I’m assembling the prototype breakout boards now. I’ll post an update on the blog in a week or two with the results. There are 10 boards in this first batch, and I will give them away on a first-come-first-served basis (just pay for postage).</p>
+<h3 id="alf">Alf</h3>
+<p>Hi, can you please tell me the size of the slot hole for the debug port? the one that is under de batteries cap. thanks in advance</p>
+<h3 id="cambodia-man">cambodia man</h3>
+<p>I would like more information on this if you can provide it. Thank you</p>
+<h3 id="krishna-mohan">Krishna Mohan</h3>
+<p>what is the cost of this sensor???</p>
+<h3 id="austin-t">Austin T</h3>
+<p>I’m going to try one of these to see if it works!</p>
+<p><a href="http://www.dxsoul.com/product/40m-1-8-lcd-laser-distance-meter-range-finder-black-green-901434545" class="uri">http://www.dxsoul.com/product/40m-1-8-lcd-laser-distance-meter-range-finder-black-green-901434545</a></p>
+<h3 id="christian-guenther">Christian Guenther</h3>
+<p>Thanks so much for this article.</p>
+<p>Has anyone figured out how to disable the buzzer? I don’t see it on the PCB. Is it inside the laser module?</p>
+<p>I planning to periodically measure the salt level in our house water softener and would like it to take the measurements quietly.</p>
+<h3 id="christian-guenther-1">Christian Guenther</h3>
+<p>Found it! It’s the grey square component with the + on it next to the keyboard connector. I unsoldered it and now the meter is quiet.</p>
+<h3 id="xoxo">XOXO</h3>
+<p>The low cost ones do not have anything spit out. I’m going to see if a ST SWD type port can communicate with the ARM processor inside. It may be possible to still get something out of it but by default the serail port is NOT ON as in the Uni-T version of this article.</p>
+</body>
+</html>
