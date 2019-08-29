@@ -5,6 +5,12 @@ date: 2018-05-22
 
 A standard blog post will look like this. Bla bla bla.
 
+<details><summary>Expand</summary>
+
+1. Hello
+2. Goodbye <code>robot text</code>
+</details>
+
 # A table of data
 Col 1 | Col 2    | Col 3
 ------|----------|-------
@@ -22,12 +28,3 @@ except FlytimeError as e:
   # um...not sure what to do now.
   pass
 ```
-
-I get 10 times more traffic from [this webpage][1] than from [Yahoo][2] or [this one][3].
-
-image:https://i.imgur.com/AEkqoRn.jpg[alt="not bad."]
-
-[1]: http://google.com
-[2]: http://search.yahoo.com
-[3]: http://search.msn.com
-
