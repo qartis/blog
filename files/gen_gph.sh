@@ -1,1 +1,6 @@
-/annex/objects/SHA256E-s160--e67afdbc3e752105b646cbfc4e0d2c1396c49face999bb03077a6258c955ffbb.sh
+#!/bin/sh
+
+#[0|post.txt|post.txt|server|port]
+#[1|photos|photos/|server|port]
+
+./files/posts.sh | awk -F'\x1f' '{printf "[1|%s %s|%s|server|port]\n",$1,$3,$2}'

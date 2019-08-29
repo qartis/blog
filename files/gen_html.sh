@@ -1,1 +1,4 @@
-/annex/objects/SHA256E-s170--c72cfbf7c62e14786ffdf674a0a7448ee66383cf4ff66891ebb6f8b5961e70ca.sh
+#!/bin/sh
+echo '<link rel="alternate" type="application/atom+xml" href="/index.xml">'
+
+./files/posts.sh | awk -F'\x1f' '{printf "<li>%s <a href='%s'>%s</a>\n",$1,$2,$3}'

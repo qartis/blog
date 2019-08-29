@@ -1,1 +1,12 @@
-/annex/objects/SHA256E-s232--44c5fa05f69e11288ea68b6d53262ebe5f93ac2bd70af56c11efa8b802017f4e.sh
+#!/bin/sh
+
+(ls */post.txt | while read f; do
+	cat $f | awk '/^date: / {printf $2}'
+	echo -n '\037'
+	echo -n $(dirname $f)
+	echo -n '\037'
+	cat $f | awk -F'"' '/^title: / {printf $2}'
+	echo -n '\037'
+	cat $f | 
+	echo
+done) | sort -r

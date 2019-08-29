@@ -1,1 +1,57 @@
-/annex/objects/SHA256E-s2003--78180d71f9a616bde48fad0299c154de1a76990f4ad0c1a776aed3f6bd7a9455.xml
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Personal blog of Andrew Fuller</title>
+  <id>http://blog.qartis.com/index.xml</id>
+  <link href="http://blog.qartis.com/index.xml" rel="self"/>
+  <updated>2019-08-16T00:00:00Z</updated>
+  <entry>
+    <title>Trip to Taiwan and Shanghai</title>
+    <id>http://blog.qartis.com/taiwan_aug_2019</id>
+    <link href="http://blog.qartis.com/taiwan_aug_2019"/>
+    <author>
+      <name>Andrew</name>
+    </author>
+    <updated>2019-08-16T00:00:00Z</updated>
+    <content>Trip to Taiwan and Shanghai</content>
+  </entry>
+  <entry>
+    <title>Trip report: Partial Utah Backcountry Discovery Route (UTBDR)</title>
+    <id>http://blog.qartis.com/utbdr</id>
+    <link href="http://blog.qartis.com/utbdr"/>
+    <author>
+      <name>Andrew</name>
+    </author>
+    <updated>2019-07-09T00:00:00Z</updated>
+    <content>Trip report: Partial Utah Backcountry Discovery Route (UTBDR)</content>
+  </entry>
+  <entry>
+    <title>Trip report: July 4th trip to Albuquerque</title>
+    <id>http://blog.qartis.com/july_4th_ride_to_albuquerque</id>
+    <link href="http://blog.qartis.com/july_4th_ride_to_albuquerque"/>
+    <author>
+      <name>Andrew</name>
+    </author>
+    <updated>2018-07-09T00:00:00Z</updated>
+    <content>Trip report: July 4th trip to Albuquerque</content>
+  </entry>
+  <entry>
+    <title>Replacing the clutch on a DR650</title>
+    <id>http://blog.qartis.com/changing_clutch_on_dr650</id>
+    <link href="http://blog.qartis.com/changing_clutch_on_dr650"/>
+    <author>
+      <name>Andrew</name>
+    </author>
+    <updated>2018-05-22T00:00:00Z</updated>
+    <content>Replacing the clutch on a DR650</content>
+  </entry>
+  <entry>
+    <title>Project 121</title>
+    <id>http://blog.qartis.com/project_121</id>
+    <link href="http://blog.qartis.com/project_121"/>
+    <author>
+      <name>Andrew</name>
+    </author>
+    <updated>2016-07-25T00:00:00Z</updated>
+    <content>Project 121</content>
+  </entry>
+</feed>
