@@ -1,1 +1,1 @@
-/annex/objects/SHA256E-s170--6c29811e68e4a0d10ed85ad6391bd83cd82b1c7d137b96c5f6d4cd1d97c6aa3d.sh
+/annex/objects/SHA256E-s160--e67afdbc3e752105b646cbfc4e0d2c1396c49face999bb03077a6258c955ffbb.sh
