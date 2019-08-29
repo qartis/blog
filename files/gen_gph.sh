@@ -1,1 +1,1 @@
-../.git/annex/objects/13/z6/SHA256E-s160--e67afdbc3e752105b646cbfc4e0d2c1396c49face999bb03077a6258c955ffbb.sh/SHA256E-s160--e67afdbc3e752105b646cbfc4e0d2c1396c49face999bb03077a6258c955ffbb.sh
+/annex/objects/SHA256E-s160--e67afdbc3e752105b646cbfc4e0d2c1396c49face999bb03077a6258c955ffbb.sh

@@ -1,1 +1,1 @@
-../.git/annex/objects/f9/zz/SHA256E-s170--c72cfbf7c62e14786ffdf674a0a7448ee66383cf4ff66891ebb6f8b5961e70ca.sh/SHA256E-s170--c72cfbf7c62e14786ffdf674a0a7448ee66383cf4ff66891ebb6f8b5961e70ca.sh
+/annex/objects/SHA256E-s170--c72cfbf7c62e14786ffdf674a0a7448ee66383cf4ff66891ebb6f8b5961e70ca.sh
