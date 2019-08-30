@@ -8,3 +8,4 @@
 [1|2014-05-20 Eagle library for HLK-RM04 wifi module|eagle_library_for_hlk-rm04|server|port]
 [1|2013-10-16 Laser distance meter update: serial commands, timing measurements|laser_distance_meter_update|server|port]
 [1|2013-07-29 Translink magnetic ticket format|translink_tickets|server|port]
+[1|2013-07-27 Arduino laser distance meter|arduino_laser_distance_meter|server|port]
