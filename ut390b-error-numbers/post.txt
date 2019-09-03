@@ -21,8 +21,3 @@ enum {
     ERR_DEVICE_SHAKING = 160
 };
 ```
-
-## Comments
-
-#### Arthur Ilgizovich Gumerov
-164???

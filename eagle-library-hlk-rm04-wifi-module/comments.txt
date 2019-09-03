@@ -1,0 +1,9 @@
+## Comments
+
+#### Nikos Georgousis
+Can you please provide download link for the library?  
+Thanks Nikos
+
+#### qartis
+Sorry, the download location was moved. I've updated the post with the new URL:
+<https://raw.githubusercontent.com/qartis/eagle/master/libs/solderandflux.lbr>
