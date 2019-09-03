@@ -1,0 +1,28 @@
+---
+title: "Eagle library for HLK-RM04 wifi module"
+date: 2014-05-20
+---
+
+I've created [an eagle library][1] for the $15 [Hi-Link HLK-RM04][2] wifi
+module. All pins are named and numbered. The only thing you need to look out
+for is the 2mm pin spacing. Typical protoboard spacing is 2.54mm, so you will
+likely need to make a breakout board for this module. I'm preparing a follow-up
+post with details on how to init this module and connect to a secured WPA2
+network.
+
+<https://github.com/qartis/eagle/tree/master/libs/>
+
+[1]:
+https://raw.githubusercontent.com/qartis/eagle/master/libs/solderandflux.lbr
+[2]:
+http://www.dx.com/p/hi-link-hlk-rm04-serial-port-ethernet-wi-fi-adapter-module-blue-black-214540
+
+## Comments
+
+#### Nikos Georgousis
+Can you please provide download link for the library?  
+Thanks Nikos
+
+#### qartis
+Sorry, the download location was moved. I've updated the post with the new URL:
+<https://raw.githubusercontent.com/qartis/eagle/master/libs/solderandflux.lbr>

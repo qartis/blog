@@ -6,9 +6,12 @@ POSTS = $(shell files/posts.sh | awk -F'\x1f' '{print $$2}')
 
 
 all:
+	if [ -f style.css ]; then make index && false; fi
 	echo "[0|post.txt|post.txt|server|port]" > index.gph
+	if [ -f comments.txt ]; then echo "[0|comments.txt|comments.txt|server|port]" >> index.gph; fi
+	if [ -d files ]; then echo "[1|files|files/|server|port]" >> index.gph; fi
 	if [ -d photos ]; then echo "[1|photos|photos/|server|port]" >> index.gph; fi
-	cat post.txt | \
+	cat post.txt comments.txt | \
 		perl -pe 's/\\\n//' | \
 		awk '/[-]+(\|[-]+)+/ {print gensub("-", "", "G", $$0); print; next} {print}' | \
 		sed -e 's@^\s*image:\(.*.\(jpg\|png\)\)\[\(.*\)]\s*$$@<div class="figure"><a href="photos/\1"><img src="photos/thumbnails/\1" alt="\3"></a><p class="caption">\3</p></div>@' | \

@@ -1,8 +1,0 @@
----
-title: "Arduino Library for UT390B"
-date: 2015-05-28
----
-
-There is now an Arduino library available written by [erniejunior](https://github.com/erniejunior/) to interface with the Uni-T UT390B laser distance meter.
-
-It's available here: <https://github.com/erniejunior/UT390B_Arduino_Library>

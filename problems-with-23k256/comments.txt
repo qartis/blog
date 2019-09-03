@@ -1,0 +1,11 @@
+## Comments
+
+#### Janis Lejins
+Hey there.  
+
+I am an art student in Australia trying to use this chip with an Arduino Yun &
+a fingerprint sensor (kind of like this
+<http://blogs.yahoo.co.jp/lg3d_lgscope/54652531.html>).
+
+You seem to have significant knowledge in regards to this chip - i am having
+trouble wiring it -due to uno vs leonardo. Do you know how or have any advice?

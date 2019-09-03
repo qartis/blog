@@ -1,0 +1,103 @@
+---
+title: "Problems with 23K256 and AVR/Arduino"
+date: 2013-07-09
+---
+
+The Microchip 23K256 is a great little device with 32 KiB of fast static ram
+over an SPI interface. I had some trouble getting this chip to work, and after
+searching online it looks like many people have some common problems. I'll show
+you a brief checklist you can use if you're having trouble like I was.
+
+#### The HOLD pin
+This pin can be used to pause a sequential transfer and resume it immediately
+without having to re-send the address. If you don't care about this feature,
+tie the HOLD pin to Vcc (3.3v).
+
+#### The NC pin
+This pin should not be connected to anything, including Vcc or GND. Just leave
+it floating.
+
+#### The HOLD bit
+Read the datasheet carefully: writing a 1 bit disables the HOLD feature. Make
+sure you're setting this bit HIGH.
+
+#### Vcc
+If you're using short wires and you're not sharing the SPI bus among several
+devices, the 23K256 can be powered from 2.7V. But this chip seems to need
+strong SPI signals with low capacitance. If you're running into problems using
+the chip on a shared SPI bus, try giving the chip a higher voltage supply -- it
+can tolerate up to 4.5V. Just don't permanently run the chip above 3.6V or it
+may become unreliable.
+
+#### The voltage levels
+This chip runs from 2.7V - 3.6V. If you're interfacing with a 5V Arduino,
+you'll need to convert the Arduino's 5V signals to around 3V using a level
+converter circuit. This is simple with SPI because all of the data lines are
+unidirectional -- they're either microcontroller-to-sram or
+sram-to-microcontroller. The 23K256's 3V logic output should be high enough to
+be read directly by modern microcontrollers like the AVR in an Arduino. The
+microcontroller's 5V signals must be dropped to around 3V before they reach the
+23K256. A simple voltage divider for these signals (MOSI, SCK, CS) will work at
+low SPI speeds, and can be built from 2 resistors per signal.
+
+#### MOSI/MISO
+The chip's datasheet labels these pins SI/SO. There are several sources online
+(including Wikipedia) that say SO means Serial Output. Nope, when we're dealing
+with SPI, SO always means Slave Out. As in, the data stream going out from the
+SPI slave device (the 23K256) to the microcontroller.
+
+#### SS/CS
+This is a big gotcha with Arduinos and all Atmel AVR microcontrollers. You can
+use any gpio pin as a Slave Select (aka Chip Select) line. However, the
+microcontroller's primary SS pin must be set as an output during SPI operation,
+even if you're not using it. If the SS pin isn't explicitly configured as an
+output pin, SPI transactions will mysteriously fail (usually by timing out
+because the SPIF bit never goes high), because the SPI hardware will be in
+slave mode. This is an easy mistake to make!
+
+#### The init sequence
+The 23K256 essentially has no init, but we can write a simple routine to make
+sure communication is working:
+
+```
+#define SRAM_DESELECT() PORTD |= (1 << PORTD7);
+#define SRAM_SELECT() PORTD &= ~(1 << PORTD7);
+ 
+enum {
+    SRAM_WRITE_STATUS = 1,
+    SRAM_READ_STATUS = 5,
+};
+ 
+#define SRAM_MODE 0x41 /* sequential access, hold pin disabled */
+ 
+uint8_t sram_read_status(void)
+{
+    uint8_t val;
+ 
+    SRAM_SELECT();
+    spi_write(SRAM_READ_STATUS);
+    val = spi_write(0xff);
+    SRAM_DESELECT();
+ 
+    return val;
+}
+ 
+uint8_t sram_init(void)
+{
+    uint8_t retry;
+ 
+    DDRD |= (1 << PORTD7); /* set CS pin as output */
+ 
+    SRAM_DESELECT();
+ 
+    retry = 255;
+    while (sram_read_status() != SRAM_MODE && --retry) {
+        SRAM_SELECT();
+        spi_write(SRAM_WRITE_STATUS);
+        spi_write(SRAM_MODE);
+        SRAM_DESELECT();
+    }
+ 
+    return retry != 0;
+}
+```

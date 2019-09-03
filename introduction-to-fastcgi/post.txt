@@ -1,0 +1,9 @@
+---
+title: "Introduction to FastCGI"
+date: 2012-08-06
+---
+
+This is a brief introduction to FastCGI that I created.
+
+<iframe src="embedder.html#slides-good.html" width="640" height="480"
+style="display:block; margin:0 auto;"/>
