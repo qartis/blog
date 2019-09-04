@@ -1,0 +1,22 @@
+---
+title: "AVR .initN sections and GCC -flto"
+date: 2013-02-11
+---
+
+While programming with avr-gcc I recently ran into a problem. Code placed into
+the .init3 section with `__attribute__((section(".init3")))` wasn't being
+included in GCC's output. The culprit ended up being GCC's -flto optimization
+setting. GCC's link-time optimization (LTO) feature aggressively performs
+garbage collection on unused bits of code (among other things). The AVR linker
+scripts included with binutils know to always include the .initN and .finiN
+sections, but by that time LTO has already discarded them. So the moral of the
+story is you must add `__attribute__((used))` to your function:
+
+```
+void func(void) __attribute__((section(".init3"), naked, used));
+ 
+void func(void)
+{
+    /* code */
+}
+```

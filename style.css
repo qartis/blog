@@ -2,18 +2,40 @@ body {
   margin:40px auto;
   max-width:990px;
   color:#222;
-  padding: 0 10px
+  padding: 0 10px;
+  font-size: 1.2em
 }
 
-p { font-size: 1.2em; line-height: 1.2em; }
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+p { line-height: 1.2em; }
 p.caption { font-size: 1em; text-align: center; margin-top:0 }
 h1,h2,h3 { line-height:1.2 }
 tr.header { background: #ddd }
-tr.even { background: #eee }
+tr.odd { background: #eee }
 div.figure img {
   max-width: 80%;
   display: block;
   margin: 10px auto 0;
+}
+
+h2#comments ~ p {
+/*color: red; */
+}
+h2#comments ~ h4 {
+margin-block-end: -1em;
+}
+
+div[style*="float:left"] {
+  margin-right: 20px;
+}
+
+div[style*="float:right"] {
+  margin-left: 20px;
 }
 
 
@@ -53,4 +75,3 @@ div.figure img {
   height: 100%;
   object-fit: cover;
 }
-

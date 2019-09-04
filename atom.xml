@@ -35,16 +35,6 @@
     <content>Trip report: July 4th trip to Albuquerque</content>
   </entry>
   <entry>
-    <title>Replacing the clutch on a DR650</title>
-    <id>http://blog.qartis.com/changing_clutch_on_dr650</id>
-    <link href="http://blog.qartis.com/changing_clutch_on_dr650"/>
-    <author>
-      <name>Andrew</name>
-    </author>
-    <updated>2018-05-22T00:00:00Z</updated>
-    <content>Replacing the clutch on a DR650</content>
-  </entry>
-  <entry>
     <title>Project 121</title>
     <id>http://blog.qartis.com/project_121</id>
     <link href="http://blog.qartis.com/project_121"/>
@@ -53,5 +43,15 @@
     </author>
     <updated>2016-07-25T00:00:00Z</updated>
     <content>Project 121</content>
+  </entry>
+  <entry>
+    <title>Arduino Library for UT390B</title>
+    <id>http://blog.qartis.com/arduino-library-for-ut390b</id>
+    <link href="http://blog.qartis.com/arduino-library-for-ut390b"/>
+    <author>
+      <name>Andrew</name>
+    </author>
+    <updated>2015-05-28T00:00:00Z</updated>
+    <content>Arduino Library for UT390B</content>
   </entry>
 </feed>

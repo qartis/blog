@@ -1,0 +1,28 @@
+---
+title: "UT390B laser distance meter error numbers"
+date: 2014-09-09
+---
+
+I've gotten a few emails asking for help about the Uni-T UT390B laser distance
+meter because the operating manual is written in Chinese. I've created a list
+of the unit's error messages in case it's useful for anyone developing with
+this device.
+
+```c
+enum {
+    ERR_BATTERY_LOW = 101,
+    ERR_CALCULATION = 104,
+    ERR_HIGH_TEMP = 152,
+    ERR_LOW_TEMP = 153,
+    ERR_OUT_OF_RANGE = 154,
+    ERR_WEAK_SIGNAL = 155,
+    ERR_STRONG_SIGNAL = 156,
+    ERR_BACKGROUND_ILLUM = 157,
+    ERR_DEVICE_SHAKING = 160
+};
+```
+
+## Comments
+
+#### Arthur Ilgizovich Gumerov
+164???

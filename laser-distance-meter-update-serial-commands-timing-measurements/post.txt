@@ -1,0 +1,165 @@
+---
+title: "Laser distance meter update: serial commands, timing measurements"
+date: 2013-10-16
+---
+
+In [my first post](/arduino-laser-distance-meter/) about the laser distance
+meter I asked for help finding usable commands to control the unit, and within
+days reader [speleomaniac](/parsing-laser-distance-meter-serial-output/#speleomaniac)
+had found a command format and several commands. Let's have a look! But first
+I'll explain some timing measurements that people have been emailing about.
+
+## Timing measurements
+
+The unit is able to take just over 1 measurement per second using the
+single-shot __`*00004#`__ command on a flat surface (see below). However there is
+also a __rapid-fire mode__ which can be activated by holding the ON button for
+about 1000mS. So far I haven't found a serial command to begin rapid-fire mode
+(edit: the command is __`*00084553#`__, scroll down for details). In rapid-fire mode,
+the unit takes 100 measurements in quick bursts, and it's capable of scanning
+just over 3 measurements per second off a smooth, reflective surface. When the
+laser beam is scanned across soft or bumpy surfaces the measurements take
+longer, and when the laser beam is out of range or shaky, the unit will output
+an error and continue until it has attempted all 100 measurements. The output
+for each failed measurement is:
+
+```
+OUT_RAN dist = 18
+OUT_RAN dist = 31
+OUT_RAN dist = 30
+[...]
+```
+
+I've uploaded a text file containing raw sensor measurements, with timestamps
+added at the beginning of each line to show the speed. It can be downloaded
+here: [ut390b_laser_timing.txt](./files/ut390b_laser_timing.txt).
+
+## Commands
+### Command __`*00001#`__
+
+  Outputs the message
+
+   ```
+   pMsgWrite TRUE 
+   pInitDataWrite TRUE
+   ```
+
+### Command __`*00002#`__
+
+  Takes 3 readings, screen shows "Er". Outputs the 3 measurements in array notation (distance is 103.7mm):
+
+  ```
+  u32Dist[0]=1037  u32Dist[1] =1037 u32Dist[2] =1037
+  u32temp =0
+  *000720150000000042#
+  ```
+
+  See below for an explanation of the last line ending in 42#.
+
+### Command __`*00004#`__
+
+  Takes 1 measurement, screen shows the measurement. Outputs the measurement like this: (distance is 112.7mm)
+
+  ```
+  Dist: 1127,curtemp =22 
+
+  V2.0 
+  nDist: 1127,tempDv=0
+
+  *0006400000112784#
+  ```
+  See below for an explanation of the last line ending in 84#.
+
+### Command __`*00005#`__
+
+  Memory dump. I'm not sure why, but some measurements are recorded to the
+  unit's nonvolatile memory. Not all measurements are stored -- measurements that
+  will be stored will display the following additional message:
+
+  ```
+  Dist: 3122,curtemp =21 
+
+  V2.0 
+  nDist: 3122,tempDv=0
+
+  WriteTestData TRUE
+  ```
+
+  The memory dump command outputs these recorded measurements in the following format:
+
+  <pre><code>
+  *\
+<font class=r>00245</font>\
+<font class=b>00001</font>\
+<font class=g>00000185</font>\
+<font class=pp>00000187</font>\
+<font class=pk>00000000</font>\
+<font class=br>00000000</font>\
+<font class=b>00000000</font>\
+<b>61#</b>
+  </code></pre>
+
+  These fields are, in order:
+
+  1. <font class=r>Command type (memory dump)</font>
+  2. <font class=b>Counter (starts at 00001 and counts up)</font>
+  3. <font class=g>First measurement</font>
+  4. <font class=pp>Second measurement</font>
+  5. <font class=pk>Third measurement</font>
+  6. <font class=br>Fourth measurement</font>
+  7. <font class=b>Fifth measurement</font>
+  8. <b>Checksum</b>
+
+
+
+  Not all measurements will be recorded on a given line (I'm not sure why). The
+  checksum format is as follows: interpret the data bytes between * and # as
+  2-digit base-10 integers, and add them together (skipping the checksum). Mod
+  the resulting value by 100. For example:
+  
+  ```
+  00+24+50+00+01+00+00+01+85+00+00+00+00
+       +00+00+00+00+00+00+00+00+00+00+00+00 = 161
+  ```
+  
+  and
+  
+  ```
+  161 % 100 = 61
+  ```
+  
+  Which gives the resulting checksum of 61. This can be used to verify the serial
+  output of the unit.
+
+### Command __`*100515#`__
+
+  Turns on laser light (seems to freeze the screen, and the buttons no longer work).
+
+### Command __`*100111#`__
+
+  Some kind of memory dump. I've seen between 1-3 lines of output for this command, depending on how many times the laser has been used. Typical output looks like this:
+
+  ```
+  *00261100000000000411000000000000000150119723520395002812#
+  curent ver:420411
+  ```
+  Where the highlighted values constantly fluctuate up and down (the 97 sometimes becomes 96, etc).
+
+### Command __`*00084553#`__
+
+  Begin rapidfire measurement.
+
+### Command __`#`__
+
+  Repeat previous command.
+
+Thanks to all the readers who have offered info about this laser unit. Good luck!
+
+<style>
+font.r { color:#ff0000 }
+font.b { color:#00ccff }
+font.g { color:#339966 }
+font.pp { color:#333399 }
+font.pk { color:#ff00ff }
+font.br { color:#800080 }
+</style>
