@@ -1,0 +1,170 @@
+---
+title: "TCP seqno prediction"
+date: 2013-xx-xx
+header-includes: |
+    <style>
+    .greyed-out { color: lightgrey }
+    p { font-size: 30px }
+    .white-text ~ figcaption { color: white }
+    .hidden-text ~ figcaption { display: none }
+    .maxheight { height: 500px }
+    </style>
+---
+
+### TCP
+. . .
+
+`>` SYN
+
+. . .
+
+`<` SYN/ACK
+
+. . .
+
+`>` ACK
+
+. . .
+
+```
+> GET /index.html\r\n
+Host: lemonparty.com\r\n
+Connection: close\r\n
+```
+
+
+### TCP
+. . .
+
+`>` SYN (0)
+
+. . .
+
+`<` SYN(0)/ACK(1)
+
+. . .
+
+`>` ACK(1)
+
+
+### TCP
+. . .
+
+`>` SYN(0)
+
+. . .
+
+[`<` SYN(0)/ACK(1)]{.greyed-out}
+
+. . .
+
+`>` ACK(1)
+
+
+### TCP
+. . .
+
+`>` SYN(39275)
+
+. . .
+
+[`<` SYN(11902)/ACK(39276)]{.greyed-out}
+
+. . .
+
+`>` ACK(?)
+
+### Sequence numbers
+
+```
+S0 = 244782
+S1 = 245581
+S2 = 246380
+S3 = 247176
+S4 = 247975
+S5 = 248771
+...
+```
+
+### Sequence numbers
+Map relationships to cartesian coordinates:
+
+$$
+\begin{eqnarray*}
+x_t &=& D_t &=& S_t - S_{t-1} \\
+y_t &=& D_{t-1} &=& S_{t-1} - S_{t-2} \\
+z_t &=& D_{t-2} &=& S_{t-2} - S_{t-3}
+\end{eqnarray*}
+$$
+
+
+<footer>
+<p>Credit: Silence on the Wire (Michal Zalewski)</p>
+<p><a href="http://lcamtuf.coredump.cx/silence.shtml">http://lcamtuf.coredump.cx/silence.shtml</a></p>
+</footer>
+
+
+---
+
+![placeholder](photos/fig10-3_0.jpg){.hidden-text}
+
+---
+
+![Windows 98](photos/fig10-6_0.jpg){.white-text}
+
+---
+
+![FreeBSD 4.2](photos/fig10-7_0.jpg){.white-text}
+
+---
+
+![NT 4.0 SP3](photos/fig10-10_0.jpg){.white-text}
+
+---
+
+![IRIX 6.5](photos/fig10-11_0.jpg){.white-text}
+
+---
+
+![OpenVMS 7.2](photos/fig10-14_0.jpg){.white-text}
+
+---
+
+![NetWare 6](photos/fig10-12_0.jpg){.white-text}
+
+---
+
+![Linux 2.2](photos/linux.jpg){.white-text}
+
+### Attacks
+rlogin
+
+IP-based auth
+
+Mitnick's Christmas Day attack
+
+### Attacks
+
+![placeholder](photos/seqno_attack.png){.hidden-text .maxheight}
+
+### Attacks
+ISNProber
+
+Determine if a set of IPs are served by the same host
+
+### Attacks
+Active fingerprinting
+
+- QueSO ("Que Sistema Operativo?")
+- Xprobe 2
+- Nmap
+
+### Attacks
+Passive fingerprinting
+
+- Nmap
+- Ettercap
+- Sscan2kpre625
+
+### Q&A
+Any questions?
