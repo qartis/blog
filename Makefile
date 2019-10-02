@@ -16,11 +16,13 @@ all:
 		awk '/[-]+(\|[-]+)+/ {print gensub("-", "", "G", $$0); print; next} {print}' | \
 		sed -e 's@^\s*image:\(.*.\(jpg\|png\)\)\[\(.*\)]\s*$$@<div class="figure"><a href="photos/\1"><img src="photos/thumbnails/\1" alt="\3"></a><p class="caption">\3</p></div>@' | \
 		sed -e 's@^\s*image:\(.*.\(jpg\|png\)\)\s*$$@<div class="figure"><a href="photos/\1"><img src="photos/thumbnails/\1" alt="\1"></a></div>@' | \
+		sed -e 's@^\s*imagethumb:\(.*.\(jpg\|png\)\)\[\(.*\)]\s*$$@<div class="figure"><img src="photos/thumbnails/\1" alt="\3"><p class="caption">\3</p></div>@' | \
+		sed -e 's@^\s*imagethumb:\(.*.\(jpg\|png\)\)\s*$$@<div class="figure"><img src="photos/thumbnails/\1" alt="\1"></div>@' | \
 		sed -e 's@^\s*image:\(.*\).mov\[\(.*\)]\s*$$@<div class="figure"><a href="photos/\1.mov"><img src="photos/thumbnails/\1.jpg" alt="\2"></a><p class="caption">\2</p></div>@' | \
 		sed -e 's@^\s*image:\(.*\).mov\s*$$@<div class="figure"><a href="photos/\1.mov"><img src="photos/thumbnails/\1.jpg" alt="\1.mov"></a></div>@' | \
 		sed -e 's@^\s*image:\(.*\).mp4\[\(.*\)]\s*$$@<div class="figure"><a href="photos/\1.mp4"><img src="photos/thumbnails/\1.jpg" alt="\2"></a><p class="caption">\2</p></div>@' | \
 		sed -e 's@^\s*image:\(.*\).mp4\s*$$@<div class="figure"><a href="photos/\1.mp4"><img src="photos/thumbnails/\1.jpg" alt="\1.mp4"></a></div>@' | \
-		pandoc --template=../files/template.html -t html4 -f markdown --no-highlight /dev/stdin > index.html
+		pandoc --template=../files/template.html -t html4 -f markdown --no-highlight --lua-filter ../files/filter.lua --extract-media photos /dev/stdin > index.html
 	if [ -d photos ]; then cd photos; ../../files/gallery_simplest.py --max-width 600 *.jpg *.mov *.png *.mp4; fi
 
 .PHONY: clean

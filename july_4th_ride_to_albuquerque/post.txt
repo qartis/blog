@@ -3,8 +3,8 @@ title: "Trip report: July 4th trip to Albuquerque"
 date: 2018-07-09
 ---
 
-I decided to do my first Saddlesore 1000 from East Palo Alto to Albuquerque on
-July 4th. Here's a rough report of how it went:
+I decided to do my first [Saddlesore 1000][1] from East Palo Alto to
+Albuquerque on July 4th. Here's a rough report of how it went:
 
 ## Day 1
 Left at 5:45am. I made sure to wear my american flag socks
@@ -79,3 +79,5 @@ Final odometer reading: 2797mi.
 [All photos](./photos/)
 
 <https://photos.app.goo.gl/5zSvT9BkQ7PHydzn6>
+
+[1]: http://www.ironbutt.com/themerides/ssseries/

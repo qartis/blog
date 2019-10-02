@@ -1,0 +1,42 @@
+---
+title: "DR650 rally in LaSal, UT"
+date: 2019-09-05
+---
+
+I decided to go to a DR650 rally that I saw on the advrider.com forum.
+
+# Day 1: East Palo Alto to Nevada
+
+I left on Wednesday, Sept 4 at 4:30pm. I had to work that day so I packed my
+camping stuff onto my bike and brought it all with me to work. First 2 hours of
+the trip was pretty solid traffic that I lane-split through. Ate at McDonalds
+near Sacramento. I spent many hours on the first day whistling this melody over
+and over:
+
+```{.abc name=whistle_tune}
+X:1
+K:C
+|: fed cde | fed cde | f_ed cd_e | f_ed cd=e :|
+```
+
+At Reno I hit a little bit of rain. While I stopped to get gas at 7-11 I transferred the first few episodes of Westworld Season 2 to my phone and to the server at home. Sarah and I had just finished Season 1, and since I wouldn't have cell coverage at the Rally the plan was we would each watch 1 episode per night starting at 11pm PDT (12am MDT for me in Utah).
+
+At (39.2639,-118.3808) I hit a big rainstorm, and the rain hurt as it hit my exposed nose. Dang, desert rain drops sure are sharp. I took one of my July 4th socks out of my pannier and stuffed it around my goggles. It was clean so all I smelled was fabric softener.
+
+image:IMG_2599.jpg
+
+Once (39.5023,-117.7812)
+
+played whistled Melody (nutcracker triplets). tried to find spot to sleep, keg trapped under bike, gas spilled, trick coming, laid flat, pretended to be dead, finally got foot out, stepped into another hole, bike feel onto other side, finally slept, played piffles, bike wouldn't start, got it started, went to tasty Cafe, zoning out, 3 hours can be 11 minutes, or a song can turn into half a tank of gas, road work 30 mins 10 mins, talked to Quebec couple, Alaska, wife riding 3 years, going to Yellowstone. found I can whistle like dentist suction thing in mouth, police car, European ambulance, 50s UFO sound. bottom lip flipped down, felt like Tony Clifton licking lips and singing. did scales music.  singing songs, strawberry beret, don't want no small dick man, 
+
+
+email Destin about waymo's collaboration.
+
+```{.dot name=day_flowchart}
+ digraph G {
+  hungry -> eat -> full;
+  full -> sleepy;
+  tired -> sleepy;
+  riding -> tired;
+ }
+```

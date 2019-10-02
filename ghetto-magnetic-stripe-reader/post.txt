@@ -5,47 +5,46 @@ date: 2012-03-20
 
 It's quite easy to read data off of magnetic stripe cards. Each card has up to
 3 horizontal tracks of data (but the third track is rarely used). Track 1 is
-formatted according to IANA standards, which means 7 bits per character.
-Individual bits of the digital data are physically stored using Aiken-Biphase
-encoding, which means a 0-bit is represented by a zone with a single direction
-of magnetic flux, and a 1-bit is represented by a zone of two different
-magnetic flux directions. This can be visualized using <font> **<** </font> and
-<font> > </font> characters representing the different directions of magnetic
-flux:
+was designed by the International Air Transport Association (IATA), and
+contains a 6-bit encoding derived from ASCII which is documented in ISO/IEC
+7811-6 section 10.1.3 "Coded Character Set".  Individual bits of the digital
+data are physically stored using Aiken-Biphase encoding, which means a 0-bit is
+represented by a zone of a particular width having a single direction of magnetic
+flux, and a 1-bit is represented by a zone of the same width containing two
+different magnetic flux directions. This can be visualized using `<` and `>`
+characters representing the different directions of magnetic flux:
 
-<font>
-**<<<<**>>>>**<<<<**>>>>**<<**>>**<<<<**>>**<<**>>>>
-</font>
+field: llllrrrrllllrrrrllrrllllrrllrrrr
+flux:  <<<<>>>><<<<>>>><<>><<<<>><<>>>>
 
 This represents the bit pattern 00001010. A magnetic field acts like a flowing
-river of water, and at the center of a junction like <font> >>**<<** </font>
-the two waves collide, which causes the magnetic flux density to grow very high
-around that point. Similarly at a <font> **<<**>> </font> junction, the
-magnetic flux at the middle point becomes very strong but with the opposite
-polarity than the <font>>>**<<**</font> junction. We can detect this magnetic
-flux polarity by moving a coil of wire through the magnetic fields that
-surround the magnetic zones. As the coil moves through the field, the changing
-magnetic field strength causes electric potential in the coil. If the coil is
-hooked up to an electric circuit, it will act like an AC generator, which
-switches polarity whenever the coil passes from one zone of magnetic flux to a
-zone of the opposite magnetic flux. Spikes of electric potential will be
-induced in the coil as it passes the <font> >>**<<** </font> and <font>
-**<<**>> </font> junction points.  We can analyze the timing of these spikes to
-recreate the original data stored on the magnetic stripe.
+river of water, and at the center of a junction like `>><<` the two waves
+collide, which causes the magnetic flux density to grow very high around that
+point. Similarly at a `<<>>` junction, the magnetic flux at the middle point
+becomes very strong but with the opposite polarity than the `>><<` junction. We
+can detect this magnetic flux polarity by moving a coil of wire through the
+magnetic fields that surround the magnetic zones. As the coil moves through the
+field, the changing magnetic field strength causes electric potential in the
+coil. If the coil is hooked up to an electric circuit, it will act like an AC
+generator, which switches polarity whenever the coil passes from one zone of
+magnetic flux to a zone of the opposite magnetic flux. Spikes of electric
+potential will be induced in the coil as it passes the `>><<` and `<<>>`
+junction points.  We can analyze the timing of these spikes to recreate the
+original data stored on the magnetic stripe.
 
 I salvaged the tape read head from an old audio cassette player. Tape heads are
 just a small coil of wire mounted in a chunk of plastic or metal. The coil in
 the tape head was connected to 4 individual wires, and I used a multimeter and
 found that 2 pairs of wires had 300 ohms of resistance between them, and the
-other wires weren't electrically connected at all. I guess this is because the
-tape head has 2 separate coils to read stereo audio tapes. I cut an old audio
-cable in half and connected the GND and LEFT wires to one of the coils in the
-tape head. I plugged the audio cable into my sound card's Mic input, and turned
-up the amplification of the Mic channel. I swiped the tape head past a magnetic
-stripe and I could hear a garbled digital chirp. I used Audacity to record the
-chirp and zoomed in until I could see the waveform clearly. Sure enough, the
-areas where two opposite magnetic fields collided could be clearly seen as
-positive and negative spikes in the signal.
+other wires weren't electrically connected to that pair at all. I guess this is
+because the tape head has 2 separate coils to read stereo audio tapes. I cut an
+old audio cable in half and connected the GND and LEFT wires to one of the
+coils in the tape head. I plugged the audio cable into my sound card's Mic
+input, and turned up the amplification of the Mic channel. I swiped the tape
+head past a magnetic stripe and I could hear a garbled digital chirp. I used
+Audacity to record the chirp and zoomed in until I could see the waveform
+clearly. Sure enough, the areas where two opposite magnetic fields collided
+could be clearly seen as positive and negative spikes in the signal.
 
 image:aiken-biphase.png
 
@@ -56,15 +55,17 @@ single bit. Then as I moved the pencil along the signal, 0-bits were
 represented by the signal changing state once along the pencil's width, and
 1-bits were represented by the signal changing state twice within the same
 timeframe. Using the pencil trick, I managed to read the entire sequence of
-bits for track 1 of my credit card. Then I grouped them into 7-bit chunks, and
-looked them up in the ISO 7813 character table. Using this method I managed to
-read all of the stored information off of the credit card. In the waveform
-below you can also see that I didn't swipe the card at a constant speed, so the
-leftmost bits are spaced slightly wider than the rightmost bits, but it's still
-very easy to distinguish the data.
+bits for track 1 of my credit card. Then I grouped them into 7-bit chunks (6
+data bits + parity bit), and looked them up in the ISO 7813 character table.
+Using this method I managed to read all of the stored information off of the
+credit card. In the waveform below you can also see that I didn't swipe the
+card at a constant speed, so the leftmost bits are spaced slightly wider than
+the rightmost bits, but it's still very easy to distinguish the data.
 
 image:aiken-biphase-decoded.png
 
 <style>
-font { font-family: courier }
+.l, .r { font-family: monospace; font-weight: bold }
+.l { color: green }
+.r { color: blue }
 </style>

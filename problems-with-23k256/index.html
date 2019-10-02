@@ -13,8 +13,8 @@
     <p class="date">2013-07-09</p>
   </header>
 <p>The Microchip 23K256 is a great little device with 32 KiB of fast static ram over an SPI interface. I had some trouble getting this chip to work, and after searching online it looks like many people have some common problems. I’ll show you a brief checklist you can use if you’re having trouble like I was.</p>
-<h4 id="the-hold-pin">The HOLD pin</h4>
-<p>This pin can be used to pause a sequential transfer and resume it immediately without having to re-send the address. If you don’t care about this feature, tie the HOLD pin to Vcc (3.3v).</p>
+<h4 id="the-hold-pin">The <span class="bar">HOLD</span> pin</h4>
+<p>This pin can be used to pause a sequential transfer and resume it immediately without having to re-send the address. If you don’t care about this feature, tie the <span class="bar">HOLD</span> pin to Vcc (3.3V).</p>
 <h4 id="the-nc-pin">The NC pin</h4>
 <p>This pin should not be connected to anything, including Vcc or GND. Just leave it floating.</p>
 <h4 id="the-hold-bit">The HOLD bit</h4>
@@ -26,7 +26,7 @@
 <h4 id="mosimiso">MOSI/MISO</h4>
 <p>The chip’s datasheet labels these pins SI/SO. There are several sources online (including Wikipedia) that say SO means Serial Output. Nope, when we’re dealing with SPI, SO always means Slave Out. As in, the data stream going out from the SPI slave device (the 23K256) to the microcontroller.</p>
 <h4 id="sscs">SS/CS</h4>
-<p>This is a big gotcha with Arduinos and all Atmel AVR microcontrollers. You can use any gpio pin as a Slave Select (aka Chip Select) line. However, the microcontroller’s primary SS pin must be set as an output during SPI operation, even if you’re not using it. If the SS pin isn’t explicitly configured as an output pin, SPI transactions will mysteriously fail (usually by timing out because the SPIF bit never goes high), because the SPI hardware will be in slave mode. This is an easy mistake to make!</p>
+<p>This is a big gotcha with Arduinos and all Atmel AVR microcontrollers. You can use any gpio pin as a Slave Select (aka Chip Select) line. However, the microcontroller’s <em>primary</em> SS pin must be set as an output during SPI operation, even if you’re not using it. If the SS pin isn’t explicitly configured as an output pin, SPI transactions will mysteriously fail (usually by timing out because the SPIF bit never goes high), because the SPI hardware will be in slave mode. This is an easy mistake to make!</p>
 <h4 id="the-init-sequence">The init sequence</h4>
 <p>The 23K256 essentially has no init, but we can write a simple routine to make sure communication is working:</p>
 <pre><code>#define SRAM_DESELECT() PORTD |= (1 &lt;&lt; PORTD7);
@@ -69,6 +69,9 @@ uint8_t sram_init(void)
  
     return retry != 0;
 }</code></pre>
+<style>
+.bar { text-decoration: overline }
+</style>
 <h2 id="comments">Comments</h2>
 <h4 id="janis-lejins">Janis Lejins</h4>
 <p>Hey there.</p>

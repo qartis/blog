@@ -1,5 +1,6 @@
 ## Comments
 
+
 #### Mijael
 Thank you!
 
@@ -19,22 +20,25 @@ for me so I can have it take a measurement, but it's returning gibberish like:
 I may as well answer my own question here... yes, newer units are behaving the
 same way.
 
-
 First mistake was trying to use software serial. Second, even using the
 hardware serial port, trying to read the data 1 char at a time in a loop
 doesn't work either (buffer overflowing because I'm not reading the data out
 fast enough?), and it wasn't until I followed Andrews lead and used
 Serial.readBytes that I started seeing the expected results.
 
+
 #### Dardan
 <http://youtu.be/qUgFji4Figw>
+
 
 #### Dardan
 * 00 08 45 53 # for rapid fire
 
+
 #### Dardan
 Laser.ino
 <https://www.dropbox.com/s/l8ordokmiq7bqfe/LASER.ino>
+
 
 #### John
 I've just got my hands on a UT391 - looks exactly the same as the 390B, but
@@ -62,6 +66,7 @@ Once I put it into rapid fire, I get something like:
 The distance is around 1981mm, so its easy enough to parse out the length.
 
 I'll add some more documentation on my website <http://www.john.geek.nz>
+
 
 #### Waldo
 I've looked into the commands used to control the UT390B via the serial port.
@@ -344,6 +349,7 @@ r
 ==========================================
 ```
 
+
 #### Lemon Paeroa
 Hi,  
 In order to get the unit into 'debug' mode exactly which pad do I connect +3v
@@ -353,6 +359,7 @@ this the pad to connect +3v too?
 
 Cheers
 
+
 #### Ken Aspeslagh
 Fun stuff! Thanks Andrew for posting all this info. I was able to get the
 measurement to go over BTLE to an iPad using a Lightblue Bean. There is a Nano
@@ -360,14 +367,17 @@ between them because the Bean doesn't have a usable UART.
 
 <https://youtu.be/P3M3ydBfkT8>
 
+
 #### erniejunior
 Hi guys, I just wrote a simple Arduino library that provides a basic interface
 to the laser.
 
 <https://github.com/erniejunior/UT390B-Arduino-Library>
 
+
 #### jakkrit
 Tx rx connect ? UT391
+
 
 #### Virgafox
 Hi,  
@@ -375,6 +385,7 @@ I'm trying to replicate your result, using a Bluefruit LE micro which is
 basically an arduino micro + BLE. I can trigger the measurement but I get total
 gibberish in return although I'm using an hardware serial. Can I ask you the
 code you used with the micro? Thanks a lot
+
 
 #### Ken
 It's been a while so I don't remember a lot about this project, but looking
@@ -407,6 +418,7 @@ printf("Dist: %f cm", foo/100.0);
 }
 ```
 
+
 #### unocero
 I think that `*00002#` is a power calibration:
 ```
@@ -417,6 +429,7 @@ F3 Dev =8,nAmp = 458mv
 ```
 And Laser views with less power  
 Are you think?
+
 
 #### unocero
 And `*00003#` give me:
@@ -429,14 +442,17 @@ With
 ver:250.27
 ```
 
+
 #### Shible Isteak
 Can you please share how did you connect with UT391?
+
 
 #### C Forster
 I just purchased a UT393A and the layout is quite different.
 <https://uploads.disquscdn.com/images/cd94cce0a2bc4ec9f7413ffba8434ec4a59b0c72034c90122dc220f9ace8a202.png>
 Anyone have any experience with this?
 Looks like they are just connected to the swim port.
+
 
 #### Austin T
 Agree the later models (UnitT 393B+) also have this same pinout. The location
@@ -451,6 +467,7 @@ and 100 yards.
 
 My unit has two solder pads labeled RX and TX but there is nothing toggling on
 them and they do not respond to commands as listed above.
+
 
 #### TAYBA
 Hello John,

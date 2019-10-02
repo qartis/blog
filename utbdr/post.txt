@@ -142,7 +142,7 @@ rest of the trip, but once again the only 17" rear tire they had was a D606.
 
 > Fool me once shame on you.  
 > Fool me twice shame on me.  
-> Fool me three times shame on me.  
+> Fool me three times shame on me.
 
 The managed offered to mount the new tire for free, and normally I like to do
 my own bike maintenance but it was so hot at this point that I was glad to
@@ -180,7 +180,7 @@ secluded canyons. So far I'm really liking the UTBDR. Google Maps keeps
 forgetting the GPS tracks that I've imported, but luckily I also loaded the GPX
 tracks in an app called [Open GPX Tracker](http://github.com/merlos/iOS-Open-GPX-Tracker)
 that works great. Some small water crossings here. I set up camp at a beautiful
-spot in Manti-La Sal National Forest at (37.659069,-109.709686).
+spot in Manti-La Sal National Forest at (37.6590,-109.7096).
 
 
 image:IMG_1453.jpg
@@ -240,7 +240,7 @@ other side of the road.
 
 image:IMG_1500.jpg[Moove]
 
-Got to (37.814328,-109.486751) and found a locked gate. Hmm, the UTBDR FAQ said
+Got to (37.8143,-109.4867) and found a locked gate. Hmm, the UTBDR FAQ said
 there shouldn't be any locked gates. The most recent fork in the road was at
 least 20 minutes ago and I didn't want to have to backtrack so early on so I
 went around the gate, wondering why it was locked. This bit of road went up and
@@ -425,24 +425,23 @@ hard to find a suitable spot to cross.
 image:IMG_1579.jpg[The road continues just past the water on the right]
 image:IMG_1580.mp4
 
-At the base of the canyon at (40.115531,-110.812647) there were some road
-closure signs blocking the entrance to the road I came from, and the
-intersection of the two canyons had turned into a big lake. I met some people
-on Polaris SxS machines who were surprised that I had tried to go up the same
-way I came but got blocked by some of the washouts. They told me they lived a
-few miles north and that the canyon had severe flooding earlier in the year,
-and the water was already several feet lower than it was a month ago. They
-helpfully explained where there was a higher path through the water that would
-rejoin the road around the next bend. I continued on to Fruitland hoping to
-find a secluded spot to set up camp, but every little road I turned down ended
-in a driveway or a gated community. I rode back to The Big G in Fruitland and
-got myself some dinner and a rest in the parking lot. My headlamp has a red
-light mode so I zip tied it to the back of my bike to replace my broken
-taillight since I would be riding on the highway with lots of speeding semis
-and it was completely dark out. I continued north on the interstate looking for
-a hidden place to camp and ended up finding a short dirt road that went up a
-hill to a cell tower. Apparently it wasn't an AT&T tower because I didn't get
-any cell reception.
+At the base of the canyon at (40.1155,-110.8126) there were some road closure
+signs blocking the entrance to the road I came from, and the intersection of
+the two canyons had turned into a big lake. I met some people on Polaris SxS
+machines who were surprised that I had tried to go up the same way I came but
+got blocked by some of the washouts. They told me they lived a few miles north
+and that the canyon had severe flooding earlier in the year, and the water was
+already several feet lower than it was a month ago. They helpfully explained
+where there was a higher path through the water that would rejoin the road
+around the next bend. I continued on to Fruitland hoping to find a secluded
+spot to set up camp, but every little road I turned down ended in a driveway or
+a gated community. I rode back to The Big G in Fruitland and got myself some
+dinner and a rest in the parking lot. My headlamp has a red light mode so I zip
+tied it to the back of my bike to replace my broken taillight since I would be
+riding on the highway with lots of speeding semis and it was completely dark
+out. I continued north on the interstate looking for a hidden place to camp and
+ended up finding a short dirt road that went up a hill to a cell tower.
+Apparently it wasn't an AT&T tower because I didn't get any cell reception.
 
 image:IMG_1589.jpg[Replacement taillight]
 image:IMG_1591.jpg
@@ -525,7 +524,7 @@ beans, instant oats, lentil mix, tea, medicine, boullion cubes
 
 image:IMG_1688.jpg[Tool tube contents]
 1) At the front of the tool tube, in plastic bag: Dr Bronner's soap, sockets
-   (17mm 14mm 13mm 12mm 10mm 8mm), fuses, safety wire, screwdriver bits (JIS,
+   (17mm 14mm 13mm 12mm 10mm 8mm), fuses, safety wire, screwdriver bits (JIS#2,
    flat, Torx T35, Torx T40), misc bolts
 2) Shoved into far end of tool tube: Paracord, clip-style chain link,
    electrical wire, [Procycle oil cooler bypass

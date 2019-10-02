@@ -49,19 +49,22 @@ nDist: 3122,tempDv=0
 
 WriteTestData TRUE</code></pre>
 <p>The memory dump command outputs these recorded measurements in the following format:</p>
-<pre><code>
+<p><span class="a">00245</span><span class="b">00001</span><span class="c">00000185</span><span class="d">00000187</span><span class="e">00000000</span><span class="f">00000000</span><span class="g">00000000</span><span class="h">61#</span></p>
+<!--
+  <pre><code>
   *<font class=r>00245</font><font class=b>00001</font><font class=g>00000185</font><font class=pp>00000187</font><font class=pk>00000000</font><font class=br>00000000</font><font class=b>00000000</font><b>61#</b>
   </code></pre>
+-->
 <p>These fields are, in order:</p>
 <ol style="list-style-type: decimal">
-<li><font class=r>Command type (memory dump)</font></li>
-<li><font class=b>Counter (starts at 00001 and counts up)</font></li>
-<li><font class=g>First measurement</font></li>
-<li><font class=pp>Second measurement</font></li>
-<li><font class=pk>Third measurement</font></li>
-<li><font class=br>Fourth measurement</font></li>
-<li><font class=b>Fifth measurement</font></li>
-<li><b>Checksum</b></li>
+<li><span class="a">Command type</span> (memory dump)</li>
+<li><span class="b">Counter</span> (starts at 00001 and counts up)</li>
+<li><span class="c">First measurement</span></li>
+<li><span class="d">Second measurement</span></li>
+<li><span class="e">Third measurement</span></li>
+<li><span class="f">Fourth measurement</span></li>
+<li><span class="g">Fifth measurement</span></li>
+<li><span class="h">Checksum</span></li>
 </ol>
 <p>Not all measurements will be recorded on a given line (I’m not sure why). The checksum format is as follows: interpret the data bytes between * and # as 2-digit base-10 integers, and add them together (skipping the checksum). Mod the resulting value by 100. For example:</p>
 <pre><code>00+24+50+00+01+00+00+01+85+00+00+00+00
@@ -82,12 +85,15 @@ curent ver:420411</code></pre>
 <p>Repeat previous command.</p>
 <p>Thanks to all the readers who have offered info about this laser unit. Good luck!</p>
 <style>
-font.r { color:#ff0000 }
-font.b { color:#00ccff }
-font.g { color:#339966 }
-font.pp { color:#333399 }
-font.pk { color:#ff00ff }
-font.br { color:#800080 }
+.a,.b,.c,.d,.e,.f,.g,.h { font-weight: bold; font-family:monospace; }
+.a {color: red}
+.b {color: mediumblue}
+.c {color: green}
+.e {color: deepskyblue}
+.g {color: orange}
+.d {color: purple}
+.f {color: magenta}
+.h {color: limegreen}
 </style>
 <h2 id="comments">Comments</h2>
 <h4 id="mijael">Mijael</h4>

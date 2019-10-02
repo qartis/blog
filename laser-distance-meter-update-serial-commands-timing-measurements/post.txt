@@ -87,6 +87,10 @@ here: [ut390b_laser_timing.txt](./files/ut390b_laser_timing.txt).
 
   The memory dump command outputs these recorded measurements in the following format:
 
+field:  aaaaabbbbbccccccccddddddddeeeeeeeeffffffffgggggggghhh
+values: 0024500001000001850000018700000000000000000000000061#
+
+<!--
   <pre><code>
   *\
 <font class=r>00245</font>\
@@ -98,19 +102,18 @@ here: [ut390b_laser_timing.txt](./files/ut390b_laser_timing.txt).
 <font class=b>00000000</font>\
 <b>61#</b>
   </code></pre>
+-->
 
   These fields are, in order:
 
-  1. <font class=r>Command type (memory dump)</font>
-  2. <font class=b>Counter (starts at 00001 and counts up)</font>
-  3. <font class=g>First measurement</font>
-  4. <font class=pp>Second measurement</font>
-  5. <font class=pk>Third measurement</font>
-  6. <font class=br>Fourth measurement</font>
-  7. <font class=b>Fifth measurement</font>
-  8. <b>Checksum</b>
-
-
+  1. [Command type]{.a} (memory dump)
+  2. [Counter]{.b} (starts at 00001 and counts up)
+  3. [First measurement]{.c}
+  4. [Second measurement]{.d}
+  5. [Third measurement]{.e}
+  6. [Fourth measurement]{.f}
+  7. [Fifth measurement]{.g}
+  8. [Checksum]{.h}
 
   Not all measurements will be recorded on a given line (I'm not sure why). The
   checksum format is as follows: interpret the data bytes between * and # as
@@ -156,10 +159,13 @@ here: [ut390b_laser_timing.txt](./files/ut390b_laser_timing.txt).
 Thanks to all the readers who have offered info about this laser unit. Good luck!
 
 <style>
-font.r { color:#ff0000 }
-font.b { color:#00ccff }
-font.g { color:#339966 }
-font.pp { color:#333399 }
-font.pk { color:#ff00ff }
-font.br { color:#800080 }
+.a,.b,.c,.d,.e,.f,.g,.h { font-weight: bold; font-family:monospace; }
+.a {color: red}
+.b {color: mediumblue}
+.c {color: green}
+.e {color: deepskyblue}
+.g {color: orange}
+.d {color: purple}
+.f {color: magenta}
+.h {color: limegreen}
 </style>

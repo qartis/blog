@@ -14,7 +14,7 @@ pre {
 
 p { line-height: 1.2em; }
 p.caption { font-size: 1em; text-align: center; margin-top:0 }
-h1,h2,h3 { line-height:1.2 }
+h1,h2,h3,h4 { /*line-height:1.2;*/ margin-block-end: 0 }
 tr.header { background: #ddd }
 tr.odd { background: #eee }
 div.figure img {
@@ -23,11 +23,9 @@ div.figure img {
   margin: 10px auto 0;
 }
 
-h2#comments ~ p {
-/*color: red; */
-}
 h2#comments ~ h4 {
-margin-block-end: -1em;
+  margin-block-end: -.7em;
+  margin-left: 0.5em;
 }
 
 div[style*="float:left"] {
@@ -38,6 +36,7 @@ div[style*="float:right"] {
   margin-left: 20px;
 }
 
+sup, sub { font-size: 0.7em; line-height: 0; }
 
 
 .photos {

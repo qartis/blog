@@ -8,10 +8,10 @@ over an SPI interface. I had some trouble getting this chip to work, and after
 searching online it looks like many people have some common problems. I'll show
 you a brief checklist you can use if you're having trouble like I was.
 
-#### The HOLD pin
+#### The [HOLD]{.bar} pin
 This pin can be used to pause a sequential transfer and resume it immediately
 without having to re-send the address. If you don't care about this feature,
-tie the HOLD pin to Vcc (3.3v).
+tie the [HOLD]{.bar} pin to Vcc (3.3V).
 
 #### The NC pin
 This pin should not be connected to anything, including Vcc or GND. Just leave
@@ -49,7 +49,7 @@ SPI slave device (the 23K256) to the microcontroller.
 #### SS/CS
 This is a big gotcha with Arduinos and all Atmel AVR microcontrollers. You can
 use any gpio pin as a Slave Select (aka Chip Select) line. However, the
-microcontroller's primary SS pin must be set as an output during SPI operation,
+microcontroller's *primary* SS pin must be set as an output during SPI operation,
 even if you're not using it. If the SS pin isn't explicitly configured as an
 output pin, SPI transactions will mysteriously fail (usually by timing out
 because the SPIF bit never goes high), because the SPI hardware will be in
@@ -101,3 +101,7 @@ uint8_t sram_init(void)
     return retry != 0;
 }
 ```
+
+<style>
+.bar { text-decoration: overline }
+</style>

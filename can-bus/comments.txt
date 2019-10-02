@@ -1,0 +1,33 @@
+## Comments
+
+#### pari
+how can i write c code in code vision for calculation crc 15 bit?????
+
+
+#### qartis
+I updated the post and added a bit of example code to show how to calculate the
+CRC.
+
+
+#### pari
+thanks for your help,but i dont understand how i can calculated crc for every
+data????and have out put by byneri format
+
+
+#### Successful Engineer
+This is one of the best most concise explanations I've seen, thanks mate.
+
+
+#### Sajith P
+Better you should use #define for raw values, Eg #define polynomial c599
+
+Readability would be more....!!
+
+
+#### Dwayne
+Did you ever get anywhere with this project? I'm a computer science student
+with 20 years truck repair experience. I'm taking an SAE seminar on the CAN
+data link found in trucks. I'm hoping to write a project at may incorporate any
+of this material if it is available, Like wiring schematics ext. I'm not
+stealing ideas but rather looking for similar ideas. Thanks
+<dwayne.barsotta@gmail.com>
