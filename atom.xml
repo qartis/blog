@@ -3,7 +3,27 @@
   <title>Personal blog of Andrew Fuller</title>
   <id>http://blog.qartis.com/index.xml</id>
   <link href="http://blog.qartis.com/index.xml" rel="self"/>
-  <updated>2019-08-16T00:00:00Z</updated>
+  <updated>2019-09-15T00:00:00Z</updated>
+  <entry>
+    <title>Bit field test</title>
+    <id>http://blog.qartis.com/bitfield_test</id>
+    <link href="http://blog.qartis.com/bitfield_test"/>
+    <author>
+      <name>Andrew</name>
+    </author>
+    <updated>2019-09-15T00:00:00Z</updated>
+    <content>Bit field test</content>
+  </entry>
+  <entry>
+    <title>DR650 rally in LaSal, UT</title>
+    <id>http://blog.qartis.com/dr650_rally</id>
+    <link href="http://blog.qartis.com/dr650_rally"/>
+    <author>
+      <name>Andrew</name>
+    </author>
+    <updated>2019-09-05T00:00:00Z</updated>
+    <content>DR650 rally in LaSal, UT</content>
+  </entry>
   <entry>
     <title>Trip to Taiwan and Shanghai</title>
     <id>http://blog.qartis.com/taiwan_aug_2019</id>
@@ -33,25 +53,5 @@
     </author>
     <updated>2018-07-09T00:00:00Z</updated>
     <content>Trip report: July 4th trip to Albuquerque</content>
-  </entry>
-  <entry>
-    <title>Project 121</title>
-    <id>http://blog.qartis.com/project_121</id>
-    <link href="http://blog.qartis.com/project_121"/>
-    <author>
-      <name>Andrew</name>
-    </author>
-    <updated>2016-07-25T00:00:00Z</updated>
-    <content>Project 121</content>
-  </entry>
-  <entry>
-    <title>Arduino Library for UT390B</title>
-    <id>http://blog.qartis.com/arduino-library-for-ut390b</id>
-    <link href="http://blog.qartis.com/arduino-library-for-ut390b"/>
-    <author>
-      <name>Andrew</name>
-    </author>
-    <updated>2015-05-28T00:00:00Z</updated>
-    <content>Arduino Library for UT390B</content>
   </entry>
 </feed>

@@ -1,3 +1,5 @@
+[1|2019-09-15 Bit field test|bitfield_test|server|port]
+[1|2019-09-05 DR650 rally in LaSal, UT|dr650_rally|server|port]
 [1|2019-08-16 Trip to Taiwan and Shanghai|taiwan_aug_2019|server|port]
 [1|2019-07-09 Trip report: Partial Utah Backcountry Discovery Route (UTBDR)|utbdr|server|port]
 [1|2018-07-09 Trip report: July 4th trip to Albuquerque|july_4th_ride_to_albuquerque|server|port]
@@ -12,6 +14,7 @@
 [1|2013-07-09 Problems with 23K256 and AVR/Arduino|problems-with-23k256|server|port]
 [1|2013-02-11 AVR .initN sections and GCC -flto|avr-initn-sections-and-gcc-flto|server|port]
 [1|2012-12-06 Presentation on TCP sequence number prediction|presentation-on-tcp-sequence-number-prediction|server|port]
+[1|2012-10-22 CAN bus|can-bus|server|port]
 [1|2012-08-06 Introduction to FastCGI|introduction-to-fastcgi|server|port]
 [1|2012-04-21 Decoding small QR codes by hand|decoding-small-qr-codes-by-hand|server|port]
 [1|2012-03-20 Ghetto magnetic stripe reader|ghetto-magnetic-stripe-reader|server|port]
