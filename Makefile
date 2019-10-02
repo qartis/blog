@@ -49,5 +49,5 @@ index:
 auto-orient: #rotate jpegs per EXIF tag
 	cd photos; for file in *jpg; do mogrify -auto-orient $$file; done
 
-slides.html: slides.md
-	pandoc -t dzslides --template ../files/slides-template.html -s slides.md -f markdown-auto_identifiers --mathjax -o slides.html
+slides.html: slides.txt
+	pandoc -t dzslides --template ../files/slides-template.html -s slides.txt -f markdown-auto_identifiers --mathjax="files/MathJax-2.7.5/MathJax.js?config=TeX-MML-AM_CHTML,local/local" -o slides.html
