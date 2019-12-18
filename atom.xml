@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Personal blog of Andrew Fuller</title>
+  <id>http://blog.qartis.com/index.xml</id>
+  <link href="http://blog.qartis.com/index.xml" rel="self"/>
+  <updated>2019-09-15T00:00:00Z</updated>
+  <entry>
+    <title>Bit field test</title>
+    <id>http://blog.qartis.com/bitfield_test</id>
+    <link href="http://blog.qartis.com/bitfield_test"/>
+    <author>
+      <name>Andrew</name>
+    </author>
+    <updated>2019-09-15T00:00:00Z</updated>
+    <content>Bit field test</content>
+  </entry>
+  <entry>
+    <title>DR650 rally in LaSal, UT</title>
+    <id>http://blog.qartis.com/dr650_rally</id>
+    <link href="http://blog.qartis.com/dr650_rally"/>
+    <author>
+      <name>Andrew</name>
+    </author>
+    <updated>2019-09-05T00:00:00Z</updated>
+    <content>DR650 rally in LaSal, UT</content>
+  </entry>
+  <entry>
+    <title>Trip to Taiwan and Shanghai</title>
+    <id>http://blog.qartis.com/taiwan_aug_2019</id>
+    <link href="http://blog.qartis.com/taiwan_aug_2019"/>
+    <author>
+      <name>Andrew</name>
+    </author>
+    <updated>2019-08-16T00:00:00Z</updated>
+    <content>Trip to Taiwan and Shanghai</content>
+  </entry>
+  <entry>
+    <title>Trip report: Partial Utah Backcountry Discovery Route (UTBDR)</title>
+    <id>http://blog.qartis.com/utbdr</id>
+    <link href="http://blog.qartis.com/utbdr"/>
+    <author>
+      <name>Andrew</name>
+    </author>
+    <updated>2019-07-09T00:00:00Z</updated>
+    <content>Trip report: Partial Utah Backcountry Discovery Route (UTBDR)</content>
+  </entry>
+  <entry>
+    <title>Trip report: July 4th trip to Albuquerque</title>
+    <id>http://blog.qartis.com/july_4th_ride_to_albuquerque</id>
+    <link href="http://blog.qartis.com/july_4th_ride_to_albuquerque"/>
+    <author>
+      <name>Andrew</name>
+    </author>
+    <updated>2018-07-09T00:00:00Z</updated>
+    <content>Trip report: July 4th trip to Albuquerque</content>
+  </entry>
+</feed>
