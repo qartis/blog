@@ -5,9 +5,12 @@ date: 2016-07-25
 
 Project 121 is a rugged temperature logger for high heat environments. It uses the ATtiny4 microcontroller with 32 bytes of ram and 512 bytes of flash storage.
 
-imagethumb:tinyavr.jpg
 
-# Parts list
+imagethumb:boards.png[Version 1 of the boards]
+
+imagethumb:tinyavr.jpg[ATtiny4-TS8R microcontroller]
+
+# Bill of Materials
 --------------|----------------------------|--------------------------------------------------------------------------------------------------------------------|--------|-----------------|------------
 Battery	      | Tadiran TLH-5903           | <http://www.tadiran.com/pdf.php?id=TLH-5903>                                                                       | $12.01 | -55ºC to +125ºC | 3.0V - 3.6V
 CPU           | ATtiny4-TS8R               | <http://www.atmel.com/images/atmel-8127-avr-8-bit-microcontroller-attiny4-attiny5-attiny9-attiny10_datasheet.pdf>  | $1.01  | -40°C to +125°C | 1.8V - 5.5V
@@ -20,5 +23,3 @@ mem1          | ST M24M02-DWMN3TP/K        | <http://www.st.com/web/en/resource/
 regulator     | TI TPS62230DRYT            | <http://www.ti.com/lit/ds/symlink/tps62230.pdf>                                                                    | $1.69  | -40°C to +125°C | 2.05V - 6V
 
 TOTAL $27.21  
-
-imagethumb:boards.png[Version 1 of the boards]
