@@ -1,2 +1,5 @@
 **/thumbnails/
 **/MathJax-*/
+**/*.html
+**/index.gph
+atom.xml
