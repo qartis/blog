@@ -1,1 +1,1 @@
-* annex.largefiles=(largerthan=100kb)
+* annex.largefiles=(largerthan=1mb)
