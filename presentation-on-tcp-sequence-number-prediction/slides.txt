@@ -1,6 +1,6 @@
 ---
 title: "TCP seqno prediction"
-subtitle: "Andrew Fuller"
+author: "Andrew Fuller"
 date: 2012-12-06
 header-includes: |
     <style>
@@ -33,6 +33,9 @@ Host: lemonparty.com\r\n
 Connection: close\r\n
 ```
 
+::: {role=note}
+Some notes. They are only visible using onstage shell.
+:::
 
 ### TCP
 . . .
@@ -99,9 +102,9 @@ z_t &=& D_{t-2} &=& S_{t-2} - S_{t-3}
 $$
 
 
-<footer>
+<footer>  
 <p>Credit: Silence on the Wire (Michal Zalewski)</p>
-<p><a href="http://lcamtuf.coredump.cx/silence.shtml">http://lcamtuf.coredump.cx/silence.shtml</a></p>
+<p><http://lcamtuf.coredump.cx/silence.shtml></p>
 </footer>
 
 

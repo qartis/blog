@@ -9,6 +9,7 @@ all:
 	if [ -f style.css ]; then make index && false; fi
 	echo "[0|post.txt|post.txt|server|port]" > index.gph
 	if [ -f comments.txt ]; then echo "[0|comments.txt|comments.txt|server|port]" >> index.gph; fi
+	if [ -f slides.txt ]; then echo "[0|slides.txt|slides.txt|server|port]" >> index.gph; fi
 	if [ -d files ]; then echo "[1|files|files/|server|port]" >> index.gph; fi
 	if [ -d photos ]; then echo "[1|photos|photos/|server|port]" >> index.gph; fi
 	cat post.txt comments.txt | \
@@ -50,4 +51,5 @@ auto-orient: #rotate jpegs per EXIF tag
 	cd photos; for file in *jpg; do mogrify -auto-orient $$file; done
 
 slides.html: slides.txt
-	pandoc -t dzslides --template ../files/slides-template.html -s slides.txt -f markdown-auto_identifiers --mathjax="files/MathJax-2.7.5/MathJax.js?config=TeX-MML-AM_CHTML,local/local" -o slides.html
+#	pandoc -t dzslides --template ../files/slides-template.html -s slides.txt -f markdown-auto_identifiers --mathjax="files/MathJax-2.7.5/MathJax.js?config=TeX-MML-AM_CHTML,local/local" -o slides.html
+	pandoc -t dzslides --template ../files/slides-template.html -s slides.txt -f markdown-auto_identifiers --mathjax="files/MathJax-2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" -o slides.html

@@ -11,6 +11,7 @@ system free of charge.
 
 image:ticket1_front.png
 
-A PDF copy of the report is available at <http://t3.qartis.com/translink_tickets/translink.pdf>.
+A PDF copy of the report is available at
+<http://blog.qartis.com/translink_tickets/translink.pdf>.
 
 Some of the code is available at <http://github.com/qartis/translink/>.

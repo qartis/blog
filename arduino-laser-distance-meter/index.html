@@ -129,7 +129,7 @@ Serial input?</code></pre>
 <h4 id="qartis-2">qartis</h4>
 <p>I use three 1N4001 diodes to drop the Arduino’s 5V Tx signal before it’s sent to the laser unit. Each one drops 0.6V - 0.7V, which leaves the TX voltage roughly around 3V. The laser unit runs at a regulated 2.7V, so technically it’s still a bit high but I haven’t seen any problems so far. Others have directly connected the laser to the Arduino’s 5V signal but you never know what kind of damage that might do to the laser.</p>
 <p>The laser’s 2.7V RX signal is (barely) high enough to be seen as a HI signal by the AVR. For more reliable operation you can use a small MOSFET circuit to perform the level conversion.</p>
-<p>You can also check out Microchip’s 3V Tips ’n Tricks datasheet, available at <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/chapter%208.pdf">http://ww1.microchip.com/downloads/en/DeviceDoc/chapter%208.pdf</a>.</p>
+<p>You can also check out Microchip’s 3V Tips ’n Tricks datasheet, available at <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/chapter%208.pdf" class="uri">http://ww1.microchip.com/downloads/en/DeviceDoc/chapter%208.pdf</a>.</p>
 <h4 id="igorkov">igorkov</h4>
 <p>Hello! Can you make foto side back of board (with mcu)? What the mcu model is used in this device?</p>
 <h4 id="george">George</h4>

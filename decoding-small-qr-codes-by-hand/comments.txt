@@ -1,16 +1,21 @@
 ## Comments
 
+
 #### heavyw8t
 So WTF is Maci Clare Peltz supposed to be?
+
 
 #### qartis
 My guess is someone's girlfriend's name, but I'm not sure.
 
+
 #### Raymond Decelles
 Probably the tattoo owner's girlfriend, wife, mother, daughter, whatever.
 
+
 #### Luke
 how do we know that it XORed with 10101?
+
 
 #### qartis
 ISO 18004:2006, section 6.9.1 paragraph 4 says:
@@ -20,18 +25,23 @@ ISO 18004:2006, section 6.9.1 paragraph 4 says:
 > Correction Level and data mask pattern will result in an all-zero data
 > string.
 
-where the first 5 bits of the Mask Pattern are applied to the 5 data bits of the format information.
+where the first 5 bits of the Mask Pattern are applied to the 5 data bits of
+the format information.
+
 
 #### Les Potter
 So how do you zigzag around the alignment thingy? Also, the red box at the top
 of the QR is only 7 bits wide. Can you explain why?
 
+
 #### Les Potter
 Your paragraph on the format code says it's 14 bits long, but then below the
 spec is quoted as saying it 15 bits long. Can you explain?
 
+
 #### qartis
 Whoops, that was a typo. You're correct, the format code is 15 bits long.
+
 
 #### qartis
 My previous pictures had a border line incorrectly drawn, making it look like
@@ -41,6 +51,7 @@ pattern, the easiest way to think about it is that you simply skip past the
 bits that are occupied by the alignment pattern. Here's an image from Wikipedia
 that shows several examples of zig-zags passing near alignment patterns (image
 credit Walter Tuvell, wtuvell)
+
 
 #### Martie Anderson
 I'm stuck on deciphering this code. Any takers? Thanks, Martie (sorry it's so
@@ -114,7 +125,3 @@ obvious.. I've gone right up to the 'divide into 8 bit blocks' stage, but don't
 know how to section it up before I decode, because the sizes don't match.
 
 Any help greatly appreciated.
-
-<style type="text/css">
-span { color: limegreen }
-</style>
