@@ -6,7 +6,7 @@
 	echo -n $(dirname $f)
 	echo -n '\037'
 	cat $f | awk -F'"' '/^title: / {printf $2}'
-	echo -n '\037'
-	cat $f | 
 	echo
 done) | sort -r
+
+if [ -d tags ]; then echo '\037tags\037tags'; fi

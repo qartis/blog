@@ -1,9 +1,11 @@
 ---
 title: "DR650 rally in LaSal, UT"
 date: 2019-09-05
+vim: tw=80 fo+=a so=999
 ---
 
-I decided to go to a DR650 rally that I saw on the advrider.com forum.
+I decided to go to a DR650 rally at Three Step Hideaway in Utah that I saw on
+the advrider.com forum.
 
 # Day 1: East Palo Alto to Nevada
 
@@ -19,18 +21,397 @@ K:C
 |: fed cde | fed cde | f_ed cd_e | f_ed cd=e :|
 ```
 
-At Reno I hit a little bit of rain. While I stopped to get gas at 7-11 I transferred the first few episodes of Westworld Season 2 to my phone and to the server at home. Sarah and I had just finished Season 1, and since I wouldn't have cell coverage at the Rally the plan was we would each watch 1 episode per night starting at 11pm PDT (12am MDT for me in Utah).
+At Reno I hit a little bit of rain. While I stopped to get gas at 7-11 I
+transferred the first few episodes of Westworld Season 2 to my phone and to the
+server at home. Sarah and I had just finished Season 1, and since I wouldn't
+have cell coverage at the Rally the plan was we would each watch 1 episode per
+night starting at 11pm PDT (12am MDT for me in Utah).
 
-At (39.2639,-118.3808) I hit a big rainstorm, and the rain hurt as it hit my exposed nose. Dang, desert rain drops sure are sharp. I took one of my July 4th socks out of my pannier and stuffed it around my goggles. It was clean so all I smelled was fabric softener.
+At (39.2639,-118.3808) I hit a big rainstorm, and the rain stung as it hit my
+exposed nose. Dang, desert rain drops sure are sharp. I took one of my July 4th
+socks out of my pannier and stuffed it around my goggles. Luckily it was the
+first day of the trip so the sock was clean. Roads are usually more slippery
+after fresh rain, and I had been smelling the petrichor to determine which
+areas were freshly wet and where I should slow down, but now all I could smell
+was fabric softener.
 
 image:IMG_2599.jpg
 
-Once (39.5023,-117.7812)
+At (39.5023,-117.7812) I decided to find somewhere to camp off the highway. The
+only vehicle I had seen for the last 30+ minutes was a semi that I passed a
+few minutes prior. I try to make sure nobody sees me when I slip over to a
+secluded area to camp, and I figured I had a good few minutes to find a hidden
+spot behind some desert brush before the truck drove past. I pulled off the
+road and almost immediately my front tire fell into a yoga-ball-sized pit and I
+fell over. The first thing I did was to turn off the ignition key so my lights
+would go out. Then I smelled gas leaking onto me from the vent hose on the top
+of my fuel tank so I pinched the hose with my hand to stop it. I discovered
+that my right leg was pinned between the bike and the edge of the pit and I
+couldn't get it out. I laughed because I thought it was funny, but then I
+realized that I was only a few feet off the side of the highway when I fell and
+when the semi drove past it would look like I had had a serious motorcycle
+crash. I heard the truck coming in the distance, but sound travels far in the
+desert so I figured I had a few minutes to get myself out of the pit and
+scramble into the darkness before the truck saw me. I tried a bit more
+desperately to wrench my leg out from under the bike but it was no use. Just
+before the semi reached me I figured maybe if I lay completely flat then
+somehow the headlight beams will go right over me and the driver will ignore
+me, so I laid down completely flat. Then I realized, now I look like a dead
+body pinned under a motorcycle. As the semi was passing me I could see myself
+and my bike completely lit up, and there's no way the driver didn't notice me.
+Thankfully he was a terrible samaritan and just drove on past.
 
-played whistled Melody (nutcracker triplets). tried to find spot to sleep, keg trapped under bike, gas spilled, trick coming, laid flat, pretended to be dead, finally got foot out, stepped into another hole, bike feel onto other side, finally slept, played piffles, bike wouldn't start, got it started, went to tasty Cafe, zoning out, 3 hours can be 11 minutes, or a song can turn into half a tank of gas, road work 30 mins 10 mins, talked to Quebec couple, Alaska, wife riding 3 years, going to Yellowstone. found I can whistle like dentist suction thing in mouth, police car, European ambulance, 50s UFO sound. bottom lip flipped down, felt like Tony Clifton licking lips and singing. did scales music.  singing songs, strawberry beret, don't want no small dick man, 
+It took me a few minutes of kicking and wiggling to get out from under the bike,
+and I stood up, tried to lurch my bike backwards out of the pit, and ended up
+stepping into a deep rabbit hole with my left foot and the bike tipped over and
+pinned me underneath again. Finally I got the bike away from those pits and
+gradually lurched it farther forwards over a sandy hill and into a little
+cluster of shrubs. I looked over the bike and saw that my right side pannier
+strap had melted through from the heat of the exhaust pipe. I threw my tarp over
+the bike to make it less reflective, set up camp, played Piffle on my phone and
+went to sleep.
+
+image:IMG_2616.jpg
+image:IMG_2630.jpg
+
+# Day 2: Nevada to La Sal, UT
+
+Had some trouble starting the bike the next morning. It was really cold, and
+when I got to Austin, NV I was shivering. Went to a cafe called Toiyabe Cafe.
+
+image:IMG_2639.jpg
+
+This was a long solitary day of riding. When I ride for hours with no outside
+entertainment I tend to get pretty introspective. Sometimes my mind will pick a
+section of a song that I know the lyrics to, and I'll sing that bit of song a
+hundred times, then I'll do it again in an australian accent, then again in an
+italian accent, then I'll sing it like I'm disgusted, then I'll sing it like I'm
+trying not to burst out laughing, and again and agian and again. Sometimes 3
+hours can pass by in what feels like 15 minutes, and a single song can become
+half a tank of gas.
+
+I started reciting some lines from the movie The Birdcage (1996) and then I
+started practicing shocked falsetto gasping like Nathan Lane's character. I
+found that if I do it too fast it sounds like a little dog yapping, and if I do
+it too slow it sounds sexual. For some reason I had a particular jet of air
+pointing right at my mouth that I've never noticed before, and if I opened my
+mouth then it made a sound like a dentist's suction tool. Then I found that I
+could modulate the frequency by changing the size of my mouth cavity and I used
+that to perform some sound effects: police car, European ambulance, 1950s UFO
+sound. Then I found that the jet stream was able to sort of inflate my bottom
+lip so it would hang down and flap around. I felt like Tony Clifton licking my
+lips and singing. I practiced doing major and minor scales using the dentist
+suction sound for a while. Then I sang some more songs:
+
+- Prince - Strawberry Beret (my own remix)
+- CeCe Peniston - Finally
+- Gillette - Don't Want No Short Dick Man
+- Cake - The Distance
+
+There was a bit of road work so traffic came to a stop. Two BMW bikes pulled up
+behind me and we started chatting. They were a husband and wife from Quebec who
+had ridden up to Alaska, and were on their way to Yellowstone.
+
+A storm followed me for a few hours and I hit some hail. I had to pull over and
+cover my exposed nose with a sock again, but this time the sock was dirty so
+it wasn't so pleasant.
+
+I pulled into La Sal at around 6pm, checked into the rally, had some dinner and
+set up camp. Lots of little burrs in the dusty ground. Met some folks camped
+near me and went to sleep.
+
+# Day 3: First rally day
+
+My air mattress sprung a leak during the night. Talking with some other campers,
+it sounds like the same thing happened to quite a few people. I met up with a
+group of riders who were going to ride a LaSal pass loop, and I figured that
+was a good match for my current riding skill level. Their names were Alan,
+Chris and Hippie Kip, from Michigan. Had a blast riding with them. We took a
+shortcut through "Hell Canyon" at (38.4276,-109.2786) that was even more fun. I
+was hoping to really give myself a challenge during this rally so as we were
+going downhill I was intentionally picking hard lines and trying to make things
+harder for myself.
+
+image:IMG_2667.jpg
+
+We took a break after hell canyon for some snacks. A rider named Yan rode up to
+us on a nice Husqvarna 701, he said he was riding the UTBDR with some friends
+and they had gotten separated. He had a 360° camera mounted to his handlebars.
+
+On our way back we stopped at a gas station in Moab for some snacks. Chris had
+to do some maintenance on his bike and we were all thirsty and hot.
+
+image:IMG_2669.jpg
+
+Then we went to Gearheads Outdoor Store and I bought a patch kit for my air
+mattress and a replacement strap to tie down my right-side pannier that had
+partially melted. 
+
+Got back to camp and started fixing my air mattress. I found a big flat rock to
+do my repairs up and away from all the burrs and prickles. I mixed up some Dr
+Bronners with water in my Nalgene and poured it on the air mattress, then I
+folded the air mattress over and found a spot that was bubbling and applied the
+patch there.
+
+When I took the air mattress out of my bivy sack I found two dead spiders had
+been crushed under me while I slept. Camp dinner was delicious steak. I talked
+to a couple from Virginia who had run into Yan and a Canadian guy earlier in the
+day. They said Yan and the other guy were separated from their group and looked
+pretty worried, but then a car pulled up, the Canadian went to talk to the
+driver, and Yan took off, so they weren't sure what was going on.
+
+After dinner everybody gathered together for a rally photo. They gave prizes for
+youngest rally participant (22 years old), oldest participant (Terry, 89 years
+old), and another prize for the perosn who had ridden in the longest distance (I
+don't remember the guy's name but he was on a mad max DR650 and he rode in from
+northern BC). Then two people who had installed 790cc big bore kits on their
+DR650s had a drag race.
+
+image:IMG_2694.mp4[Drag race]
+
+Later in the evening I chatted with Lynn and Terry who had been riding together
+for 45 years, and they used to repair VW engines in Anchorage in the 70s.
+Lynn said he had a Chinese bike but the manual wasn't translated in to English,
+and he asked me to help him translate the buttons on the app and help him tune
+it. Then I went back to my camp area and sat down in my fancy new REI camp chair
+and had some beers with Alan, Chris and Hippie Kip.
+
+When I went to bed I saw that ants had eaten the two spider corpses and all that
+was left was a few legs.
+
+image:IMG_2689.jpg[Before]
+image:IMG_2696.jpg[After]
+
+I lifted up my bivy and used my boot to scrape away the top layer of prickles
+and burrs in the dirt and create a sandy area to sleep on.
+
+image:IMG_2697.jpg[Burrs stuck to bottom of bivy]
+image:IMG_2699.jpg[Prickles in my finger]
+
+# Day 4: Second rally day
+
+Air mattress popped again during the night. Got bothered by a little cat during
+breakfast.
+
+image:IMG_2718.mp4
+
+My riding group from the day before told me they were going to take it easy
+today, and I said I'm hoping to push my limits today so we split off. I joined a
+group led by the rally organizer Julio. I told him I was worried about holding
+the group back, and after I told him that I had ridden Lockhart Basin and he
+said I should be fine. The full line-up was: Julio, Rick from Cogent Dynamics,
+Dave, Ron, Lynn, Terry, James, me. Everyone was on DR650s except Terry and Lynn
+who were riding DR200s. Suddenly everyone took off in the direction of the
+Colorado border. Thirty seconds in I hit a bump and my spare tube sproinged off
+my fender and went flying. I cinched it onto my tail rack with my water bladder
+and continued on. I almost bailed a couple of times but I kept it together.
+After 10 minutes we stopped to regroup and I noticed that Terry wasn't wearing
+any armor, he was just wearing a sweater. He said that this kind of riding was
+easy peasy for him. James said that he had accidentally joined the wrong group,
+but he was going to try his best to keep up with everyone.
+
+The singletrack turned into rocky scrambles and steep washes and I was really
+enjoying myself. We came across a guy sitting on the side of the trail with an
+injured ankle. He said someone had gone back to camp to get him medical help,
+and we didn't pass anybody on our way over but I guess there are multiple
+routes.
 
 
-email Destin about waymo's collaboration.
+The trail got tougher and we started riding faster and James started having
+trouble keeping up. I think he fell a few times on some tricky uphills and had
+exhausted himself trying to manoeuver the bike back down the rocky hill for
+another attempt. While the group was resting he apologized for slowing everyone
+down and I told him I really appreciated him coming along for the ride because
+he was distracting everyone from howpoorly I was riding.
+
+Part of the group took a wrong path and sort of got split up, and at one point I
+was in the rear group and I wanted to let the front group know that there was
+someone behind me still. The rider behind me was Lynn who has 100x better
+offroad riding skills than me, but I still wanted to make sure they knew. I was
+riding along a mostly flat dirt road and I saw the group stopped ahead at
+(38.1295,-109.0274). They started leaving just as I was approaching, and I
+wanted an opportinuty to tell them about Lynn, so I was riding faster than
+normal as I approached them. At the last minute I saw a big diagonal rut running
+across the road. I tried to hop my front tire over it but my tire came down on
+the far edge of the rut, slid to the left, and I crashed onto my right side. My
+right foot hit the ground as I was falling and got twisted backwards and pinned
+under the exhaust. I yelled toward the group but they were accelerating away so
+they couldn't hear me. I could feel my ankle getting hot through my boot from
+the heat of the exhaust pipe, but I didn't have any leverage to kick the bike
+off of me with my other foot. I panicked a little bit from the sharp burning
+heat I could feel so I started pulling my ankle harder, but I could tell that I
+would probably cause more damage to my ankle if I just yanked it while it was
+pinned backwards. I started yelling and panicking and trying to drag my ankle
+out, and finally with one last kamehameha scream I managed to wrench my ankle
+free. I was still winded from the crash so I took a minute to catch my breath,
+and then I turned off the ignition key and rested my head on the ground. A few
+minutes later Lynn showed up and grabbed my water bottle from my bike and gave
+me some water to drink.  Then he help me slowly limp me over to some shade by a
+nearby tree. Then Lynn said he would catch up to the group and tell them to go
+back to camp and get medical help and then he would come back and wait with me. 
+
+image:IMG_2724.jpg[Lame]
+
+Lynn came back with Rick and we chatted for a while. I was confused .  I joked
+with Rick that I should have upgraded to Cogent suspension. 
+
+
+
+
+I want to push myself today. suddenly everyone takes off down a single trqck
+trail, headed towards Colorado. 30 s in and I hit a rut and my spare tube flies
+off. hmm, ok. I strap it with my water bag on the back of my bike and continue
+on. after 10 minutes we stop to regroup and it turns out Lynn and Terry are on
+this ride on their dr200's, Lynn had a riding jacket but Terry is just wearing a
+sweater and jeans. one member James says he accidentally joined the wrong group
+but he's going to try his best. it turns into some Rocky scrambles and some
+really fun stuff. we come across a guy sitting on the side of the tail in the
+blazing sun, he says someone sent back a few mins ago to get help for him but we
+didn't pass anybody. we assume he took a slightly different route. we help move
+him to some shade under a tree. trail gets funner and funner, and hired and
+hotter, James goes down a few times and is getting pretty tired, James takes
+Lynn's dr200, Lynn takes Ron's mostly stock dr650, and Ron takes the 790cc bike.
+Ron has previously raced KTMs but this is his second day on a dr650, so he's
+learning very fast.  I took a wrong turn and got separated from the group for
+bit. we all took a wrong turn and had to backtrack a bit. I went down on a steep
+downhill and bent my clutch lever. met up with everyone at a fork in the road.
+readjusted clutch and it was good. Julio said the left path was easier and the
+right path was harder. I said I was interested in the harder route but we sort
+of took a vote and decided we wanted to stay together and take the easier route
+which was totally fine with me since we were so hot and tired. the easier route
+ended up being a dirt road with long straight sections so we were all going very
+fast. at one point I was second last with Lynn somewhere behind me. I saw the
+group stopped up ahead and add I ride up they took off. then I saw a big rut
+across the road and add their were talking off I tried to hop my front tire over
+it  but the front tire jumped to the left and the bike fell to the right and I
+was laying chest down with my right foot twisted backwards pinned underneath the
+hot muffler. I yelled for the others but they had just rode off.  I smelled the
+familiar aroma of my gas tank leaking gas onto me from the breather tube. I felt
+my ankle getting hotter and hotter so I did a Dragonball z scream and kicked the
+bike with my left foot to pivot it a bit and used all my might to yank my right
+ankle out from under the bike. my able felt pretty sprained but not broken. I
+laid down in the dust and caught my breath. after 3 minutes or so Lynn rode up
+and asked me if the bike was okay. he gave me some water to drink and helped me
+get my helmet off. after a few more minutes he helped me hobble over to under a
+tree with some shade. them he brought me my water and my phone and rode out to
+get help. damn, no signal. so I played piffles for a while and then found that
+my kindle app had a cached copy of the Lord of the rings in Chinese, so I read
+that for a while. then I opened up Google maps and took a look at where I was.
+after maybe 30 minutes Lynn came back and told me he had relayes the message to
+Rick that there was a rider down and Rick said he would ride out and come back
+with a truck and a Polaris SxS.  shit, that's a lot of commotion for a twisted
+ankle. I jokingly asked Lynn to pick up a rock and hobble me so I'd have an
+injury worthy of emergency rescue. 
+
+
+
+
+
+<!--
+played whistled Melody (nutcracker triplets). tried to find spot to sleep, keg
+trapped under bike, gas spilled, trick coming, laid flat, pretended to be dead,
+finally got foot out, stepped into another hole, bike feel onto other side,
+finally slept, played piffles, bike wouldn't start, got it started, went to
+tasty Cafe, zoning out, 3 hours can be 11 minutes, or a song can turn into half
+a tank of gas, road work 30 mins 10 mins, talked to Quebec couple, Alaska, wife
+riding 3 years, going to Yellowstone. found I can whistle like dentist suction
+thing in mouth, police car, European ambulance, 50s UFO sound. bottom lip
+flipped down, felt like Tony Clifton licking lips and singing. did scales music.
+singing songs, strawberry beret, don't want no small dick man, 
+
+email Destin about waymo collaboration.
+
+
+
+
+air mattresses popped, good bfst, met up with a group doing la sal pass, Alan
+Chris hippie kip, very fun, took shortcut thru hell canyon, we meet up with a
+guy named Yan on a Husqvarna 700? who was doing the utbdr with friends and got
+separated, had 360' camera on bike, 
+
+we went to Moab and got patch repair kit and extra bit of strap for panniers,
+came back had dinner, fixed my mattress, photos, dead spiders in tent
+
+late at dinner meet up with couple from Virginia who had run into Yan and A
+Canadian guy, looking very freaked out about finding rest of group, but then a
+car pulled up and when the Canadian went to talk to the driver Yan left by
+himself, so they were pretty confused.
+
+took group photo, guy who ride in from northern bc got prize, mad Max bike, some
+more dr650s with 790cc big bore kits had a drag race.
+
+chatted with a bunch of people, Terry and Lynn who used to repair VW engines in
+Anchorage in the 70s. good miners used VW engines to rig up machinery. Lynn said
+he had a Chinese bike but the manual was poorly translated and he asked for my
+help with it. got back to tent, ants had eaten the spiders. sat in my new REI
+chair chatted and had beer with biker guys from today, not sure what plan is for
+tomorrow.
+
+
+
+
+
+also: Lynn and Terry known each other 45 years, Met in Alaska, super nice guys,
+love vw. 
+
+
+woke up late, mattress still leaking some air, groundsheet working well so I
+suspect the patch didn't hold. ate breakfast, annoying cat, called it
+butterbeard. meet cyberdos organizer and he said he was leading a ride with Rick
+from cogent suspension and a few other guys. he asked my skill level and I did I
+did Lockhart basin a few months ago, he said ok this will be easier than that. 
+other members are Julio, Rick, Dave, Ron, lynn, Terry, James, me.
+James flew down from Anchorage to SLC and borrowed procycle Jeff's 790cc big
+bore wide transmission test bike.
+ ok, I want to push myself today. suddenly everyone takes off down a single
+trqck trail, headed towards Colorado. 30 s in and I hit a rut and my spare tube
+flies off. hmm, ok. I strap it with my water bag on the back of my bike and
+continue on. after 10 minutes we stop to regroup and it turns out Lynn and Terry
+are on this ride on their dr200's, Lynn had a riding jacket but Terry is just
+wearing a sweater and jeans. one member James says he accidentally joined the
+wrong group but he's going to try his best. it turns into some Rocky scrambles
+and some really fun stuff. we come across a guy sitting on the side of the tail
+in the blazing sun, he says someone sent back a few mins ago to get help for him
+but we didn't pass anybody. we assume he took a slightly different route. we
+help move him to some shade under a tree. trail gets funner and funner, and
+hired and hotter, James goes down a few times and is getting pretty tired, James
+takes Lynn's dr200, Lynn takes Ron's mostly stock dr650, and Ron takes the 790cc
+bike. Ron has previously raced KTMs but this is his second day on a dr650, so
+he's learning very fast.
+I took a wrong turn and got separated from the group for bit. we all took a
+wrong turn and had to backtrack a bit. I went down on a steep downhill and bent
+my clutch lever. met up with everyone at a fork in the road. readjusted clutch
+and it was good. Julio said the left path was easier and the right path was
+harder. I said I was interested in the harder route but we sort of took a vote
+and decided we wanted to stay together and take the easier route which was
+totally fine with me since we were so hot and tired. the easier route ended up
+being a dirt road with long straight sections so we were all going very fast. at
+one point I was second last with Lyn somewhere behind me. I saw the group
+stopped up ahead and add I ride up they took off. then I saw a big rut across
+the road and add their were talking off I tried to hop my front tire over it
+ but the front tire jumped to the left and the bike fell to the right and I was
+laying chest down with my right foot twisted backwards pinned underneath the hot
+muffler. I yelled for the others but they had just rode off. I smelled the
+familiar aroma of my gas tank leaking gas onto me from the breather tube. I felt
+my ankle getting hotter and hotter so I did a Dragonball z scream and kicked the
+bike with my left foot to pivot it a bit and used all my might to yank my right
+ankle out from under the bike. my able felt pretty sprained but not broken. I
+laid down in the dust and caught my breath. after 3 minutes or so Lynn rode up
+and asked me if the bike was okay. he gave me some water to drink and helped me
+get my helmet off. after a few more minutes he helped me hobble over to under a
+tree with some shade. them he brought me my water and my phone and rode out to
+get help. damn, no signal. so I played piffles for a while and then found that
+my kindle app had a cached copy of the Lord of the rings in Chinese, so I read
+that for a while. then I opened up Google maps and took a look at where I was.
+after maybe 30 minutes Lynn came back and told me he had relayes the message to
+Rick that there was a rider down and Rick said he would ride out and come back
+with a truck and a Polaris SxS. shit, that's a lot of commotion for a twisted
+ankle. I jokingly asked Lynn to gram a rock and hobble me so I'd have an injury
+worthy of emergency rescue. 
+
+
+Ephraim EMT and Tim (hurt ankle)
+
 
 ```{.dot name=day_flowchart}
  digraph G {
@@ -40,3 +421,5 @@ email Destin about waymo's collaboration.
   riding -> tired;
  }
 ```
+
+-->

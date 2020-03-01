@@ -1,0 +1,58 @@
+---
+title: "DR650 fender bender"
+date: 2020-02-26
+vim: tw=80 fo+=a so=999
+---
+
+Yesterday I had my first traffic accident on my motorcycle. After thinking about
+it, it was fully my fault.
+
+## The accident
+
+image:path.png[The red line is a stop sign, the green line is the car pulling \
+into a driveway, the blue line is me]
+
+I knew there was a stop sign there, but I normally expect cars to turn right
+(which means they never cross my lane) or left (which means they're heading away
+from me, and if I have to I can swerve around the rear of their vehicle). In
+this case they went straight at the stop sign and headed for a driveway. So they
+kind of came towards me and then suddenly they were blocking the entire road and
+I t-boned them and went down. That makes it sound like it's their fault, but my
+skid mark is about 10 feet long so I'm sure I was speeding. Also my rear tire is
+quite bald, and my bike doesn't have ABS. So if I'm going to ride on a bike like
+that, I need to be more conscious of potential hazards in front of me.
+
+image:car_damage.jpg
+image:bike_damage.jpg
+
+I felt some bad bruising on my legs and my left ankle, but nothing terrible.
+Some cops showed up, and the driver and I agreed that a police report wasn't
+necessary. I told the driver that I would tell my insurance that I was at fault.
+
+## Repairing the damage
+
+My bike was initially flooded but after a minute it started up fine and I was
+able to ride it home with the forks bent (although the clutch was a bit too
+tight). I took the front tire off and found that the front axle was actually
+bent (wow).
+
+image:bike_damage_2.jpg
+image:bent_axle.jpg
+
+The right side fork tube was also bent, and as I took the fork tubes off I
+noticed that the lower fork bridge was bent as well. I measured my DR350 and
+found that the fork tubes should be compatible. Since the front brake rotor on
+the DR350 is smaller than the DR650 and has different mounting holes, I opted to
+use the entire front wheel of the DR350 as well as the fork tubes.
+
+image:bent_fork.jpg
+image:two_bikes.jpg
+
+I had to pry the fork crowns into position to get the fork tubes to slide in,
+but in the end I managed to assemble everything together. I had a bit of trouble
+bleeding the brake line because the DR350's caliper bleeder outlet is sort of
+recessed and not easy to access with a crescent wrench.
+
+I took it for a ride and the front end is still crooked. So I bought a
+replacement lower fork bridge and front axle from eBay and I'll swap them in
+when they arrive. If everything looks good at that point then I'll 
