@@ -1,5 +1,4 @@
 #!/bin/sh
-echo '<link rel="alternate" type="application/atom+xml" href="/index.xml">'
 echo '<style>
 body{font-size:1.2em}
 li {

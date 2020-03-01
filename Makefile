@@ -45,7 +45,6 @@ posts:
 index:
 	./files/gen_gph.sh > index.gph
 	./files/gen_html.sh > index.html
-	./files/gen_atom.sh > atom.xml
 
 auto-orient: #rotate jpegs per EXIF tag
 	cd photos; for file in *jpg; do mogrify -auto-orient $$file; done
