@@ -1,0 +1,243 @@
+---
+title: "Introduction to FastCGI"
+subtitle: "Group 10"
+author: "Andrew Fuller"
+---
+
+### In the beginning
+
+One app, one web server
+
+apache.c:
+```
+    if (page == "/loginform.html") {
+        sendfile("templates/loginform.html");
+    } else if (page == "/profile.html") {
+        printf("Status: 200 OK\r\n");
+        printf("Content-type: text/html\r\n");
+        printf("\r\n");
+        printf("<h1>Hello %s</h1>", user);
+```
+
+
+### CGI
+
+Generate responses with an external process
+
+Web server does:
+
+```
+$ export REQUEST_URI="/loginform.asp"
+$ ./mycgi.exe
+Status: 200 OK
+Content-Type: text/html
+
+<h1>Please login</h1>
+<form action="/dologin">
+...
+```
+
+
+### CGI
+
+Requests are passed through envp and stdin
+
+```
+int main(int argc, char **argv, char **envp){
+	int len = atoi(getenv("CONTENT_LENGTH"));
+	char *req = malloc(len);
+
+	read(STDIN_FILENO, len, req);
+
+{'u','s','e','r','=','m','i','k','e','6','9','&'
+ 'p','a','s','s','=','t','h','r','i','l','l','7'}
+```
+
+
+### CGI
+
+HTTP GET query string
+
+```
+char *query = getenv("QUERY_STR");
+```
+
+
+Which page was requested?
+
+```
+char *uri = getenv("REQUEST_URI");
+```
+
+
+HTTP POST vars? File uploads?
+
+```
+fread(buf, count, 1, stdin);
+```
+
+
+### CGI
+
+Decouples web server from web app
+
+No more embedded:
+
+- mod_php
+- mod_python
+- mod_ruby
+- mod_rack / phusion
+
+
+
+### CGI
+
+Spawn a new process for each request?
+
+```
+$ export REQUEST_URI="/loginform.asp"
+$ ./mycgi.exe
+$ export REQUEST_URI="/login.asp"
+$ ./mycgi.exe
+$ export REQUEST_URI="/profile.asp"
+$ ./mycgi.exe
+$ export REQUEST_URI="/deleteprofile.asp"
+$ ./mycgi.exe
+$ export REQUEST_URI="/redirect.asp"
+$ ./mycgi.exe
+```
+
+
+
+### FastCGI
+
+Advantages:
+
+- Fast
+
+
+
+### FastCGI
+
+Fast:
+
+```
+$ ./myfcgi.exe
+	Listening on 127.0.0.1:1337
+```
+
+
+
+### FastCGI
+
+For each request, web server:
+
+- Connects to fastcgi app
+- Sends the request variables
+- Reads the reply, forwards it to client
+
+
+
+### FastCGI
+
+```
+127.0.0.1:1337
+```
+
+or
+
+```
+/tmp/myapp.sock
+```
+
+or
+
+```
+192.168.1.{90,91,92}:1337
+```
+
+
+
+### Terminal App
+
+[Terminal](http://cmpt470.csil.sfu.ca:9010/terminal.html)
+
+
+
+### Problems with FastCGI
+
+![](photos/jerrychenme.png)
+
+
+
+### Alternatives to FastCGI
+
+SCGI - Simple Common Gateway Interface
+
+WSGI - Web Server Gateway Interface
+
+PSGI - Perl Server Gateway Interface
+
+ISAPI - Internet Server Application Programming Interface
+
+
+
+### SCGI
+
+Simple
+
+
+
+### SCGI
+
+Simple protocol
+
+New (2006)
+
+Not widely used
+
+
+
+### WSGI
+
+Web Server Gateway Interface
+
+Made for Python
+
+They don't care about everyone else
+
+
+
+### PSGI
+
+Perl Server Gateway Interface
+
+Made for Perl
+
+They don't care about everyone else
+
+
+
+### ISAPI
+
+Internet Server API
+
+Made by Microsoft
+
+They don't care about everyone else
+
+Uses DLLs and OS services, much tighter coupling
+
+
+
+### FastCGI Support
+
+Every major webserver can forward requests over FastCGI
+
+Every major language can respond to FastCGI requests
+
+
+
+### Q&A
+
+Any questions?

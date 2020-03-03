@@ -25,6 +25,7 @@ all:
 		sed -e 's@^\s*image:\(.*\).mp4\s*$$@<div class="figure"><a href="photos/\1.mp4"><img src="photos/thumbnails/\1.jpg" alt="\1.mp4"></a></div>@' | \
 		pandoc --template=../files/template.html -t html4 -f markdown-smart --no-highlight --lua-filter ../files/filter.lua --extract-media photos /dev/stdin > index.html
 	if [ -d photos ]; then cd photos; ../../files/gallery_simplest.py --max-width 600 *.jpg *.mov *.png *.mp4; fi
+	if [ -f slides.txt ]; then make slides.html; fi
 
 .PHONY: clean
 clean:
@@ -49,6 +50,6 @@ index:
 auto-orient: #rotate jpegs per EXIF tag
 	cd photos; for file in *jpg; do mogrify -auto-orient $$file; done
 
-slides.html: slides.txt
+slides.html: slides.txt ../files/slides-template.html
 #	pandoc -t dzslides --template ../files/slides-template.html -s slides.txt -f markdown-auto_identifiers --mathjax="files/MathJax-2.7.5/MathJax.js?config=TeX-MML-AM_CHTML,local/local" -o slides.html
 	pandoc -t dzslides --template ../files/slides-template.html -s slides.txt -f markdown-auto_identifiers --mathjax="files/MathJax-2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" -o slides.html
