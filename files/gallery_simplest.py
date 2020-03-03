@@ -59,7 +59,7 @@ if args.sort:
 
 if os.path.exists(args.outpath):
     print( "ERROR: File exists, won't clobber:", args.outpath, file = sys.stderr )
-    sys.exit(-1)
+    sys.exit(0)
 
 if args.generate_thumbnails:
     thumbdir = os.path.join( os.path.split( args.outpath )[0], 'thumbnails' )
