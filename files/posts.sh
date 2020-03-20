@@ -8,5 +8,3 @@
 	cat $f | awk -F'"' '/^title: / {printf $2}'
 	echo
 done) | sort -r
-
-if [ -d tags ]; then echo '\037tags\037tags'; fi

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UT390B laser distance meter error numbers</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1 class="title">UT390B laser distance meter error numbers</h1>
+    <p class="date">2014-09-09</p>
+  </header>
+<p>I've gotten a few emails asking for help about the Uni-T UT390B laser distance meter because the operating manual is written in Chinese. I've created a list of the unit's error messages in case it's useful for anyone developing with this device.</p>
+<pre class="c"><code>enum {
+    ERR_BATTERY_LOW = 101,
+    ERR_CALCULATION = 104,
+    ERR_HIGH_TEMP = 152,
+    ERR_LOW_TEMP = 153,
+    ERR_OUT_OF_RANGE = 154,
+    ERR_WEAK_SIGNAL = 155,
+    ERR_STRONG_SIGNAL = 156,
+    ERR_BACKGROUND_ILLUM = 157,
+    ERR_DEVICE_SHAKING = 160
+};</code></pre>
+<h2 id="comments">Comments</h2>
+<h4 id="arthur-ilgizovich-gumerov">Arthur Ilgizovich Gumerov</h4>
+<p>164???</p>
+</body>
+</html>

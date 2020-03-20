@@ -1,12 +1,14 @@
 SHELL := bash -O nullglob
-#DATE := $(shell cat post.txt | awk '/^date: / {print $$2; exit}')
-#TITLE := $(shell cat post.txt | awk -F'"' '/^title: / {print $$2; exit}')
 POSTS = $(shell files/posts.sh | awk -F'\x1f' '{print $$2}')
 
+ifeq ($(wildcard post.txt),)
+.DEFAULT_GOAL := index
+else 
+.DEFAULT_GOAL := post
+endif 
 
-
-all:
-	if [ -f style.css ]; then make index && false; fi
+.PHONY: post
+post:
 	echo "[0|post.txt|post.txt|server|port]" > index.gph
 	if [ -f comments.txt ]; then echo "[0|comments.txt|comments.txt|server|port]" >> index.gph; fi
 	if [ -f slides.txt ]; then echo "[0|slides.txt|slides.txt|server|port]" >> index.gph; fi
@@ -32,24 +34,22 @@ clean:
 	rm -f index.html index.gph
 	if [ -d photos ]; then cd photos; rm -Rf index.html; fi
 
+.PHONY: posts
 posts:
-	for post in $(POSTS); do make -C $$post all; done
+	for post in $(POSTS); do make -C $$post; done
 
-#date:
-#	@echo $(DATE)
-
-	
 #mp4:
 #	for file in *.mov; do ffmpeg -i $$file -vcodec libx264 -acodec mp3 -movflags +faststart ${file/%.mov/.mp4}; done
 #	for file in *.mov; do exiftool -overwrite_original_in_place -tagsFromFile $$file ${file/%.mov/.mp4}; done
 
+.PHONY: index
 index:
 	./files/gen_gph.sh > index.gph
 	./files/gen_html.sh > index.html
+	for tag in tags/*; do make -C $$tag; done
 
 auto-orient: #rotate jpegs per EXIF tag
 	cd photos; for file in *jpg; do mogrify -auto-orient $$file; done
 
 slides.html: slides.txt ../files/slides-template.html
-#	pandoc -t dzslides --template ../files/slides-template.html -s slides.txt -f markdown-auto_identifiers --mathjax="files/MathJax-2.7.5/MathJax.js?config=TeX-MML-AM_CHTML,local/local" -o slides.html
 	pandoc -t dzslides --template ../files/slides-template.html -s slides.txt -f markdown-auto_identifiers --mathjax="files/MathJax-2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" -o slides.html

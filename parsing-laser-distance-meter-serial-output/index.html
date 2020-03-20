@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parsing laser distance meter serial output</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1 class="title">Parsing laser distance meter serial output</h1>
+    <p class="date">2013-08-16</p>
+  </header>
+<p>UPDATE: Serial commands and timing information are now available <a href="/laser-distance-meter-update-serial-commands-timing-measurements/">here</a>.</p>
+<p>This is a follow-up on my previous article about an <a href="/arduino-laser-distance-meter/">arduino-compatible laser distance meter with serial output</a>. I've received several emails asking for example code to parse the serial output.</p>
+<div class="figure">
+<a href="photos/photo-16-580x435.jpg"><img src="photos/thumbnails/photo-16-580x435.jpg" alt="photo-16-580x435.jpg"></a>
+</div>
+<pre><code>int strstart_P(const char *s1, const char * PROGMEM s2)
+{
+    return strncmp_P(s1, s2, strlen_P(s2)) == 0;
+}
+ 
+int getdist(void)
+{
+    char buf[64];
+    char *comma;
+    int dist;
+    int rc;
+ 
+    for (;;) {
+        rc = Serial.readBytesUntil(&#39;\n&#39;, buf, sizeof(buf));
+        buf[rc] = &#39;\0&#39;;
+ 
+        if (!strstart_P(buf, PSTR(&quot;Dist: &quot;)))
+            continue;
+ 
+        comma = strchr(buf, &#39;,&#39;);
+        if (comma == NULL)
+            continue;
+ 
+        *comma = &#39;\0&#39;;
+ 
+        dist = atoi(buf + strlen_P(PSTR(&quot;Dist: &quot;)));
+        return dist;
+    }
+}
+ 
+void setup(void)
+{
+    Serial.begin(115200);
+}
+ 
+void loop(void)
+{
+    int dist_mm;
+    int dist_m;
+    char buf[128];
+ 
+    dist_mm = getdist();
+    dist_m = dist_mm / 1000;
+ 
+    snprintf_P(buf, sizeof(buf),
+        PSTR(&quot;Laser distance: %d.%dm&quot;),
+        dist_m, dist_mm % 1000);
+ 
+    Serial.println(buf);
+}</code></pre>
+<div class="figure">
+<a href="photos/Screen-Shot-2013-08-16-at-3.44.37-AM-580x323.png"><img src="photos/thumbnails/Screen-Shot-2013-08-16-at-3.44.37-AM-580x323.png" alt="Screen-Shot-2013-08-16-at-3.44.37-AM-580x323.png"></a>
+</div>
+<h2 id="comments">Comments</h2>
+<h4 id="mike">Mike</h4>
+<p>Hi, Any furthur info on Laser Range Finder ?</p>
+<p>Regards<br />
+Mike</p>
+<h4 id="qartis">qartis</h4>
+<p>What kind of info do you need?</p>
+<h4 id="drjohn">drjohn</h4>
+<p>Any progress on sending it commands?</p>
+<p>Any idea of how fast you can pulse the 'on' line and get reliable results?</p>
+<h4 id="speleomaniac">speleomaniac</h4>
+<p>some experimenting showed that:</p>
+<p>sending char 'r' powers down the system, all other characters except * and # are echoed back.</p>
+<p>the device seems to accept commands in form: <code>*xxxxx#</code></p>
+<p>where x are numbers. the last number defines the action: i think it accepts only numbers with 5 digits.</p>
+<p><code>*43531#</code> outputs:</p>
+<pre><code>*00021012#pMsgWrite TRUE
+pInitDataWrite TRUE</code></pre>
+<p><code>*11112#</code> turns on laser and does 3 readings, but display shows "Er":</p>
+<pre><code>Dist: 428,curtemp =18
+V2.0
+nDist: 428,tempDv=0
+Dist: 428,curtemp =18
+V2.0
+nDist: 428,tempDv=0
+Dist: 428,curtemp =18
+V2.0
+nDist: 428,tempDv=0
+u32Dist[0]=428 u32Dist[1] =428 u32Dist[2] =428
+u32temp =0
+*000720150000000042#</code></pre>
+<p><code>*54343#</code> does nothing</p>
+<p><code>*11114#</code> does a single reading, and displays on lcd. BINGO:</p>
+<pre><code>Dist: 525,curtemp =18
+V2.0
+nDist: 525,tempDv=0</code></pre>
+<p><code>*55555#</code> dumps some data:</p>
+<pre><code>772*0024500001000022430000000000000000000000000000000040#*0024500002000009340000000000000000000000000000000019#*0024500003000007830000000000000000000000000000000067#*0024500004000009530000000000000000000000000000000040#*0024500005000002980000000000000000000000000000000079#</code></pre>
+<h4 id="aslak">Aslak</h4>
+<p>Hi! How often can this setup read out data? once per sec?</p>
+<h4 id="nikolai">Nikolai</h4>
+<p>This information would interest me also because i can find no information about it.</p>
+<h4 id="rinnamon">rinnamon</h4>
+<p>Andrew,</p>
+<p>I managed to combine some of the things discussed here so I can now turn it on (NPN), take a reading (serial), shut it off (serial), and capture all of the output (serial).The problem I am having it that it is challenging to parse the output (just providing mm). I tried using your method but it doesn't work for me. Is there a simple way that I can search the stream for ": " (colon &amp; space)? or something like that? - The value follows those two characters. - The serial command also comes back with a response that is a bunch of leading zeros and the distance value that I am looking for. So, either of these are fine but it seems like it should be simple to do and yet I am having a very very hard time doing so.</p>
+<p>Any thoughts?</p>
+<pre><code>....
+void loop(void)
+{
+thisUpdate = millis();
+
+if (thisUpdate &gt;= (lastUpdate + interval)){
+// Turn the device on using an NPN transistor
+subRecord(); // call the routine to take a reading
+}
+
+// Serial.print(&quot;I should turn off now&quot;);
+if (thisUpdate &gt;= (lastUpdate + interval+TimeToTakeReading)){
+subOff(); // turn it off
+lastUpdate = thisUpdate;
+}
+
+//This is how I am reading the data continuously
+if(Serial1.available()){
+char inByte = Serial1.read();
+Serial.write(inByte);
+}
+}
+
+////////////Sampling the Serial line for a value
+void subRecord(){
+Serial1.write(&quot;*11114#&quot;); //*11114# does a single reading, and displays on lcd. BINGO:
+Complete = true;
+}
+/////////////Turning off
+void subOff(){
+Serial1.write(&quot;r&quot;);
+Complete = false;
+}</code></pre>
+<p>Results are</p>
+<pre><code>ldpara:368
+curent ver:420411
+Year:Jan 21 2013 Time:13:53:10
+ldpara:368
+Iint OK
+GetAPDMinVoltage ÿAPDMIN=186 APDMAX=224
+BIASVOLMIN=2311 BIASVOLMAX =2323
+(
+Dist: 3192,curtemp =18
+
+V2.0
+nDist: 3192,tempDv=0
+
+*0006400000319269#</code></pre>
+<h4 id="qartis-1">qartis</h4>
+<p>See my updated post here: <a href="http://blog.qartis.com/laser-distance-meter-update-serial-commands-timing-measurements/" class="uri">http://blog.qartis.com/laser-distance-meter-update-serial-commands-timing-measurements/</a></p>
+<p>Short answer: about 1 measurement per second for single-shot mode, and about 3 measurements per second for rapid-fire mode.</p>
+<h4 id="tom">Tom</h4>
+<p>Hi,<br />
+Could you tell me how could you turn it on?</p>
+<p>Thanks in advance!</p>
+<p>Tom</p>
+<h4 id="jct250">JCT250</h4>
+<p>Did you find a datasheet or something with these commands or was it trial and error? Just wondering if it was trial and error how many of the different combinations you tried?</p>
+<h4 id="speleomaniac-1">speleomaniac</h4>
+<p>Trial and error. After finding out chars * and # are not echoed back, it took me about 15 tries to figure out the pattern. In short, it was pure luck 🙂</p>
+<h4 id="jct250-1">JCT250</h4>
+<p>Ok sweet, Did you just pick random combinations withing the chars * and # or did you run through a list of them?</p>
+<p>Just wondering whether its worth me having a hack at some code that scrolls through all the *xxxxx# combinations to see if there are any other ones</p>
+<h4 id="martin-langelier">Martin Langelier</h4>
+<p>hello<br />
+From : <a href="http://y6-multicopter.blogspot.ru/2014/03/blog-post.html" class="uri">http://y6-multicopter.blogspot.ru/2014/03/blog-post.html</a><br />
+the shown code is working in rapid fire, but i whant a one second interval shot</p>
+<pre><code>boolean recdata = true;
+boolean data;
+int buf[64];
+int rc=0;
+
+void setup()
+{
+Serial.begin(115200);
+Serial1.begin(115200);
+//Serial.println(&quot;Start...&quot;);
+}
+
+void loop()
+{
+static unsigned long t = 0;
+if (millis() &gt; (t + 2000)){ // timer start when no data from the sensor
+Serial1.write(&quot;*00084553#&quot;);
+t = millis();
+}
+getdist();
+if (recdata) t = millis(); // Reset the timer when it receives data from the sensor
+}
+
+int getdist(){
+int litera;
+
+if (Serial1.available() &gt; 0){
+while (Serial1.available() &gt; 0){
+litera = Serial1.read();
+if (litera == 42) { // If adopted a &quot;*&quot;
+data = true; //Then set the sign of the beginning of the packet
+}
+
+if (litera == 35) { // If adopted, the &quot;#&quot;
+data = false; //Then set the sign of the end of the package ...
+recdata = true; //And install a sign to obtain data for the control (reset) the timer and further processing of the packet
+}
+if(data==true &amp;&amp; rc47){ // If there is a sign of the beginning of the packet, the packet length is reasonable and litera has a numeric value to ASCII, the ...
+litera = litera-48;// convert ASCII to figure ...
+buf[rc] = litera; // And add it to the array.
+rc++;
+}
+}
+}else{
+if (recdata == true){
+boolean dig=true; //This variable will work to separate the package into categories 2 digits
+int countdata=0; //This variable will be considered level
+int data=0; //This variable will take the values of bits
+int sum=0; //This sum of all digits except for the last
+int src=0; //This is the last category (10), which defines the checksum
+int countLaser=0; //This is an internal counter in the 5th digit
+int dist=0; //It is the distance, we calculate
+for(int p = 0; p&lt;rc; p++){
+if(dig){
+data = buf[p]*10;//Here we have the first sign of any new discharge multiply by 10 ....
+countdata++;
+}else{
+data += buf[p]; // And here we add to it, the second value.
+if(countdata= 100) {// If the checksum is greater than 99, then cut off the excess, leaving only the last two
+int a=sum;
+sum=sum/100;
+sum=sum*100;
+sum =a-sum;
+}
+if(sum==src){// If the amount of bits (except the last) is the checksum (last digit) then ...
+// Serial.print(&quot; &quot;);
+// Serial.print(sum);
+// Serial.print(&quot; &quot;);
+// Serial.print(src);
+Serial.print(&quot;t&quot;);
+Serial.print(countLaser); //Output data of the internal counter
+Serial.print(&quot;t&quot;);
+Serial.print(dist);//Output the distance and ...
+if(countLaser==99){// if the counter has reached the limit, then ...
+Serial1.write(&quot;*00084553#&quot;); //give the command to start a new cycle
+}
+}
+src = 0;
+countdata = 0;
+countLaser = 0;
+rc=0;
+recdata = false;
+Serial.println();
+}
+}
+}</code></pre>
+<h4 id="mohamed-elsayed">Mohamed Elsayed</h4>
+<p>hello andrew i want to ask about how did u discover all these info about that module coz i have GLM50 bosh and i want to connect it with my MCU and i don't know from where i can start .</p>
+<h4 id="aikidokajeff">Aikidokajeff</h4>
+<p>Hi, I know it's been a while, but did you ever work out what command would change the "base" measurement distance from base of unit to top of unit etc?</p>
+<p>Thanks,</p>
+<h4 id="speleomaniac-2">speleomaniac</h4>
+<p>sorry, i haven't encountered such command.</p>
+<p>but you can add or subtract the size of the lasermeter from the measured value 🙂</p>
+<h4 id="aikidokajeff-1">Aikidokajeff</h4>
+<p>No problem.<br />
+That was my plan.</p>
+<p>I've still not found the combination either.</p>
+<p>Has anyone else noticed the unit appears to be out by about 2cm - it is consistent though, so again I can subtract it from the equation.</p>
+<h4 id="bob-bowie">Bob Bowie</h4>
+<p>Andrew,</p>
+<p>I have a remote controlled lawnmower that I would like to convert to a robotic mower. You can view my mower at:</p>
+<p><a href="http://www.instructables.com/member/Bob+Bowie/" class="uri">http://www.instructables.com/member/Bob+Bowie/</a></p>
+<p>I am familiar with BASIC programming and have purchased a Basic Stamp.</p>
+<p>By programming the Basic Stamp, I can control the wheel chair motors (i.e., forward, reverse, and time in motion).</p>
+<p>As the mower moves, I need to know its position (x,y coordinates).</p>
+<p>I see that you have an article, "Parsing laser distance meter serial output". I am hoping that you might be able to show me how to parse the laser meter using the Basic Stamp.</p>
+<p>Here's a link to the Basic Stamp:</p>
+<p>Basic Stamp Activty Kit</p>
+<p>BASIC Stamp Activity Kit - USB (Text v3.0) | 90005 | Parallax Inc</p>
+<p>Video:Parallax Perspective: BASIC Stamp Activity Kit</p>
+<p><a href="https://www.youtube.com/watch?v=55Ugmctwoig" class="uri">https://www.youtube.com/watch?v=55Ugmctwoig</a></p>
+<p>BASIC Stamp Editor Software</p>
+<p><a href="https://www.parallax.com/downloads/basic-stamp-editor-software" class="uri">https://www.parallax.com/downloads/basic-stamp-editor-software</a> Please email me at: bbowie@yahoo.com</p>
+<p>Thank you, Bob Bowie</p>
+</body>
+</html>

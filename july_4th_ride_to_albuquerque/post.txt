@@ -37,8 +37,8 @@ image:IMG_0699.jpg[What a burger]
 
 Aside: It turns out there are at least 2 different locations given as the
 original UFO crash site. I went to the coordinates listed on the wikipedia
-article (33.968333,-105.243333), but I later learned that there is a plaque
-installed around 4 miles away (33.950029,-105.314218).
+article (33.9683,-105.2433), but I later learned that there is a plaque
+installed around 4 miles away (33.9500,-105.3142).
 
 ## Day 3
 Ate breakfast at Chico's Tacos in El Paso. Decided to ride along the
@@ -50,8 +50,8 @@ image:IMG_0743.jpg
 
 ## Day 4
 Hottest day. Forgot to fuel up before I left Tucson. Almost ran out of
-gas riding into Gila Bend. The temperature hit 48'C going through Dateland AZ,
-and I had to pull over and find some shade to cool off.
+gas riding into Gila Bend. The temperature hit 48°C going through Dateland AZ,
+and I had to pull over and find some shade at a gas station to cool off.
 
 image:IMG_0779.jpg
 
